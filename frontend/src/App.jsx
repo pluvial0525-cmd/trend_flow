@@ -88,7 +88,7 @@ function App() {
                 />
 
                 <Route
-                    path="/trend-patterns"
+                    path="/trend-pattern"
                     element={<TrendPatternPage />}
                 />
 

@@ -1116,12 +1116,11 @@ export default function TrendImageAnalysisPage() {
                     type="button"
                     className="flow-page-button"
                     onClick={() =>
-                        navigate("/trend-flow")
-                    }
+                        navigate("/trend-pattern")                    }
                 >
                     <ArrowLeft size={15} />
 
-                    TREND FLOW
+                    유행 분석
                 </button>
 
             </header>

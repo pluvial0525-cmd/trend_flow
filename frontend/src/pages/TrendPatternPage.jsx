@@ -1,5 +1,8 @@
-import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+    useEffect,
+    useMemo,
+    useState,
+} from "react";
 
 import {
     ArrowLeft,
@@ -9,17 +12,35 @@ import {
     RefreshCw,
 } from "lucide-react";
 
+import {
+    useNavigate,
+} from "react-router-dom";
+
 import "../styles/trendPatternPage.css";
 
 
+// =========================================================
+// PATTERN DATA
+// =========================================================
+
 const PATTERN_DATA = {
+
+    // =====================================================
+    // 지속형
+    // =====================================================
+
     steady: {
-        id: "steady",
+        id:
+            "steady",
 
-        title: "지속형",
-        trend: "UGG Boots",
+        title:
+            "지속형",
 
-        icon: Clock3,
+        trend:
+            "UGG Boots",
+
+        icon:
+        Clock3,
 
         subtitle:
             "대중화 이후 소비층과 제품군이 확장되며 꾸준히 이어지는 흐름",
@@ -35,22 +56,34 @@ const PATTERN_DATA = {
 
         stages: [
             {
-                period: "2000s",
-                title: "겨울 부츠로 대중화",
+                period:
+                    "2000s",
+
+                title:
+                    "겨울 부츠로 대중화",
+
                 image:
                     "/images/trend/pattern/ugg-2000s.png",
             },
 
             {
-                period: "재연결",
-                title: "젊은 소비층으로 확장",
+                period:
+                    "재연결",
+
+                title:
+                    "젊은 소비층으로 확장",
+
                 image:
                     "/images/trend/pattern/ugg-modern.png",
             },
 
             {
-                period: "현재",
-                title: "다양한 제품군으로 확장",
+                period:
+                    "현재",
+
+                title:
+                    "다양한 제품군으로 확장",
+
                 image:
                     "/images/trend/pattern/ugg-current-products.png",
             },
@@ -61,13 +94,22 @@ const PATTERN_DATA = {
     },
 
 
+    // =====================================================
+    // 급등 · 소멸형
+    // =====================================================
+
     spike: {
-        id: "spike",
+        id:
+            "spike",
 
-        title: "급등·소멸형",
-        trend: "벨루어 트랙수트",
+        title:
+            "급등·소멸형",
 
-        icon: Flame,
+        trend:
+            "벨루어 트랙수트",
+
+        icon:
+        Flame,
 
         subtitle:
             "셀럽을 중심으로 빠르게 확산됐지만 대중적 유행은 오래 이어지지 않은 흐름",
@@ -83,22 +125,34 @@ const PATTERN_DATA = {
 
         stages: [
             {
-                period: "2000s",
-                title: "셀럽 착용으로 대중적 관심",
+                period:
+                    "2000s",
+
+                title:
+                    "셀럽 착용으로 대중적 관심",
+
                 image:
                     "/images/trend/pattern/velour-2000s.png",
             },
 
             {
-                period: "유행 확산",
-                title: "화려한 셀럽 패션으로 확산",
+                period:
+                    "유행 확산",
+
+                title:
+                    "화려한 셀럽 패션으로 확산",
+
                 image:
                     "/images/trend/pattern/velour-peak.png",
             },
 
             {
-                period: "이후",
-                title: "편안한 스포츠웨어 선호 확대",
+                period:
+                    "이후",
+
+                title:
+                    "편안한 스포츠웨어 선호 확대",
+
                 image:
                     "/images/trend/pattern/velour-after.png",
             },
@@ -109,57 +163,80 @@ const PATTERN_DATA = {
     },
 
 
+    // =====================================================
+    // 재등장형
+    // 스키니진 → 로우라이즈 변경
+    // =====================================================
+
     revival: {
-        id: "revival",
+        id:
+            "revival",
 
-        title: "재등장형",
-        trend: "스키니진",
+        title:
+            "재등장형",
 
-        icon: RefreshCw,
+        trend:
+            "로우라이즈",
+
+        icon:
+        RefreshCw,
 
         subtitle:
-            "과거의 유행이 약해진 뒤 새로운 실루엣과 스타일로 다시 연결되는 흐름",
+            "과거의 유행이 약해진 뒤 새로운 세대와 스타일을 통해 다시 등장하는 흐름",
 
         description:
-            "2000년대 스키니진은 소녀시대를 비롯한 연예인들의 착용과 함께 크게 유행했고, 이후 남녀 모두가 즐겨 입는 대표적인 바지 스타일로 확산됐습니다. 이후 패션 트렌드가 편안하고 자연스러운 와이드·루즈 실루엣으로 이동하면서 스키니진의 영향력은 약해졌습니다. 최근에는 과거의 초밀착형 스키니진이 그대로 돌아오기보다 슬림핏과 다양한 실루엣이 섞인 형태로 연예인과 대중 패션에 다시 등장하고 있습니다.",
+            "로우라이즈는 2000년대 낮은 허리선과 허리를 드러내는 스타일을 중심으로 Y2K 패션의 대표적인 실루엣으로 대중화됐습니다. 이후 패션의 중심이 보다 편안하고 자연스러운 실루엣과 높은 허리선으로 이동하면서 관심이 감소했습니다. 하지만 최근 Y2K 트렌드가 다시 주목받으면서 과거의 형태를 그대로 반복하기보다 와이드핏·레이어링·벨트 스타일링 등 다양한 방식으로 재해석된 로우라이즈가 다시 등장하고 있습니다.",
 
         keyword:
-            "대중적 유행 → 실루엣 변화 → 새로운 형태로 재연결",
+            "2000년대 대중화 → 관심 감소 → 새로운 형태로 재등장",
 
         flowTitle:
-            "스키니진은 새로운 실루엣과 섞이며 다시 등장하고 있습니다.",
+            "로우라이즈는 새로운 실루엣과 스타일로 재해석되며 다시 등장하고 있습니다.",
 
         stages: [
             {
-                period: "2000s",
-                title: "셀럽을 통해 스키니진 대중화",
+                period:
+                    "2000s",
+
+                title:
+                    "로우라이즈 패션 대중화",
+
                 image:
-                    "/images/trend/pattern/skinny-2000s.png",
+                    "/images/trend/pattern/lowrise-2000s.jpg",
             },
 
             {
-                period: "이후",
-                title: "편안하고 자연스러운 핏 선호",
+                period:
+                    "2010s",
+
+                title:
+                    "하이웨이스트 중심으로 유행 이동",
+
                 image:
-                    "/images/trend/pattern/skinny-wide-transition.png",
+                    "/images/trend/pattern/lowrise-2010s.png",
             },
 
             {
-                period: "최근",
-                title: "다양한 Slim 실루엣으로 재등장",
+                period:
+                    "최근",
 
-                images: [
-                    "/images/trend/pattern/skinny-modern-1.png",
-                    "/images/trend/pattern/skinny-modern-2.png",
-                ],
+                title:
+                    "다양한 로우라이즈 스타일로 재등장",
+
+                image:
+                    "/images/trend/pattern/lowrise-modern.png",
             },
         ],
 
         finalText:
-            "소녀시대 등 셀럽을 통해 크게 유행한 뒤 편안한 실루엣 중심으로 바지 트렌드가 이동했지만, 최근에는 과거의 초밀착형 그대로가 아니라 여러 슬림 실루엣과 섞인 형태로 다시 등장하고 있습니다.",
+            "로우라이즈는 2000년대 대중화된 뒤 한동안 관심이 감소했지만, 최근 Y2K 트렌드와 함께 와이드핏·레이어링 등 현대적인 실루엣으로 재해석되며 다시 등장하고 있습니다.",
     },
 };
 
+
+// =========================================================
+// PATTERN ORDER
+// =========================================================
 
 const PATTERN_ORDER = [
     "steady",
@@ -168,20 +245,106 @@ const PATTERN_ORDER = [
 ];
 
 
+// =========================================================
+// GOOGLE TREND SERIES
+// 실제 trend_interest_merged.json의 key 사용
+// =========================================================
+
+const PATTERN_CHART_SERIES = [
+    {
+        patternId:
+            "steady",
+
+        key:
+            "ugg",
+
+        label:
+            "UGG",
+    },
+
+    {
+        patternId:
+            "spike",
+
+        key:
+            "velour",
+
+        label:
+            "벨루어",
+    },
+
+    {
+        patternId:
+            "revival",
+
+        key:
+            "lowrise",
+
+        label:
+            "로우라이즈",
+    },
+];
+
+
+// =========================================================
+// CHART
+// =========================================================
+
+const PATTERN_CHART = {
+    width:
+        1000,
+
+    height:
+        250,
+
+    left:
+        45,
+
+    right:
+        20,
+
+    top:
+        15,
+
+    bottom:
+        34,
+};
+
+
+const PATTERN_TICKS = [
+    2004,
+    2008,
+    2012,
+    2016,
+    2020,
+    2024,
+    2026,
+];
+
+
+// =========================================================
+// IMAGE
+// =========================================================
+
 function PatternImage({
                           src,
                           alt,
                       }) {
+
     const [
         failed,
         setFailed,
-    ] = useState(false);
+    ] =
+        useState(false);
 
 
     if (failed) {
+
         return (
             <div className="pattern-image-fallback">
+
                 이미지 없음
+
             </div>
         );
     }
@@ -189,28 +352,67 @@ function PatternImage({
 
     return (
         <img
-            src={src}
-            alt={alt}
+            src={
+                src
+            }
+            alt={
+                alt
+            }
             className="pattern-flow-image"
             onError={() =>
-                setFailed(true)
+                setFailed(
+                    true
+                )
             }
         />
     );
 }
 
 
+// =========================================================
+// PAGE
+// =========================================================
+
 function TrendPatternPage() {
+
     const navigate =
         useNavigate();
 
+
+    // =====================================================
+    // SELECTED PATTERN
+    // =====================================================
 
     const [
         selectedPattern,
         setSelectedPattern,
     ] =
-        useState("steady");
+        useState(
+            "steady"
+        );
 
+
+    // =====================================================
+    // TREND DATA
+    // =====================================================
+
+    const [
+        trendData,
+        setTrendData,
+    ] =
+        useState([]);
+
+
+    const [
+        chartLoading,
+        setChartLoading,
+    ] =
+        useState(true);
+
+
+    // =====================================================
+    // CURRENT PATTERN
+    // =====================================================
 
     const current =
         useMemo(
@@ -218,7 +420,9 @@ function TrendPatternPage() {
                 PATTERN_DATA[
                     selectedPattern
                     ],
-            [selectedPattern]
+            [
+                selectedPattern,
+            ]
         );
 
 
@@ -226,12 +430,444 @@ function TrendPatternPage() {
         current.icon;
 
 
+    // =========================================================
+// VOICE COMMAND
+// =========================================================
+
+    useEffect(
+        () => {
+
+            function handlePatternVoiceCommand(
+                event
+            ) {
+
+                const type =
+                    event.detail?.type;
+
+
+                console.log(
+                    "[TREND PATTERN VOICE]",
+                    type,
+                    event.detail?.command
+                );
+
+
+                // =============================================
+                // 지속형
+                // =============================================
+
+                if (
+                    type ===
+                    "SELECT_STEADY"
+                ) {
+
+                    setSelectedPattern(
+                        "steady"
+                    );
+
+                    return;
+                }
+
+
+                // =============================================
+                // 급등 · 소멸형
+                // =============================================
+
+                if (
+                    type ===
+                    "SELECT_SPIKE"
+                ) {
+
+                    setSelectedPattern(
+                        "spike"
+                    );
+
+                    return;
+                }
+
+
+                // =============================================
+                // 재등장형
+                // =============================================
+
+                if (
+                    type ===
+                    "SELECT_REVIVAL"
+                ) {
+
+                    setSelectedPattern(
+                        "revival"
+                    );
+                }
+            }
+
+
+            window.addEventListener(
+                "trend-pattern-voice-command",
+                handlePatternVoiceCommand
+            );
+
+
+            return () => {
+
+                window.removeEventListener(
+                    "trend-pattern-voice-command",
+                    handlePatternVoiceCommand
+                );
+            };
+
+        },
+        []
+    );
+
+    // =====================================================
+    // GOOGLE TREND DATA LOAD
+    // =====================================================
+
+    useEffect(
+        () => {
+
+            async function loadTrendData() {
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/data/trends/trend_interest_merged.json"
+                        );
+
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        throw new Error(
+                            `Trend data load failed: ${response.status}`
+                        );
+                    }
+
+
+                    const json =
+                        await response.json();
+
+
+                    setTrendData(
+                        json.data
+                        || []
+                    );
+
+                } catch (
+                    error
+                    ) {
+
+                    console.error(
+                        "[PATTERN TREND DATA ERROR]",
+                        error
+                    );
+
+                } finally {
+
+                    setChartLoading(
+                        false
+                    );
+                }
+            }
+
+
+            loadTrendData();
+
+        },
+        []
+    );
+
+
+    // =====================================================
+    // NORMALIZE DATE
+    // =====================================================
+
+    const chartData =
+        useMemo(
+            () => {
+
+                return trendData.map(
+                    (
+                        row
+                    ) => {
+
+                        const year =
+                            Number(
+                                row.date
+                                    ?.slice(
+                                        0,
+                                        4
+                                    )
+                            );
+
+
+                        const month =
+                            Number(
+                                row.date
+                                    ?.slice(
+                                        5,
+                                        7
+                                    )
+                            );
+
+
+                        return {
+                            ...row,
+
+                            numericDate:
+                                year
+                                +
+                                (
+                                    month - 1
+                                )
+                                / 12,
+                        };
+                    }
+                );
+
+            },
+            [
+                trendData,
+            ]
+        );
+
+
+    // =====================================================
+    // MIN YEAR
+    // =====================================================
+
+    const xMin =
+        useMemo(
+            () => {
+
+                if (
+                    chartData.length
+                    === 0
+                ) {
+
+                    return 2004;
+                }
+
+
+                return Math.min(
+                    ...chartData.map(
+                        (
+                            item
+                        ) =>
+                            item.numericDate
+                    )
+                );
+
+            },
+            [
+                chartData,
+            ]
+        );
+
+
+    // =====================================================
+    // MAX YEAR
+    // =====================================================
+
+    const xMax =
+        useMemo(
+            () => {
+
+                if (
+                    chartData.length
+                    === 0
+                ) {
+
+                    return 2026;
+                }
+
+
+                return Math.max(
+                    ...chartData.map(
+                        (
+                            item
+                        ) =>
+                            item.numericDate
+                    )
+                );
+
+            },
+            [
+                chartData,
+            ]
+        );
+
+
+    // =====================================================
+    // INNER SIZE
+    // =====================================================
+
+    const chartInnerWidth =
+        PATTERN_CHART.width
+        -
+        PATTERN_CHART.left
+        -
+        PATTERN_CHART.right;
+
+
+    const chartInnerHeight =
+        PATTERN_CHART.height
+        -
+        PATTERN_CHART.top
+        -
+        PATTERN_CHART.bottom;
+
+
+    // =====================================================
+    // X SCALE
+    // =====================================================
+
+    function scalePatternX(
+        value
+    ) {
+
+        const range =
+            xMax
+            -
+            xMin
+            ||
+            1;
+
+
+        return (
+            PATTERN_CHART.left
+            +
+            (
+                value
+                -
+                xMin
+            )
+            /
+            range
+            *
+            chartInnerWidth
+        );
+    }
+
+
+    // =====================================================
+    // Y SCALE
+    // =====================================================
+
+    function scalePatternY(
+        value
+    ) {
+
+        return (
+            PATTERN_CHART.top
+            +
+            (
+                100
+                -
+                value
+            )
+            /
+            100
+            *
+            chartInnerHeight
+        );
+    }
+
+
+    // =====================================================
+    // BUILD PATH
+    // =====================================================
+
+    function buildPatternPath(
+        key
+    ) {
+
+        let path =
+            "";
+
+
+        let drawing =
+            false;
+
+
+        chartData.forEach(
+            (
+                row
+            ) => {
+
+                const value =
+                    row[
+                        key
+                        ];
+
+
+                if (
+                    value
+                    === null
+                    ||
+                    value
+                    === undefined
+                ) {
+
+                    drawing =
+                        false;
+
+                    return;
+                }
+
+
+                const x =
+                    scalePatternX(
+                        row.numericDate
+                    );
+
+
+                const y =
+                    scalePatternY(
+                        Number(
+                            value
+                        )
+                    );
+
+
+                if (
+                    !drawing
+                ) {
+
+                    path +=
+                        `M ${x} ${y}`;
+
+
+                    drawing =
+                        true;
+
+                } else {
+
+                    path +=
+                        ` L ${x} ${y}`;
+                }
+            }
+        );
+
+
+        return path;
+    }
+
+
+    // =====================================================
+    // RENDER
+    // =====================================================
+
     return (
         <main className="trend-pattern-page">
 
-            {/* =====================================================
+
+            {/* =================================================
                 HEADER
-            ===================================================== */}
+            ================================================= */}
 
             <header className="pattern-header">
 
@@ -239,14 +875,20 @@ function TrendPatternPage() {
                     type="button"
                     className="pattern-back"
                     onClick={() =>
-                        navigate(-1)
+                        navigate(
+                            "/trend-flow"
+                        )
                     }
                 >
+
                     <ArrowLeft
-                        size={17}
+                        size={
+                            17
+                        }
                     />
 
                     그래프로 돌아가기
+
                 </button>
 
 
@@ -260,153 +902,181 @@ function TrendPatternPage() {
                         유행의 흐름은 어떤 구조일까?
                     </h1>
 
-
-
                 </div>
 
             </header>
 
 
-            {/* =====================================================
+            {/* =================================================
                 TOP
-            ===================================================== */}
+            ================================================= */}
 
             <section className="pattern-top-layout">
 
-                {/* =================================================
-                    LEFT TYPE BUTTONS
-                ================================================= */}
+
+                {/* =============================================
+                    LEFT
+                ============================================= */}
 
                 <aside className="pattern-side-tabs">
 
-                    {PATTERN_ORDER.map(
-                        (patternId) => {
+                    {
+                        PATTERN_ORDER.map(
+                            (
+                                patternId
+                            ) => {
 
-                            const item =
-                                PATTERN_DATA[
-                                    patternId
-                                    ];
-
-
-                            const Icon =
-                                item.icon;
-
-
-                            const active =
-                                selectedPattern ===
-                                patternId;
-
-
-                            return (
-                                <button
-                                    type="button"
-                                    key={
+                                const item =
+                                    PATTERN_DATA[
                                         patternId
-                                    }
-                                    className={
-                                        active
-                                            ? `side-pattern-tab ${patternId} active`
-                                            : `side-pattern-tab ${patternId}`
-                                    }
-                                    onClick={() =>
-                                        setSelectedPattern(
+                                        ];
+
+
+                                const Icon =
+                                    item.icon;
+
+
+                                const active =
+                                    selectedPattern
+                                    ===
+                                    patternId;
+
+
+                                return (
+                                    <button
+                                        type="button"
+                                        key={
                                             patternId
-                                        )
-                                    }
-                                >
+                                        }
+                                        className={
+                                            active
+                                                ? `side-pattern-tab ${patternId} active`
+                                                : `side-pattern-tab ${patternId}`
+                                        }
+                                        onClick={() =>
+                                            setSelectedPattern(
+                                                patternId
+                                            )
+                                        }
+                                    >
 
-                                    <span>
+                                        <span>
 
-                                        <Icon
-                                            size={18}
-                                        />
+                                            <Icon
+                                                size={
+                                                    18
+                                                }
+                                            />
 
-                                    </span>
+                                        </span>
 
 
-                                    <div>
+                                        <div>
 
-                                        <strong>
-                                            {item.title}
-                                        </strong>
+                                            <strong>
+                                                {
+                                                    item.title
+                                                }
+                                            </strong>
 
-                                        <small>
-                                            {item.trend}
-                                        </small>
+                                            <small>
+                                                {
+                                                    item.trend
+                                                }
+                                            </small>
 
-                                    </div>
+                                        </div>
 
-                                </button>
-                            );
-                        }
-                    )}
+                                    </button>
+                                );
+                            }
+                        )
+                    }
 
                 </aside>
 
 
-                {/* =================================================
+                {/* =============================================
                     CENTER GRAPH
-                ================================================= */}
+                ============================================= */}
 
                 <article className="pattern-graph-panel">
 
                     <div className="panel-heading">
 
                         <div>
+
+                            <span>
+                                GOOGLE TRENDS · KOREA
+                            </span>
+
                             <h2>
-                                유행 관계 흐름 비교
+                                검색 관심도 기반 유행 흐름 비교
                             </h2>
 
                         </div>
 
 
-                        <div className="graph-legend">
+                        <div className="pattern-chart-legend">
 
-                            <span
-                                className={
-                                    selectedPattern ===
-                                    "steady"
-                                        ? "legend steady active"
-                                        : "legend steady"
-                                }
-                            >
-                                UGG
-                            </span>
+                            {
+                                PATTERN_CHART_SERIES.map(
+                                    (
+                                        series
+                                    ) => {
 
-
-                            <span
-                                className={
-                                    selectedPattern ===
-                                    "spike"
-                                        ? "legend spike active"
-                                        : "legend spike"
-                                }
-                            >
-                                벨루어
-                            </span>
+                                        const active =
+                                            selectedPattern
+                                            ===
+                                            series.patternId;
 
 
-                            <span
-                                className={
-                                    selectedPattern ===
-                                    "revival"
-                                        ? "legend revival active"
-                                        : "legend revival"
-                                }
-                            >
-                                스키니진
-                            </span>
+                                        return (
+                                            <button
+                                                key={
+                                                    series.key
+                                                }
+                                                type="button"
+                                                className={
+                                                    `
+                                                    pattern-chart-legend-item
+                                                    ${series.patternId}
+                                                    ${
+                                                        active
+                                                            ? "active"
+                                                            : ""
+                                                    }
+                                                    `
+                                                }
+                                                onClick={() =>
+                                                    setSelectedPattern(
+                                                        series.patternId
+                                                    )
+                                                }
+                                            >
+
+                                                <i />
+
+                                                {
+                                                    series.label
+                                                }
+
+                                            </button>
+                                        );
+                                    }
+                                )
+                            }
 
                         </div>
 
                     </div>
 
 
-                    <div className="graph-wrapper">
+                    <div className="pattern-interest-chart-wrap">
 
-                        <div className="graph-y">
+                        <div className="pattern-chart-y">
 
-                            관계 활성도
+                            검색 관심도
 
                             <span>
                                 ↑
@@ -415,151 +1085,227 @@ function TrendPatternPage() {
                         </div>
 
 
-                        <div className="graph-stage">
+                        <div className="pattern-interest-chart-stage">
 
-                            <svg
-                                viewBox="0 0 1000 330"
-                                preserveAspectRatio="none"
-                            >
+                            {
+                                chartLoading
+                                    ? (
 
-                                <line
-                                    x1="40"
-                                    y1="290"
-                                    x2="965"
-                                    y2="290"
-                                    className="graph-axis"
-                                />
+                                        <div className="pattern-chart-loading">
 
+                                            검색 관심도 데이터를 불러오는 중...
 
-                                {/* =================================================
-                                    UGG - 지속형
-                                ================================================= */}
+                                        </div>
 
-                                <path
-                                    d="
-                                        M45 210
+                                    )
+                                    : (
 
-                                        C150 210,
-                                         225 208,
-                                         305 198
-
-                                        C385 188,
-                                         445 160,
-                                         520 150
-
-                                        C600 140,
-                                         670 150,
-                                         735 163
-
-                                        C815 179,
-                                         890 183,
-                                         960 183
-                                    "
-                                    className={
-                                        selectedPattern ===
-                                        "steady"
-                                            ? "graph-line steady selected"
-                                            : "graph-line steady muted"
-                                    }
-                                />
+                                        <svg
+                                            viewBox={
+                                                `0 0 ${PATTERN_CHART.width} ${PATTERN_CHART.height}`
+                                            }
+                                            preserveAspectRatio="none"
+                                        >
 
 
-                                {/* =================================================
-                                    VELOUR - 급등 소멸형
-                                ================================================= */}
+                                            {/* =========================
+                                                GRID
+                                            ========================= */}
 
-                                <path
-                                    d="
-                                        M45 275
+                                            {
+                                                [
+                                                    0,
+                                                    25,
+                                                    50,
+                                                    75,
+                                                    100,
+                                                ].map(
+                                                    (
+                                                        value
+                                                    ) => {
 
-                                        C145 272,
-                                         220 265,
-                                         290 235
-
-                                        C355 205,
-                                         405 130,
-                                         475 68
-
-                                        C530 20,
-                                         590 23,
-                                         625 48
-
-                                        C650 70,
-                                         660 110,
-                                         668 160
-
-                                        C678 225,
-                                         710 252,
-                                         775 268
-
-                                        C845 280,
-                                         905 286,
-                                         960 286
-                                    "
-                                    className={
-                                        selectedPattern ===
-                                        "spike"
-                                            ? "graph-line spike selected"
-                                            : "graph-line spike muted"
-                                    }
-                                />
+                                                        const y =
+                                                            scalePatternY(
+                                                                value
+                                                            );
 
 
-                                {/* =================================================
-                                    SKINNY - 재등장형
-                                ================================================= */}
+                                                        return (
+                                                            <g
+                                                                key={
+                                                                    `grid-${value}`
+                                                                }
+                                                            >
 
-                                <path
-                                    d="
-                                        M45 265
-
-                                        C100 235,
-                                         140 130,
-                                         205 78
-
-                                        C250 45,
-                                         305 49,
-                                         335 87
-
-                                        C362 120,
-                                         355 185,
-                                         400 220
-
-                                        C455 260,
-                                         530 267,
-                                         585 232
-
-                                        C640 197,
-                                         670 110,
-                                         735 78
-
-                                        C790 52,
-                                         850 58,
-                                         880 95
-
-                                        C910 132,
-                                         902 198,
-                                         960 230
-                                    "
-                                    className={
-                                        selectedPattern ===
-                                        "revival"
-                                            ? "graph-line revival selected"
-                                            : "graph-line revival muted"
-                                    }
-                                />
-
-                            </svg>
+                                                                <line
+                                                                    x1={
+                                                                        PATTERN_CHART.left
+                                                                    }
+                                                                    x2={
+                                                                        PATTERN_CHART.width
+                                                                        -
+                                                                        PATTERN_CHART.right
+                                                                    }
+                                                                    y1={
+                                                                        y
+                                                                    }
+                                                                    y2={
+                                                                        y
+                                                                    }
+                                                                    className="pattern-chart-grid"
+                                                                />
 
 
-                            <span className="graph-start">
-                                등장
-                            </span>
+                                                                <text
+                                                                    x={
+                                                                        PATTERN_CHART.left
+                                                                        -
+                                                                        9
+                                                                    }
+                                                                    y={
+                                                                        y
+                                                                        +
+                                                                        3
+                                                                    }
+                                                                    textAnchor="end"
+                                                                    className="pattern-chart-axis-label"
+                                                                >
+
+                                                                    {
+                                                                        value
+                                                                    }
+
+                                                                </text>
+
+                                                            </g>
+                                                        );
+                                                    }
+                                                )
+                                            }
 
 
-                            <span className="graph-current">
-                                현재
-                            </span>
+                                            {/* =========================
+                                                YEAR
+                                            ========================= */}
+
+                                            {
+                                                PATTERN_TICKS.map(
+                                                    (
+                                                        year
+                                                    ) => {
+
+                                                        const x =
+                                                            scalePatternX(
+                                                                year
+                                                            );
+
+
+                                                        return (
+                                                            <g
+                                                                key={
+                                                                    `year-${year}`
+                                                                }
+                                                            >
+
+                                                                <line
+                                                                    x1={
+                                                                        x
+                                                                    }
+                                                                    x2={
+                                                                        x
+                                                                    }
+                                                                    y1={
+                                                                        PATTERN_CHART.top
+                                                                    }
+                                                                    y2={
+                                                                        PATTERN_CHART.top
+                                                                        +
+                                                                        chartInnerHeight
+                                                                    }
+                                                                    className="pattern-chart-year-line"
+                                                                />
+
+
+                                                                <text
+                                                                    x={
+                                                                        x
+                                                                    }
+                                                                    y={
+                                                                        PATTERN_CHART.height
+                                                                        -
+                                                                        8
+                                                                    }
+                                                                    textAnchor="middle"
+                                                                    className="pattern-chart-year-label"
+                                                                >
+
+                                                                    {
+                                                                        year
+                                                                    }
+
+                                                                </text>
+
+                                                            </g>
+                                                        );
+                                                    }
+                                                )
+                                            }
+
+
+                                            {/* =========================
+                                                REAL DATA SERIES
+                                            ========================= */}
+
+                                            {
+                                                PATTERN_CHART_SERIES.map(
+                                                    (
+                                                        series
+                                                    ) => {
+
+                                                        const active =
+                                                            selectedPattern
+                                                            ===
+                                                            series.patternId;
+
+
+                                                        return (
+                                                            <path
+                                                                key={
+                                                                    series.key
+                                                                }
+                                                                d={
+                                                                    buildPatternPath(
+                                                                        series.key
+                                                                    )
+                                                                }
+                                                                className={
+                                                                    `
+                                                                    pattern-interest-line
+                                                                    ${series.patternId}
+                                                                    ${
+                                                                        active
+                                                                            ? "selected"
+                                                                            : "muted"
+                                                                    }
+                                                                    `
+                                                                }
+                                                            />
+                                                        );
+                                                    }
+                                                )
+                                            }
+
+                                        </svg>
+
+                                    )
+                            }
+
+
+                            <div className="pattern-chart-note">
+
+                                상대적 검색 관심도 · 절대 검색량이 아님
+
+                            </div>
 
                         </div>
 
@@ -568,12 +1314,14 @@ function TrendPatternPage() {
                 </article>
 
 
-                {/* =================================================
+                {/* =============================================
                     RIGHT DESCRIPTION
-                ================================================= */}
+                ============================================= */}
 
                 <aside
-                    className={`pattern-description ${selectedPattern}`}
+                    className={
+                        `pattern-description ${selectedPattern}`
+                    }
                 >
 
                     <div className="description-title">
@@ -581,7 +1329,9 @@ function TrendPatternPage() {
                         <span>
 
                             <CurrentIcon
-                                size={22}
+                                size={
+                                    22
+                                }
                             />
 
                         </span>
@@ -590,11 +1340,15 @@ function TrendPatternPage() {
                         <div>
 
                             <small>
-                                {current.trend}
+                                {
+                                    current.trend
+                                }
                             </small>
 
                             <h2>
-                                {current.title}
+                                {
+                                    current.title
+                                }
                             </h2>
 
                         </div>
@@ -603,12 +1357,20 @@ function TrendPatternPage() {
 
 
                     <strong className="description-main">
-                        {current.subtitle}
+
+                        {
+                            current.subtitle
+                        }
+
                     </strong>
 
 
                     <p>
-                        {current.description}
+
+                        {
+                            current.description
+                        }
+
                     </p>
 
 
@@ -619,7 +1381,9 @@ function TrendPatternPage() {
                         </span>
 
                         <strong>
-                            {current.keyword}
+                            {
+                                current.keyword
+                            }
                         </strong>
 
                     </div>
@@ -629,9 +1393,9 @@ function TrendPatternPage() {
             </section>
 
 
-            {/* =====================================================
+            {/* =================================================
                 IMAGE FLOW
-            ===================================================== */}
+            ================================================= */}
 
             <section className="pattern-image-panel">
 
@@ -644,7 +1408,9 @@ function TrendPatternPage() {
                         </span>
 
                         <h2>
-                            {current.flowTitle}
+                            {
+                                current.flowTitle
+                            }
                         </h2>
 
                     </div>
@@ -654,114 +1420,129 @@ function TrendPatternPage() {
 
                 <div className="pattern-image-flow">
 
-                    {current.stages.map(
-                        (
-                            stage,
-                            index
-                        ) => (
+                    {
+                        current.stages.map(
+                            (
+                                stage,
+                                index
+                            ) => (
 
-                            <div
-                                className="pattern-image-group"
-                                key={
-                                    `${selectedPattern}-${stage.period}`
-                                }
-                            >
+                                <div
+                                    className="pattern-image-group"
+                                    key={
+                                        `${selectedPattern}-${stage.period}`
+                                    }
+                                >
 
-                                <article className="pattern-image-card">
+                                    <article className="pattern-image-card">
 
-                                    <div
-                                        className={
-                                            stage.images
-                                                ? "pattern-image-media double"
-                                                : "pattern-image-media"
-                                        }
-                                    >
+                                        <div
+                                            className={
+                                                stage.images
+                                                    ? "pattern-image-media double"
+                                                    : "pattern-image-media"
+                                            }
+                                        >
 
-                                        {stage.images
-                                            ? (
-                                                stage.images.map(
-                                                    (
-                                                        image,
-                                                        imageIndex
-                                                    ) => (
+                                            {
+                                                stage.images
+                                                    ? (
+                                                        stage.images.map(
+                                                            (
+                                                                image,
+                                                                imageIndex
+                                                            ) => (
+
+                                                                <PatternImage
+                                                                    key={
+                                                                        image
+                                                                    }
+                                                                    src={
+                                                                        image
+                                                                    }
+                                                                    alt={
+                                                                        `${stage.title} ${imageIndex + 1}`
+                                                                    }
+                                                                />
+
+                                                            )
+                                                        )
+                                                    )
+                                                    : (
 
                                                         <PatternImage
-                                                            key={
-                                                                image
-                                                            }
                                                             src={
-                                                                image
+                                                                stage.image
                                                             }
                                                             alt={
-                                                                `${stage.title} ${imageIndex + 1}`
+                                                                stage.title
                                                             }
                                                         />
 
                                                     )
-                                                )
-                                            )
-                                            : (
-                                                <PatternImage
-                                                    src={
-                                                        stage.image
-                                                    }
-                                                    alt={
-                                                        stage.title
-                                                    }
-                                                />
-                                            )
-                                        }
-
-                                    </div>
-
-
-                                    <div className="pattern-image-caption">
-
-                                        <span>
-                                            {stage.period}
-                                        </span>
-
-                                        <strong>
-                                            {stage.title}
-                                        </strong>
-
-                                    </div>
-
-                                </article>
-
-
-                                {index <
-                                    current
-                                        .stages
-                                        .length -
-                                    1
-                                    && (
-
-                                        <div className="pattern-flow-arrow">
-
-                                            <ArrowRight
-                                                size={32}
-                                            />
+                                            }
 
                                         </div>
 
-                                    )
-                                }
 
-                            </div>
+                                        <div className="pattern-image-caption">
 
+                                            <span>
+                                                {
+                                                    stage.period
+                                                }
+                                            </span>
+
+                                            <strong>
+                                                {
+                                                    stage.title
+                                                }
+                                            </strong>
+
+                                        </div>
+
+                                    </article>
+
+
+                                    {
+                                        index
+                                        <
+                                        current.stages.length
+                                        -
+                                        1
+                                        &&
+                                        (
+
+                                            <div className="pattern-flow-arrow">
+
+                                                <ArrowRight
+                                                    size={
+                                                        32
+                                                    }
+                                                />
+
+                                            </div>
+
+                                        )
+                                    }
+
+                                </div>
+
+                            )
                         )
-                    )}
+                    }
 
                 </div>
 
 
-                {/* 유형 이름 반복하지 않고 결론만 표시 */}
-
                 <div className="pattern-flow-summary">
 
                     <strong>
-                        {current.finalText}
+
+                        {
+                            current.finalText
+                        }
+
                     </strong>
 
                 </div>
@@ -769,9 +1550,9 @@ function TrendPatternPage() {
             </section>
 
 
-            {/* =====================================================
+            {/* =================================================
                 FOOTER
-            ===================================================== */}
+            ================================================= */}
 
             <footer className="pattern-footer">
 
@@ -787,7 +1568,9 @@ function TrendPatternPage() {
                     다음 분석
 
                     <ArrowRight
-                        size={17}
+                        size={
+                            17
+                        }
                     />
 
                 </button>

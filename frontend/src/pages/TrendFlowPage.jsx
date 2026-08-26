@@ -216,9 +216,9 @@ function TrendFlowPage() {
     }
 
 
-    function openImageAnalysis() {
+    function openPatternAnalysis() {
         navigate(
-            "/trend-image-analysis"
+            "/trend-pattern"
         );
     }
 
@@ -610,7 +610,7 @@ function TrendFlowPage() {
                         type="button"
                         className="overview-next-button"
                         onClick={
-                            openImageAnalysis
+                            openPatternAnalysis
                         }
                     >
 
@@ -630,7 +630,7 @@ function TrendFlowPage() {
                             </small>
 
                             <strong>
-                                실루엣 분석
+                                유행 유형 분석
                             </strong>
 
                         </span>

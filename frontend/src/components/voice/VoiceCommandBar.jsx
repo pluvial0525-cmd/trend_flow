@@ -3344,8 +3344,8 @@ function VoiceCommandBar() {
 
 
         // =====================================================
-        // 7. 다음 페이지 -> 이미지 분석
-        // =====================================================
+// 7. 다음 페이지 -> 유형 분석
+// =====================================================
 
         const nextWords = [
             "다음",
@@ -3353,33 +3353,39 @@ function VoiceCommandBar() {
             "다음화면",
             "다음단계",
 
-            "실루엣",
-            "실루엣분석",
-
-            "이미지분석",
-            "이미지분석페이지",
-            "트렌드이미지분석",
+            "유형분석",
+            "유행유형",
+            "유행유형분석",
+            "패턴분석",
+            "트렌드패턴",
         ];
+
 
         const hasNext =
             nextWords.some(
                 (word) =>
-                    normalized.includes(word)
+                    normalized.includes(
+                        word
+                    )
             );
+
 
         if (
             hasNext
         ) {
+
             console.log(
                 "[VOICE PAGE COMMAND]",
                 "TREND_FLOW",
-                "NEXT_TO_IMAGE_ANALYSIS",
+                "NEXT_TO_TREND_PATTERN",
                 command
             );
 
+
             navigate(
-                "/trend-image-analysis"
+                "/trend-pattern"
             );
+
 
             return true;
         }
@@ -3524,34 +3530,52 @@ function VoiceCommandBar() {
 
 
         // ==========================================
-        // 이전 페이지 -> Trend Flow
-        // ==========================================
+// 이전 페이지 -> Trend Pattern
+// ==========================================
 
         if (
-            normalized.includes("이전페이지")
+            normalized.includes(
+                "이전페이지"
+            )
             ||
-            normalized.includes("이전화면")
+            normalized.includes(
+                "이전화면"
+            )
             ||
-            normalized.includes("뒤로")
+            normalized.includes(
+                "뒤로"
+            )
             ||
-            normalized.includes("트렌드플로우")
+            normalized.includes(
+                "유형분석"
+            )
+            ||
+            normalized.includes(
+                "유행유형"
+            )
+            ||
+            normalized.includes(
+                "트렌드패턴"
+            )
         ) {
 
             console.log(
                 "[VOICE PAGE COMMAND]",
                 "IMAGE_ANALYSIS",
-                "PREVIOUS_TO_TREND_FLOW",
+                "PREVIOUS_TO_TREND_PATTERN",
                 command
             );
 
 
             navigate(
-                "/trend-flow"
+                "/trend-pattern"
             );
 
 
             return true;
         }
+
+
 
 
         // ==========================================
@@ -3589,6 +3613,290 @@ function VoiceCommandBar() {
 
         console.log(
             "[IMAGE ANALYSIS VOICE WAIT]",
+            command
+        );
+
+
+        return false;
+    }
+
+    // =========================================================
+// TREND PATTERN PAGE COMMAND
+//
+// /trend-pattern
+//
+// 지속형
+// 급등·소멸형
+// 재등장형
+//
+// 이전 -> /trend-flow
+// 다음 -> /trend-image-analysis
+// =========================================================
+
+    function executeTrendPatternCommand(
+        command
+    ) {
+
+        const normalized =
+            command
+                .toLowerCase()
+                .replace(
+                    /[.,!?~·]/g,
+                    ""
+                )
+                .replace(
+                    /\s+/g,
+                    ""
+                );
+
+
+        console.log(
+            "[TREND PATTERN COMMAND CHECK]",
+            normalized
+        );
+
+
+        // =====================================================
+        // 1. 지속형
+        // =====================================================
+
+        const steadyWords = [
+            "지속형",
+            "지속",
+            "지속형보여줘",
+            "어그",
+            "어그부츠",
+            "ugg",
+        ];
+
+
+        if (
+            steadyWords.some(
+                (word) =>
+                    normalized.includes(
+                        word
+                    )
+            )
+        ) {
+
+            window.dispatchEvent(
+                new CustomEvent(
+                    "trend-pattern-voice-command",
+                    {
+                        detail: {
+                            type:
+                                "SELECT_STEADY",
+
+                            command,
+                        },
+                    }
+                )
+            );
+
+
+            console.log(
+                "[VOICE PAGE COMMAND]",
+                "TREND_PATTERN",
+                "SELECT_STEADY",
+                command
+            );
+
+
+            return true;
+        }
+
+
+        // =====================================================
+        // 2. 급등 · 소멸형
+        // =====================================================
+
+        const spikeWords = [
+            "급등소멸형",
+            "급등소멸",
+            "급등형",
+            "급등",
+            "소멸형",
+            "벨루어",
+            "벨로어",
+            "벨루아",
+            "트랙수트",
+            "급등소멸령",
+            "소멸령",
+        ];
+
+
+        if (
+            spikeWords.some(
+                (word) =>
+                    normalized.includes(
+                        word
+                    )
+            )
+        ) {
+
+            window.dispatchEvent(
+                new CustomEvent(
+                    "trend-pattern-voice-command",
+                    {
+                        detail: {
+                            type:
+                                "SELECT_SPIKE",
+
+                            command,
+                        },
+                    }
+                )
+            );
+
+
+            console.log(
+                "[VOICE PAGE COMMAND]",
+                "TREND_PATTERN",
+                "SELECT_SPIKE",
+                command
+            );
+
+
+            return true;
+        }
+
+
+        // =====================================================
+        // 3. 재등장형
+        // =====================================================
+
+        const revivalWords = [
+            "재등장형",
+            "재등장",
+            "제등장형",
+            "제등장",
+            "재유행",
+            "로우라이즈",
+            "로라이즈",
+        ];
+
+
+        if (
+            revivalWords.some(
+                (word) =>
+                    normalized.includes(
+                        word
+                    )
+            )
+        ) {
+
+            window.dispatchEvent(
+                new CustomEvent(
+                    "trend-pattern-voice-command",
+                    {
+                        detail: {
+                            type:
+                                "SELECT_REVIVAL",
+
+                            command,
+                        },
+                    }
+                )
+            );
+
+
+            console.log(
+                "[VOICE PAGE COMMAND]",
+                "TREND_PATTERN",
+                "SELECT_REVIVAL",
+                command
+            );
+
+
+            return true;
+        }
+
+
+        // =====================================================
+        // 4. 이전 -> Trend Flow
+        // =====================================================
+
+        const previousWords = [
+            "이전",
+            "이전페이지",
+            "이전화면",
+            "뒤로",
+            "트렌드플로우",
+            "그래프로돌아가",
+        ];
+
+
+        if (
+            previousWords.some(
+                (word) =>
+                    normalized.includes(
+                        word
+                    )
+            )
+        ) {
+
+            console.log(
+                "[VOICE PAGE COMMAND]",
+                "TREND_PATTERN",
+                "PREVIOUS_TO_TREND_FLOW",
+                command
+            );
+
+
+            navigate(
+                "/trend-flow"
+            );
+
+
+            return true;
+        }
+
+
+        // =====================================================
+        // 5. 다음 -> PCA / 이미지 분석
+        // =====================================================
+
+        const nextWords = [
+            "다음",
+            "다음페이지",
+            "다음화면",
+            "다음분석",
+            "pca",
+            "피씨에이",
+            "피시에이",
+            "실루엣분석",
+            "이미지분석",
+        ];
+
+
+        if (
+            nextWords.some(
+                (word) =>
+                    normalized.includes(
+                        word
+                    )
+            )
+        ) {
+
+            console.log(
+                "[VOICE PAGE COMMAND]",
+                "TREND_PATTERN",
+                "NEXT_TO_IMAGE_ANALYSIS",
+                command
+            );
+
+
+            navigate(
+                "/trend-image-analysis"
+            );
+
+
+            return true;
+        }
+
+
+        console.log(
+            "[TREND PATTERN VOICE WAIT]",
             command
         );
 
@@ -4309,6 +4617,38 @@ function VoiceCommandBar() {
                 "[TREND FLOW VOICE WAIT]",
                 command
             );
+
+            return false;
+        }
+
+        // =========================================================
+// TREND PATTERN 현재 페이지 명령
+// =========================================================
+
+        if (
+            currentPath ===
+            "/trend-pattern"
+        ) {
+
+            const pageExecuted =
+                executeTrendPatternCommand(
+                    command
+                );
+
+
+            if (
+                pageExecuted
+            ) {
+
+                return true;
+            }
+
+
+            console.log(
+                "[TREND PATTERN VOICE BLOCKED]",
+                command
+            );
+
 
             return false;
         }
