@@ -38,7 +38,7 @@ import "./VoiceCommandBar.css";
 const RECORDING_TIME = 3000;
 
 // 콩 인식 후 명령을 기다리는 최대 시간
-const WAKE_WAIT_TIME = 9000;
+const WAKE_WAIT_TIME = 12000;
 
 // 잘린 명령 조각을 모으는 시간
 const COMMAND_MERGE_TIME = 1800;
