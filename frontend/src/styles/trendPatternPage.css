@@ -1,0 +1,1403 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.trend-pattern-page {
+    width: 100%;
+    height: 100vh;
+
+    padding:
+            10px
+            20px
+            8px;
+
+    display: grid;
+
+    grid-template-rows:
+        70px
+        300px
+        minmax(0, 1fr)
+        38px;
+
+    gap: 9px;
+
+    overflow: hidden;
+
+    background:
+            radial-gradient(
+                    circle at 80% 0%,
+                    rgba(255, 74, 151, .055),
+                    transparent 28%
+            ),
+            #080d15;
+
+    color: #f4f7fb;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pattern-header {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        170px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 18px;
+
+    border-bottom:
+            1px solid
+            rgba(255,255,255,.07);
+}
+
+
+.pattern-back {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: #8997aa;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.pattern-back:hover {
+    color: white;
+}
+
+
+.pattern-title > span {
+    display: block;
+
+    color: #ff4d99;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: .15em;
+}
+
+
+.pattern-title h1 {
+    margin:
+            2px
+            0;
+
+    font-size:
+            clamp(
+                    23px,
+                    1.6vw,
+                    28px
+            );
+
+    line-height: 1.03;
+}
+
+
+.pattern-title p {
+    margin: 0;
+
+    color: #8090a4;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   TOP LAYOUT
+
+   유형 선택 | 비교 그래프 | 설명
+========================================================= */
+
+.pattern-top-layout {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        150px
+        minmax(0, 1fr)
+        310px;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   LEFT TYPE BUTTONS
+========================================================= */
+
+.pattern-side-tabs {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+
+.side-pattern-tab {
+    min-width: 0;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        34px
+        minmax(0,1fr);
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px;
+
+    border:
+            1px solid
+            rgba(255,255,255,.075);
+
+    border-radius: 10px;
+
+    background: #101722;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+            border-color .18s ease,
+            background .18s ease;
+}
+
+
+.side-pattern-tab:hover {
+    border-color:
+            rgba(255,255,255,.18);
+}
+
+
+.side-pattern-tab.active {
+    border-color:
+            rgba(255,78,153,.75);
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(255,76,151,.11),
+                    #121824
+            );
+}
+
+
+.side-pattern-tab > span {
+    width: 33px;
+    height: 33px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 8px;
+
+    color: #ff579f;
+
+    background:
+            rgba(255,76,151,.07);
+}
+
+
+.side-pattern-tab strong {
+    display: block;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+.side-pattern-tab small {
+    display: block;
+
+    margin-top: 2px;
+
+    overflow: hidden;
+
+    color: #758499;
+
+    font-size: 7px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   GRAPH PANEL
+========================================================= */
+
+.pattern-graph-panel {
+    min-width: 0;
+    min-height: 0;
+
+    padding:
+            12px
+            14px;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        minmax(0,1fr);
+
+    gap: 8px;
+
+    overflow: hidden;
+
+    border:
+            1px solid
+            rgba(255,255,255,.075);
+
+    border-radius: 11px;
+
+    background:
+            rgba(14,21,32,.94);
+}
+
+
+.panel-heading {
+    display: flex;
+
+    justify-content:
+            space-between;
+
+    align-items: flex-end;
+
+    gap: 15px;
+}
+
+
+.panel-heading > div:first-child > span {
+    display: block;
+
+    color: #ff4d99;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: .13em;
+}
+
+
+.panel-heading h2 {
+    margin:
+            2px
+            0
+            0;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   GRAPH LEGEND
+========================================================= */
+
+.graph-legend {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.legend {
+    position: relative;
+
+    padding-left: 16px;
+
+    color: #606e82;
+
+    font-size: 8px;
+
+    font-weight: 900;
+}
+
+
+.legend::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 11px;
+    height: 3px;
+
+    transform:
+            translateY(-50%);
+
+    border-radius: 99px;
+
+    opacity: .25;
+}
+
+
+.legend.steady::before {
+    background: #7bd39c;
+}
+
+
+.legend.spike::before {
+    background: #ff955a;
+}
+
+
+.legend.revival::before {
+    background: #ff59a1;
+}
+
+
+.legend.active {
+    color: white;
+}
+
+
+.legend.active::before {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   GRAPH BODY
+========================================================= */
+
+.graph-wrapper {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        36px
+        minmax(0,1fr);
+
+    overflow: hidden;
+
+    border:
+            1px solid
+            rgba(255,255,255,.045);
+
+    border-radius: 8px;
+
+    background:
+            rgba(255,255,255,.012);
+}
+
+
+.graph-y {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 4px;
+
+    color: #677489;
+
+    font-size: 8px;
+
+    writing-mode:
+            vertical-rl;
+
+    transform:
+            rotate(180deg);
+}
+
+
+.graph-y span {
+    color: #9ba8ba;
+
+    font-size: 12px;
+}
+
+
+.graph-stage {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+.graph-stage svg {
+    position: absolute;
+
+    inset:
+            4px
+            12px
+            20px
+            0;
+
+    width:
+            calc(100% - 12px);
+
+    height:
+            calc(100% - 24px);
+
+    overflow: visible;
+}
+
+
+.graph-axis {
+    stroke:
+            rgba(255,255,255,.06);
+
+    stroke-width: 1;
+}
+
+
+.graph-line {
+    fill: none;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    vector-effect:
+            non-scaling-stroke;
+
+    transition:
+            opacity .22s ease,
+            stroke-width .22s ease,
+            filter .22s ease;
+}
+
+
+.graph-line.steady {
+    stroke: #7bd39c;
+}
+
+
+.graph-line.spike {
+    stroke: #ff955a;
+}
+
+
+.graph-line.revival {
+    stroke: #ff59a1;
+}
+
+
+.graph-line.selected {
+    opacity: 1;
+
+    stroke-width: 4;
+
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    rgba(255,255,255,.14)
+            );
+}
+
+
+.graph-line.muted {
+    opacity: .14;
+
+    stroke-width: 2;
+}
+
+
+.graph-start,
+.graph-current {
+    position: absolute;
+
+    bottom: 5px;
+
+    color: #8492a6;
+
+    font-size: 8px;
+
+    font-weight: 900;
+}
+
+
+.graph-start {
+    left: 2%;
+}
+
+
+.graph-current {
+    right: 2%;
+}
+
+
+/* =========================================================
+   RIGHT DESCRIPTION
+========================================================= */
+
+.pattern-description {
+    min-width: 0;
+    min-height: 0;
+
+    padding: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border:
+            1px solid
+            rgba(255,255,255,.075);
+
+    border-radius: 11px;
+
+    background:
+            rgba(14,21,32,.94);
+}
+
+
+.description-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.description-title > span {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 auto;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    color: #ff579f;
+
+    background:
+            rgba(255,76,151,.08);
+}
+
+
+.description-title small {
+    display: block;
+
+    color: #748397;
+
+    font-size: 8px;
+}
+
+
+.description-title h2 {
+    margin:
+            1px
+            0
+            0;
+
+    font-size: 20px;
+}
+
+
+.description-main {
+    display: block;
+
+    margin-top: 13px;
+
+    color: #f0f3f7;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+.pattern-description > p {
+    margin:
+            9px
+            0
+            0;
+
+    color: #9aa6b6;
+
+    font-size: 9px;
+
+    line-height: 1.55;
+}
+
+
+.description-key {
+    margin-top: auto;
+
+    padding:
+            9px
+            10px;
+
+    border-radius: 7px;
+
+    background:
+            rgba(255,76,151,.045);
+
+    border:
+            1px solid
+            rgba(255,76,151,.09);
+}
+
+
+.description-key span {
+    display: block;
+
+    color: #ff5d9f;
+
+    font-size: 8px;
+
+    font-weight: 900;
+}
+
+
+.description-key strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #e3e8ee;
+
+    font-size: 10px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   IMAGE PANEL
+========================================================= */
+
+.pattern-image-panel {
+    min-height: 0;
+
+    padding:
+            10px
+            14px;
+
+    display: grid;
+
+    grid-template-rows:
+        42px
+        minmax(0,1fr)
+        38px;
+
+    gap: 7px;
+
+    overflow: hidden;
+
+    border:
+            1px solid
+            rgba(255,255,255,.075);
+
+    border-radius: 11px;
+
+    background:
+            rgba(14,21,32,.94);
+}
+
+
+.image-panel-heading {
+    display: flex;
+
+    justify-content:
+            space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.image-panel-heading > div > span {
+    display: block;
+
+    color: #ff4d99;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: .13em;
+}
+
+
+.image-panel-heading h2 {
+    margin:
+            2px
+            0
+            0;
+
+    font-size: 18px;
+
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   IMAGE FLOW
+========================================================= */
+
+.pattern-image-flow {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 10px;
+
+    overflow: hidden;
+}
+
+
+.pattern-image-group {
+    min-width: 0;
+    min-height: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.pattern-image-card {
+    min-width: 0;
+    min-height: 0;
+
+    flex: 1;
+
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0,1fr)
+        48px;
+
+    overflow: hidden;
+
+    border:
+            1px solid
+            rgba(255,255,255,.075);
+
+    border-radius: 9px;
+
+    background: #101722;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.pattern-image-media {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 3px;
+
+    overflow: hidden;
+
+    background: #090f17;
+}
+
+
+.pattern-image-media.double {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+}
+
+
+.pattern-flow-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #090f17;
+}
+
+
+.pattern-image-fallback {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #69778b;
+
+    background: #0b111a;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   IMAGE CAPTION
+========================================================= */
+
+.pattern-image-caption {
+    min-width: 0;
+
+    padding:
+            5px
+            9px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-top:
+            1px solid
+            rgba(255,255,255,.055);
+
+    background: #101722;
+}
+
+
+.pattern-image-caption span {
+    display: block;
+
+    color: #ff5c9f;
+
+    font-size: 8px;
+
+    font-weight: 900;
+}
+
+
+.pattern-image-caption strong {
+    display: block;
+
+    margin-top: 1px;
+
+    overflow: hidden;
+
+    color: #f1f4f7;
+
+    font-size: 12px;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   FLOW ARROW
+========================================================= */
+
+.pattern-flow-arrow {
+    width: 32px;
+
+    flex: 0 0 32px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #ff579f;
+}
+
+
+/* =========================================================
+   FINAL FLOW SENTENCE
+
+   지속형 / 급등소멸형 / 재등장형 라벨 제거
+========================================================= */
+
+.pattern-flow-summary {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+            0
+            4px;
+
+    overflow: hidden;
+}
+
+
+.pattern-flow-summary strong {
+    display: block;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    color: #f1f4f7;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pattern-footer {
+    min-height: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    border-top:
+            1px solid
+            rgba(255,255,255,.055);
+}
+
+
+.pattern-footer button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+            7px
+            11px;
+
+    border:
+            1px solid
+            rgba(255,76,151,.4);
+
+    border-radius: 7px;
+
+    background:
+            rgba(255,67,145,.065);
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+.pattern-footer button:hover {
+    background:
+            rgba(255,67,145,.13);
+}
+
+
+/* =========================================================
+   HEIGHT 대응
+========================================================= */
+
+@media (max-height: 900px) {
+
+    .trend-pattern-page {
+        grid-template-rows:
+            62px
+            270px
+            minmax(0,1fr)
+            36px;
+
+        gap: 8px;
+
+        padding-top: 8px;
+    }
+
+
+    .pattern-title h1 {
+        font-size: 23px;
+    }
+
+
+    .pattern-description {
+        padding: 11px;
+    }
+
+
+    .description-main {
+        margin-top: 9px;
+
+        font-size: 12px;
+    }
+
+
+    .pattern-description > p {
+        margin-top: 6px;
+
+        font-size: 8px;
+
+        line-height: 1.45;
+    }
+
+
+    .pattern-image-panel {
+        grid-template-rows:
+            36px
+            minmax(0,1fr)
+            34px;
+
+        padding:
+                8px
+                12px;
+    }
+
+
+    .image-panel-heading h2 {
+        font-size: 16px;
+    }
+
+
+    .pattern-flow-summary strong {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   WIDTH 대응
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .trend-pattern-page {
+        height: auto;
+        min-height: 100vh;
+
+        overflow-y: auto;
+    }
+
+
+    .pattern-top-layout {
+        grid-template-columns:
+            130px
+            minmax(0,1fr);
+
+        height: auto;
+    }
+
+
+    .pattern-description {
+        grid-column:
+                1 / -1;
+
+        min-height: 200px;
+    }
+
+
+    .pattern-image-panel {
+        min-height: 430px;
+    }
+
+}
+/* =========================================================
+   TEXT SIZE OVERRIDE
+   전체 글씨 크게 키우기
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.pattern-back {
+    font-size: 15px !important;
+}
+
+.pattern-title > span {
+    font-size: 12px !important;
+}
+
+.pattern-title h1 {
+    font-size: 34px !important;
+    line-height: 1.08 !important;
+}
+
+.pattern-title p {
+    font-size: 13px !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT TYPE BUTTONS
+--------------------------------------------------------- */
+
+.side-pattern-tab strong {
+    font-size: 17px !important;
+}
+
+.side-pattern-tab small {
+    font-size: 10px !important;
+    margin-top: 4px !important;
+}
+
+
+/* ---------------------------------------------------------
+   GRAPH HEADER
+--------------------------------------------------------- */
+
+.panel-heading > div:first-child > span {
+    font-size: 11px !important;
+}
+
+.panel-heading h2 {
+    font-size: 23px !important;
+}
+
+
+/* ---------------------------------------------------------
+   GRAPH LEGEND
+--------------------------------------------------------- */
+
+.legend {
+    font-size: 11px !important;
+}
+
+
+/* ---------------------------------------------------------
+   GRAPH AXIS
+--------------------------------------------------------- */
+
+.graph-y {
+    font-size: 11px !important;
+}
+
+.graph-y span {
+    font-size: 16px !important;
+}
+
+.graph-start,
+.graph-current {
+    font-size: 11px !important;
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT DESCRIPTION
+--------------------------------------------------------- */
+
+.description-title small {
+    font-size: 11px !important;
+}
+
+.description-title h2 {
+    font-size: 27px !important;
+}
+
+.description-main {
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+}
+
+.pattern-description > p {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+}
+
+.description-key span {
+    font-size: 10px !important;
+}
+
+.description-key strong {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+}
+
+
+/* ---------------------------------------------------------
+   VISUAL FLOW TITLE
+--------------------------------------------------------- */
+
+.image-panel-heading > div > span {
+    font-size: 11px !important;
+}
+
+.image-panel-heading h2 {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE CAPTION
+--------------------------------------------------------- */
+
+.pattern-image-caption span {
+    font-size: 11px !important;
+}
+
+.pattern-image-caption strong {
+    font-size: 16px !important;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM DESCRIPTION
+--------------------------------------------------------- */
+
+.pattern-flow-summary strong {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER BUTTON
+--------------------------------------------------------- */
+
+.pattern-footer button {
+    font-size: 12px !important;
+    padding: 9px 14px !important;
+}
+
+
+/* =========================================================
+   HEIGHT가 작은 화면에서도 글씨 너무 작아지지 않게
+========================================================= */
+
+@media (max-height: 900px) {
+
+    .pattern-title h1 {
+        font-size: 30px !important;
+    }
+
+    .panel-heading h2 {
+        font-size: 21px !important;
+    }
+
+    .description-title h2 {
+        font-size: 24px !important;
+    }
+
+    .description-main {
+        font-size: 15px !important;
+    }
+
+    .pattern-description > p {
+        font-size: 11px !important;
+    }
+
+    .image-panel-heading h2 {
+        font-size: 21px !important;
+    }
+
+    .pattern-image-caption strong {
+        font-size: 15px !important;
+    }
+
+    .pattern-flow-summary strong {
+        font-size: 14px !important;
+    }
+}
+/* 유행 관계 흐름 비교 제목 */
+.panel-heading h2 {
+    color: #7fc8ff !important;
+    font-weight: 900 !important;
+    text-shadow:
+            0 0 12px rgba(127, 200, 255, 0.18);
+}

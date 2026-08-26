@@ -1,0 +1,724 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.trend-intro-page {
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    padding:
+            0 22px 18px;
+
+    background:
+            radial-gradient(
+                    circle at 82% 0%,
+                    rgba(255, 77, 155, 0.08),
+                    transparent 32%
+            ),
+            #080e16;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.trend-intro-header {
+    height: 88px;
+
+    display: grid;
+
+    grid-template-columns:
+        140px
+        1fr
+        140px;
+
+    align-items: center;
+
+    border-bottom:
+            1px solid #202936;
+}
+.trend-intro-header {
+    padding-top: 34px;
+}
+
+
+.trend-intro-back {
+    justify-self: start;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #91a5bc;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.trend-intro-back:hover {
+    color: #ffffff;
+}
+
+
+.trend-intro-title {
+    text-align: center;
+}
+
+
+.trend-intro-title > span {
+    color: #ff4d9b;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.8px;
+}
+
+
+.trend-intro-title h1 {
+    margin:
+            4px 0 0;
+
+    font-size:
+            clamp(
+                    28px,
+                    2.4vw,
+                    43px
+            );
+
+    line-height: 1;
+
+    letter-spacing: -1.4px;
+}
+
+
+.trend-intro-title h1 strong {
+    color: #ff4d9b;
+}
+
+
+/* =========================================================
+   IMAGE STRIP
+========================================================= */
+
+.fashion-strip {
+    height: 245px;
+
+    margin-top: 14px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+}
+
+
+.fashion-card {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+            1px solid #273341;
+
+    border-radius: 12px;
+
+    background: #101823;
+
+    transition:
+            transform 0.2s ease,
+            border-color 0.2s ease;
+}
+
+
+.fashion-card:hover {
+    transform:
+            translateY(-3px);
+
+    border-color:
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.6
+            );
+}
+
+
+.fashion-image-wrap {
+    width: 100%;
+
+    height: 195px;
+
+    overflow: hidden;
+
+    background: #0b131d;
+}
+
+
+.fashion-image-wrap img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* 이미지별 위치 보정 */
+
+.fashion-card.skinny img {
+    object-position:
+            center 45%;
+}
+
+
+.fashion-card.duffle img {
+    object-position:
+            center center;
+}
+
+
+.fashion-card.ugg img {
+    object-position:
+            center center;
+}
+
+
+.fashion-card.lowrise img {
+    object-position:
+            center 40%;
+}
+
+
+.fashion-card.velour img {
+    object-position:
+            center 40%;
+}
+
+
+.fashion-name {
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #e9eef5;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.fashion-name i {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+.skinny i {
+    background: #ff7e3d;
+}
+
+
+.duffle i {
+    background: #8f6dff;
+}
+
+
+.ugg i {
+    background: #21c6dd;
+}
+
+
+.lowrise i {
+    background: #ff4d9b;
+}
+
+
+.velour i {
+    background: #50d28f;
+}
+
+
+/* =========================================================
+   CHART PANEL
+========================================================= */
+
+.interest-panel {
+    position: relative;
+
+    height:
+            calc(
+                    100vh
+                    - 88px
+                    - 245px
+                    - 55px
+            );
+
+    min-height: 345px;
+
+    margin-top: 12px;
+
+    box-sizing: border-box;
+
+    padding:
+            13px 17px 9px;
+
+    border:
+            1px solid #26313e;
+
+    border-radius: 12px;
+
+    background: #101823;
+}
+
+
+.interest-heading {
+    height: 50px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.interest-heading > div:first-child > span {
+    color: #ff4d9b;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+}
+
+
+.interest-heading h2 {
+    margin:
+            2px 0 0;
+
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.trend-legend {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.legend-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding:
+            5px 7px;
+
+    border:
+            1px solid transparent;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #8396ae;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+            color 0.2s,
+            background 0.2s,
+            border-color 0.2s;
+}
+
+
+.legend-item i {
+    width: 15px;
+    height: 3px;
+
+    display: inline-block;
+
+    border-radius: 999px;
+}
+
+
+.legend-item:hover,
+.legend-item.active {
+    color: #ffffff;
+
+    border-color: #344252;
+
+    background:
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.03
+            );
+}
+
+
+/* =========================================================
+   CHART
+========================================================= */
+
+.chart-wrap {
+    width: 100%;
+
+    height:
+            calc(
+                    100% - 79px
+            );
+
+    min-height: 240px;
+}
+
+
+.trend-chart {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+.grid-line {
+    stroke: #24303e;
+
+    stroke-width: 1;
+}
+
+
+.year-line {
+    stroke:
+            rgba(
+                    42,
+                    56,
+                    71,
+                    0.45
+            );
+
+    stroke-width: 1;
+}
+
+
+.axis-label,
+.year-label {
+    fill: #64778f;
+
+    font-size: 11px;
+}
+
+
+.trend-line {
+    fill: none;
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    vector-effect:
+            non-scaling-stroke;
+
+    opacity: 0.9;
+
+    transition:
+            opacity 0.2s,
+            stroke-width 0.2s,
+            filter 0.2s;
+}
+
+
+/* 스키니 */
+
+.trend-line.skinny {
+    stroke: #ff7e3d;
+}
+
+
+/* 떡볶이 코트 */
+
+.trend-line.duffle {
+    stroke: #8f6dff;
+}
+
+
+/* 어그 */
+
+.trend-line.ugg {
+    stroke: #21c6dd;
+}
+
+
+/* 로우라이즈 */
+
+.trend-line.lowrise {
+    stroke: #ff4d9b;
+}
+
+
+/* 벨루어 */
+
+.trend-line.velour {
+    stroke: #50d28f;
+}
+
+
+.trend-line.faded {
+    opacity: 0.12;
+}
+
+
+.trend-line.focused {
+    opacity: 1;
+
+    stroke-width: 5;
+
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    currentColor
+            );
+}
+
+
+.chart-loading {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #75889f;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CHART FOOTER
+========================================================= */
+
+.chart-footer {
+    height: 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        1fr
+        70px;
+
+    align-items: center;
+
+    color: #596d85;
+
+    font-size: 8px;
+}
+
+
+.chart-footer p {
+    margin: 0;
+
+    text-align: center;
+}
+
+
+.chart-footer span:last-child {
+    text-align: right;
+}
+
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+.trend-intro-next {
+    position: fixed;
+
+    right: 28px;
+
+    bottom: 22px;
+
+    z-index: 30;
+
+    height: 48px;
+
+    padding:
+            0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border:
+            1px solid
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.65
+            );
+
+    border-radius: 9px;
+
+    background: #ff4d9b;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 10px 26px
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.2
+            );
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+
+.trend-intro-next:hover {
+    transform:
+            translateY(-2px);
+
+    box-shadow:
+            0 14px 34px
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.32
+            );
+}
+
+
+/* =========================================================
+   SHORT SCREEN
+========================================================= */
+
+@media (
+max-height: 850px
+) {
+
+    .trend-intro-header {
+        height: 70px;
+    }
+
+
+    .trend-intro-title h1 {
+        font-size: 28px;
+    }
+
+
+    .fashion-strip {
+        height: 195px;
+    }
+
+
+    .fashion-image-wrap {
+        height: 152px;
+    }
+
+
+    .fashion-name {
+        height: 41px;
+
+        font-size: 11px;
+    }
+
+
+    .interest-panel {
+        height:
+                calc(
+                        100vh
+                        - 70px
+                        - 195px
+                        - 47px
+                );
+
+        min-height: 300px;
+    }
+
+
+    .trend-intro-next {
+        right: 18px;
+
+        bottom: 12px;
+
+        height: 42px;
+    }
+}

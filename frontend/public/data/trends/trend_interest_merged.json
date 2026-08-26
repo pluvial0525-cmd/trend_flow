@@ -1,0 +1,2203 @@
+{
+  "meta": {
+    "source": "Google Trends",
+    "region": "KR",
+    "metric": "relative_interest_pattern",
+    "note": "각 패션별 검색어 그룹 내부의 값을 대표값으로 통합한 뒤 패션별 0~100 재정규화. 절대 검색량 비교가 아닌 시간에 따른 관심도 변화 패턴 비교."
+  },
+  "series": {
+    "skinny": {
+      "label": "스키니진"
+    },
+    "duffle": {
+      "label": "떡볶이 코트"
+    },
+    "ugg": {
+      "label": "어그부츠"
+    },
+    "lowrise": {
+      "label": "로우라이즈"
+    },
+    "velour": {
+      "label": "벨루어 트랙수트"
+    }
+  },
+  "data": [
+    {
+      "date": "2004-01",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-02",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-03",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-04",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-05",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-06",
+      "skinny": null,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-07",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-08",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-09",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-10",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-11",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 10.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2004-12",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 10.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-01",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 10.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-02",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-03",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-04",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-05",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-06",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-07",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-08",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-09",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-10",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-11",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 7.67,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2005-12",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 15.67,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-01",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 15.67,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-02",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 8.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-03",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 33.33
+    },
+    {
+      "date": "2006-04",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 33.33
+    },
+    {
+      "date": "2006-05",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 33.33
+    },
+    {
+      "date": "2006-06",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-07",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-08",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-09",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-10",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-11",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 5.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2006-12",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 11.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-01",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 11.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-02",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 6.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-03",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-04",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-05",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-06",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-07",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-08",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-09",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2007-10",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 25.67
+    },
+    {
+      "date": "2007-11",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 6.0,
+      "lowrise": 0.0,
+      "velour": 25.67
+    },
+    {
+      "date": "2007-12",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 14.0,
+      "lowrise": 0.0,
+      "velour": 41.67
+    },
+    {
+      "date": "2008-01",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 14.0,
+      "lowrise": 0.0,
+      "velour": 42.0
+    },
+    {
+      "date": "2008-02",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 8.0,
+      "lowrise": 0.0,
+      "velour": 61.67
+    },
+    {
+      "date": "2008-03",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 45.67
+    },
+    {
+      "date": "2008-04",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 19.67
+    },
+    {
+      "date": "2008-05",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 14.33
+    },
+    {
+      "date": "2008-06",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 14.33
+    },
+    {
+      "date": "2008-07",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 34.33
+    },
+    {
+      "date": "2008-08",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 20.0
+    },
+    {
+      "date": "2008-09",
+      "skinny": 0.0,
+      "duffle": 0.0,
+      "ugg": 2.67,
+      "lowrise": 0.0,
+      "velour": 36.33
+    },
+    {
+      "date": "2008-10",
+      "skinny": 5.0,
+      "duffle": 0.0,
+      "ugg": 7.0,
+      "lowrise": 0.0,
+      "velour": 32.33
+    },
+    {
+      "date": "2008-11",
+      "skinny": 5.0,
+      "duffle": 0.0,
+      "ugg": 18.33,
+      "lowrise": 0.0,
+      "velour": 56.67
+    },
+    {
+      "date": "2008-12",
+      "skinny": 11.0,
+      "duffle": 0.0,
+      "ugg": 28.0,
+      "lowrise": 0.0,
+      "velour": 55.0
+    },
+    {
+      "date": "2009-01",
+      "skinny": 6.0,
+      "duffle": 0.0,
+      "ugg": 30.67,
+      "lowrise": 0.0,
+      "velour": 39.0
+    },
+    {
+      "date": "2009-02",
+      "skinny": 6.0,
+      "duffle": 0.0,
+      "ugg": 19.33,
+      "lowrise": 0.0,
+      "velour": 14.67
+    },
+    {
+      "date": "2009-03",
+      "skinny": 4.67,
+      "duffle": 0.0,
+      "ugg": 7.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2009-04",
+      "skinny": 11.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2009-05",
+      "skinny": 11.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2009-06",
+      "skinny": 10.67,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 15.33
+    },
+    {
+      "date": "2009-07",
+      "skinny": 9.0,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 15.33
+    },
+    {
+      "date": "2009-08",
+      "skinny": 9.0,
+      "duffle": 0.0,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 30.67
+    },
+    {
+      "date": "2009-09",
+      "skinny": 11.33,
+      "duffle": 0.0,
+      "ugg": 7.0,
+      "lowrise": 0.0,
+      "velour": 15.33
+    },
+    {
+      "date": "2009-10",
+      "skinny": 6.67,
+      "duffle": 0.0,
+      "ugg": 16.67,
+      "lowrise": 0.0,
+      "velour": 15.33
+    },
+    {
+      "date": "2009-11",
+      "skinny": 6.67,
+      "duffle": 33.33,
+      "ugg": 37.33,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2009-12",
+      "skinny": 4.67,
+      "duffle": 33.33,
+      "ugg": 52.67,
+      "lowrise": 0.0,
+      "velour": 14.0
+    },
+    {
+      "date": "2010-01",
+      "skinny": 9.67,
+      "duffle": 33.33,
+      "ugg": 60.33,
+      "lowrise": 0.0,
+      "velour": 28.0
+    },
+    {
+      "date": "2010-02",
+      "skinny": 17.0,
+      "duffle": 0.0,
+      "ugg": 40.33,
+      "lowrise": 0.0,
+      "velour": 28.0
+    },
+    {
+      "date": "2010-03",
+      "skinny": 17.67,
+      "duffle": 0.0,
+      "ugg": 20.33,
+      "lowrise": 0.0,
+      "velour": 30.33
+    },
+    {
+      "date": "2010-04",
+      "skinny": 19.67,
+      "duffle": 0.0,
+      "ugg": 3.0,
+      "lowrise": 0.0,
+      "velour": 38.33
+    },
+    {
+      "date": "2010-05",
+      "skinny": 17.33,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 56.33
+    },
+    {
+      "date": "2010-06",
+      "skinny": 16.33,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 53.67
+    },
+    {
+      "date": "2010-07",
+      "skinny": 16.33,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 0.0,
+      "velour": 43.33
+    },
+    {
+      "date": "2010-08",
+      "skinny": 21.0,
+      "duffle": 0.0,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 47.0
+    },
+    {
+      "date": "2010-09",
+      "skinny": 50.0,
+      "duffle": 0.0,
+      "ugg": 5.33,
+      "lowrise": 0.0,
+      "velour": 33.33
+    },
+    {
+      "date": "2010-10",
+      "skinny": 61.67,
+      "duffle": 0.0,
+      "ugg": 11.0,
+      "lowrise": 0.0,
+      "velour": 29.0
+    },
+    {
+      "date": "2010-11",
+      "skinny": 64.33,
+      "duffle": 22.0,
+      "ugg": 25.33,
+      "lowrise": 0.0,
+      "velour": 14.0
+    },
+    {
+      "date": "2010-12",
+      "skinny": 41.33,
+      "duffle": 39.33,
+      "ugg": 39.33,
+      "lowrise": 0.0,
+      "velour": 21.33
+    },
+    {
+      "date": "2011-01",
+      "skinny": 31.0,
+      "duffle": 55.33,
+      "ugg": 45.0,
+      "lowrise": 0.0,
+      "velour": 24.33
+    },
+    {
+      "date": "2011-02",
+      "skinny": 18.67,
+      "duffle": 33.33,
+      "ugg": 32.67,
+      "lowrise": 0.0,
+      "velour": 29.0
+    },
+    {
+      "date": "2011-03",
+      "skinny": 13.0,
+      "duffle": 16.0,
+      "ugg": 18.33,
+      "lowrise": 0.0,
+      "velour": 31.67
+    },
+    {
+      "date": "2011-04",
+      "skinny": 10.0,
+      "duffle": 0.0,
+      "ugg": 7.0,
+      "lowrise": 0.0,
+      "velour": 26.33
+    },
+    {
+      "date": "2011-05",
+      "skinny": 14.33,
+      "duffle": 0.0,
+      "ugg": 2.67,
+      "lowrise": 6.0,
+      "velour": 20.33
+    },
+    {
+      "date": "2011-06",
+      "skinny": 14.67,
+      "duffle": 0.0,
+      "ugg": 0.0,
+      "lowrise": 6.0,
+      "velour": 18.0
+    },
+    {
+      "date": "2011-07",
+      "skinny": 15.0,
+      "duffle": 0.0,
+      "ugg": 1.0,
+      "lowrise": 6.0,
+      "velour": 21.67
+    },
+    {
+      "date": "2011-08",
+      "skinny": 14.33,
+      "duffle": 0.0,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 25.0
+    },
+    {
+      "date": "2011-09",
+      "skinny": 14.33,
+      "duffle": 0.0,
+      "ugg": 5.0,
+      "lowrise": 4.67,
+      "velour": 21.33
+    },
+    {
+      "date": "2011-10",
+      "skinny": 15.0,
+      "duffle": 8.0,
+      "ugg": 7.33,
+      "lowrise": 4.67,
+      "velour": 17.33
+    },
+    {
+      "date": "2011-11",
+      "skinny": 15.67,
+      "duffle": 24.33,
+      "ugg": 39.33,
+      "lowrise": 4.67,
+      "velour": 15.33
+    },
+    {
+      "date": "2011-12",
+      "skinny": 14.67,
+      "duffle": 38.0,
+      "ugg": 44.0,
+      "lowrise": 0.0,
+      "velour": 19.0
+    },
+    {
+      "date": "2012-01",
+      "skinny": 13.67,
+      "duffle": 46.0,
+      "ugg": 45.67,
+      "lowrise": 0.0,
+      "velour": 19.67
+    },
+    {
+      "date": "2012-02",
+      "skinny": 16.0,
+      "duffle": 56.0,
+      "ugg": 15.0,
+      "lowrise": 0.0,
+      "velour": 18.33
+    },
+    {
+      "date": "2012-03",
+      "skinny": 17.67,
+      "duffle": 42.33,
+      "ugg": 8.33,
+      "lowrise": 0.0,
+      "velour": 15.0
+    },
+    {
+      "date": "2012-04",
+      "skinny": 18.67,
+      "duffle": 26.33,
+      "ugg": 3.67,
+      "lowrise": 0.0,
+      "velour": 14.67
+    },
+    {
+      "date": "2012-05",
+      "skinny": 17.0,
+      "duffle": 0.0,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 14.33
+    },
+    {
+      "date": "2012-06",
+      "skinny": 16.0,
+      "duffle": 0.0,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 17.67
+    },
+    {
+      "date": "2012-07",
+      "skinny": 15.67,
+      "duffle": 7.67,
+      "ugg": 2.0,
+      "lowrise": 3.33,
+      "velour": 18.0
+    },
+    {
+      "date": "2012-08",
+      "skinny": 16.67,
+      "duffle": 7.67,
+      "ugg": 2.33,
+      "lowrise": 3.33,
+      "velour": 17.67
+    },
+    {
+      "date": "2012-09",
+      "skinny": 18.33,
+      "duffle": 14.33,
+      "ugg": 3.0,
+      "lowrise": 3.33,
+      "velour": 14.67
+    },
+    {
+      "date": "2012-10",
+      "skinny": 17.0,
+      "duffle": 16.33,
+      "ugg": 4.67,
+      "lowrise": 0.0,
+      "velour": 15.33
+    },
+    {
+      "date": "2012-11",
+      "skinny": 16.0,
+      "duffle": 35.67,
+      "ugg": 9.67,
+      "lowrise": 0.0,
+      "velour": 16.33
+    },
+    {
+      "date": "2012-12",
+      "skinny": 14.0,
+      "duffle": 44.33,
+      "ugg": 15.67,
+      "lowrise": 0.0,
+      "velour": 19.0
+    },
+    {
+      "date": "2013-01",
+      "skinny": 14.67,
+      "duffle": 49.67,
+      "ugg": 17.33,
+      "lowrise": 0.0,
+      "velour": 17.33
+    },
+    {
+      "date": "2013-02",
+      "skinny": 14.67,
+      "duffle": 41.33,
+      "ugg": 14.0,
+      "lowrise": 0.0,
+      "velour": 16.33
+    },
+    {
+      "date": "2013-03",
+      "skinny": 15.67,
+      "duffle": 26.0,
+      "ugg": 7.33,
+      "lowrise": 0.0,
+      "velour": 12.67
+    },
+    {
+      "date": "2013-04",
+      "skinny": 16.0,
+      "duffle": 11.0,
+      "ugg": 4.0,
+      "lowrise": 0.0,
+      "velour": 13.0
+    },
+    {
+      "date": "2013-05",
+      "skinny": 17.67,
+      "duffle": 0.0,
+      "ugg": 2.0,
+      "lowrise": 0.0,
+      "velour": 12.33
+    },
+    {
+      "date": "2013-06",
+      "skinny": 17.67,
+      "duffle": 0.0,
+      "ugg": 2.0,
+      "lowrise": 0.0,
+      "velour": 14.67
+    },
+    {
+      "date": "2013-07",
+      "skinny": 16.33,
+      "duffle": 0.0,
+      "ugg": 2.0,
+      "lowrise": 0.0,
+      "velour": 14.67
+    },
+    {
+      "date": "2013-08",
+      "skinny": 14.67,
+      "duffle": 0.0,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 14.0
+    },
+    {
+      "date": "2013-09",
+      "skinny": 15.0,
+      "duffle": 5.33,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 11.67
+    },
+    {
+      "date": "2013-10",
+      "skinny": 16.33,
+      "duffle": 14.67,
+      "ugg": 4.0,
+      "lowrise": 0.0,
+      "velour": 10.33
+    },
+    {
+      "date": "2013-11",
+      "skinny": 17.0,
+      "duffle": 45.67,
+      "ugg": 10.0,
+      "lowrise": 0.0,
+      "velour": 12.67
+    },
+    {
+      "date": "2013-12",
+      "skinny": 17.33,
+      "duffle": 62.0,
+      "ugg": 14.33,
+      "lowrise": 0.0,
+      "velour": 14.67
+    },
+    {
+      "date": "2014-01",
+      "skinny": 17.67,
+      "duffle": 69.0,
+      "ugg": 14.33,
+      "lowrise": 0.0,
+      "velour": 16.0
+    },
+    {
+      "date": "2014-02",
+      "skinny": 19.33,
+      "duffle": 49.67,
+      "ugg": 9.0,
+      "lowrise": 0.0,
+      "velour": 13.0
+    },
+    {
+      "date": "2014-03",
+      "skinny": 20.33,
+      "duffle": 33.67,
+      "ugg": 3.67,
+      "lowrise": 0.0,
+      "velour": 11.0
+    },
+    {
+      "date": "2014-04",
+      "skinny": 21.67,
+      "duffle": 17.33,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 10.33
+    },
+    {
+      "date": "2014-05",
+      "skinny": 21.67,
+      "duffle": 5.67,
+      "ugg": 0.67,
+      "lowrise": 0.0,
+      "velour": 11.67
+    },
+    {
+      "date": "2014-06",
+      "skinny": 20.33,
+      "duffle": 0.0,
+      "ugg": 0.67,
+      "lowrise": 0.0,
+      "velour": 13.33
+    },
+    {
+      "date": "2014-07",
+      "skinny": 19.67,
+      "duffle": 5.67,
+      "ugg": 1.0,
+      "lowrise": 0.0,
+      "velour": 13.33
+    },
+    {
+      "date": "2014-08",
+      "skinny": 18.0,
+      "duffle": 12.33,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 12.0
+    },
+    {
+      "date": "2014-09",
+      "skinny": 18.67,
+      "duffle": 23.33,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 9.33
+    },
+    {
+      "date": "2014-10",
+      "skinny": 18.33,
+      "duffle": 33.0,
+      "ugg": 3.67,
+      "lowrise": 0.0,
+      "velour": 9.33
+    },
+    {
+      "date": "2014-11",
+      "skinny": 17.67,
+      "duffle": 50.67,
+      "ugg": 7.67,
+      "lowrise": 0.0,
+      "velour": 9.67
+    },
+    {
+      "date": "2014-12",
+      "skinny": 17.0,
+      "duffle": 62.0,
+      "ugg": 12.33,
+      "lowrise": 0.0,
+      "velour": 10.33
+    },
+    {
+      "date": "2015-01",
+      "skinny": 16.33,
+      "duffle": 65.33,
+      "ugg": 12.0,
+      "lowrise": 4.33,
+      "velour": 8.0
+    },
+    {
+      "date": "2015-02",
+      "skinny": 18.0,
+      "duffle": 52.67,
+      "ugg": 8.33,
+      "lowrise": 4.33,
+      "velour": 7.67
+    },
+    {
+      "date": "2015-03",
+      "skinny": 19.0,
+      "duffle": 39.33,
+      "ugg": 3.0,
+      "lowrise": 4.33,
+      "velour": 7.33
+    },
+    {
+      "date": "2015-04",
+      "skinny": 19.33,
+      "duffle": 24.33,
+      "ugg": 1.67,
+      "lowrise": 0.0,
+      "velour": 8.33
+    },
+    {
+      "date": "2015-05",
+      "skinny": 19.0,
+      "duffle": 16.33,
+      "ugg": 1.0,
+      "lowrise": 0.0,
+      "velour": 8.0
+    },
+    {
+      "date": "2015-06",
+      "skinny": 17.33,
+      "duffle": 11.67,
+      "ugg": 0.67,
+      "lowrise": 0.0,
+      "velour": 7.0
+    },
+    {
+      "date": "2015-07",
+      "skinny": 16.67,
+      "duffle": 13.67,
+      "ugg": 0.67,
+      "lowrise": 2.0,
+      "velour": 5.67
+    },
+    {
+      "date": "2015-08",
+      "skinny": 15.0,
+      "duffle": 14.33,
+      "ugg": 1.0,
+      "lowrise": 2.0,
+      "velour": 3.33
+    },
+    {
+      "date": "2015-09",
+      "skinny": 15.67,
+      "duffle": 18.0,
+      "ugg": 1.67,
+      "lowrise": 2.0,
+      "velour": 3.0
+    },
+    {
+      "date": "2015-10",
+      "skinny": 16.33,
+      "duffle": 23.33,
+      "ugg": 2.67,
+      "lowrise": 0.0,
+      "velour": 3.67
+    },
+    {
+      "date": "2015-11",
+      "skinny": 18.0,
+      "duffle": 50.0,
+      "ugg": 5.33,
+      "lowrise": 0.0,
+      "velour": 5.33
+    },
+    {
+      "date": "2015-12",
+      "skinny": 17.67,
+      "duffle": 66.0,
+      "ugg": 7.67,
+      "lowrise": 0.0,
+      "velour": 5.67
+    },
+    {
+      "date": "2016-01",
+      "skinny": 18.0,
+      "duffle": 71.67,
+      "ugg": 7.67,
+      "lowrise": 0.0,
+      "velour": 5.0
+    },
+    {
+      "date": "2016-02",
+      "skinny": 18.33,
+      "duffle": 52.33,
+      "ugg": 5.0,
+      "lowrise": 0.0,
+      "velour": 4.67
+    },
+    {
+      "date": "2016-03",
+      "skinny": 20.0,
+      "duffle": 34.0,
+      "ugg": 2.33,
+      "lowrise": 0.0,
+      "velour": 4.0
+    },
+    {
+      "date": "2016-04",
+      "skinny": 20.0,
+      "duffle": 21.67,
+      "ugg": 1.33,
+      "lowrise": 0.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2016-05",
+      "skinny": 20.0,
+      "duffle": 13.67,
+      "ugg": 1.0,
+      "lowrise": 0.0,
+      "velour": 3.33
+    },
+    {
+      "date": "2016-06",
+      "skinny": 18.0,
+      "duffle": 8.0,
+      "ugg": 1.0,
+      "lowrise": 16.67,
+      "velour": 3.67
+    },
+    {
+      "date": "2016-07",
+      "skinny": 16.67,
+      "duffle": 3.67,
+      "ugg": 1.0,
+      "lowrise": 20.67,
+      "velour": 3.67
+    },
+    {
+      "date": "2016-08",
+      "skinny": 14.67,
+      "duffle": 6.0,
+      "ugg": 1.0,
+      "lowrise": 26.33,
+      "velour": 1.67
+    },
+    {
+      "date": "2016-09",
+      "skinny": 15.33,
+      "duffle": 14.0,
+      "ugg": 1.33,
+      "lowrise": 13.67,
+      "velour": 0.0
+    },
+    {
+      "date": "2016-10",
+      "skinny": 16.0,
+      "duffle": 25.33,
+      "ugg": 2.33,
+      "lowrise": 12.67,
+      "velour": 1.33
+    },
+    {
+      "date": "2016-11",
+      "skinny": 16.33,
+      "duffle": 43.0,
+      "ugg": 6.0,
+      "lowrise": 9.33,
+      "velour": 2.67
+    },
+    {
+      "date": "2016-12",
+      "skinny": 15.0,
+      "duffle": 51.0,
+      "ugg": 8.0,
+      "lowrise": 27.67,
+      "velour": 2.67
+    },
+    {
+      "date": "2017-01",
+      "skinny": 14.33,
+      "duffle": 54.33,
+      "ugg": 8.0,
+      "lowrise": 26.33,
+      "velour": 3.0
+    },
+    {
+      "date": "2017-02",
+      "skinny": 15.67,
+      "duffle": 45.67,
+      "ugg": 4.67,
+      "lowrise": 26.33,
+      "velour": 1.67
+    },
+    {
+      "date": "2017-03",
+      "skinny": 18.33,
+      "duffle": 35.67,
+      "ugg": 2.33,
+      "lowrise": 6.67,
+      "velour": 4.0
+    },
+    {
+      "date": "2017-04",
+      "skinny": 21.0,
+      "duffle": 24.33,
+      "ugg": 1.33,
+      "lowrise": 8.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2017-05",
+      "skinny": 19.67,
+      "duffle": 14.67,
+      "ugg": 1.0,
+      "lowrise": 6.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2017-06",
+      "skinny": 16.0,
+      "duffle": 12.67,
+      "ugg": 1.0,
+      "lowrise": 5.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2017-07",
+      "skinny": 11.67,
+      "duffle": 13.0,
+      "ugg": 1.0,
+      "lowrise": 3.33,
+      "velour": 0.0
+    },
+    {
+      "date": "2017-08",
+      "skinny": 10.67,
+      "duffle": 11.0,
+      "ugg": 1.0,
+      "lowrise": 6.0,
+      "velour": 1.33
+    },
+    {
+      "date": "2017-09",
+      "skinny": 11.0,
+      "duffle": 11.67,
+      "ugg": 1.0,
+      "lowrise": 6.33,
+      "velour": 1.33
+    },
+    {
+      "date": "2017-10",
+      "skinny": 12.33,
+      "duffle": 19.0,
+      "ugg": 1.67,
+      "lowrise": 7.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2017-11",
+      "skinny": 11.33,
+      "duffle": 33.0,
+      "ugg": 4.33,
+      "lowrise": 4.67,
+      "velour": 2.0
+    },
+    {
+      "date": "2017-12",
+      "skinny": 11.33,
+      "duffle": 44.33,
+      "ugg": 7.33,
+      "lowrise": 2.67,
+      "velour": 3.33
+    },
+    {
+      "date": "2018-01",
+      "skinny": 10.67,
+      "duffle": 43.67,
+      "ugg": 7.67,
+      "lowrise": 2.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2018-02",
+      "skinny": 12.67,
+      "duffle": 36.0,
+      "ugg": 5.33,
+      "lowrise": 3.67,
+      "velour": 2.67
+    },
+    {
+      "date": "2018-03",
+      "skinny": 14.0,
+      "duffle": 26.0,
+      "ugg": 2.33,
+      "lowrise": 5.33,
+      "velour": 1.33
+    },
+    {
+      "date": "2018-04",
+      "skinny": 15.33,
+      "duffle": 19.0,
+      "ugg": 1.33,
+      "lowrise": 5.67,
+      "velour": 1.33
+    },
+    {
+      "date": "2018-05",
+      "skinny": 15.33,
+      "duffle": 9.33,
+      "ugg": 1.0,
+      "lowrise": 6.67,
+      "velour": 0.0
+    },
+    {
+      "date": "2018-06",
+      "skinny": 14.67,
+      "duffle": 6.67,
+      "ugg": 1.0,
+      "lowrise": 7.0,
+      "velour": 1.0
+    },
+    {
+      "date": "2018-07",
+      "skinny": 13.33,
+      "duffle": 6.33,
+      "ugg": 1.0,
+      "lowrise": 4.67,
+      "velour": 1.0
+    },
+    {
+      "date": "2018-08",
+      "skinny": 11.67,
+      "duffle": 9.67,
+      "ugg": 1.0,
+      "lowrise": 2.0,
+      "velour": 2.0
+    },
+    {
+      "date": "2018-09",
+      "skinny": 11.33,
+      "duffle": 10.67,
+      "ugg": 1.33,
+      "lowrise": 2.0,
+      "velour": 1.0
+    },
+    {
+      "date": "2018-10",
+      "skinny": 11.33,
+      "duffle": 17.33,
+      "ugg": 2.33,
+      "lowrise": 4.33,
+      "velour": 2.0
+    },
+    {
+      "date": "2018-11",
+      "skinny": 12.0,
+      "duffle": 32.67,
+      "ugg": 4.33,
+      "lowrise": 4.33,
+      "velour": 1.0
+    },
+    {
+      "date": "2018-12",
+      "skinny": 12.67,
+      "duffle": 41.0,
+      "ugg": 6.0,
+      "lowrise": 2.33,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-01",
+      "skinny": 12.67,
+      "duffle": 39.67,
+      "ugg": 5.67,
+      "lowrise": 0.0,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-02",
+      "skinny": 12.67,
+      "duffle": 27.0,
+      "ugg": 4.0,
+      "lowrise": 1.67,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-03",
+      "skinny": 13.0,
+      "duffle": 18.0,
+      "ugg": 2.33,
+      "lowrise": 1.67,
+      "velour": 2.0
+    },
+    {
+      "date": "2019-04",
+      "skinny": 14.33,
+      "duffle": 13.33,
+      "ugg": 1.67,
+      "lowrise": 1.67,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-05",
+      "skinny": 15.33,
+      "duffle": 9.67,
+      "ugg": 1.33,
+      "lowrise": 0.0,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-06",
+      "skinny": 14.0,
+      "duffle": 9.67,
+      "ugg": 1.0,
+      "lowrise": 0.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2019-07",
+      "skinny": 13.33,
+      "duffle": 13.33,
+      "ugg": 1.0,
+      "lowrise": 1.67,
+      "velour": 0.0
+    },
+    {
+      "date": "2019-08",
+      "skinny": 12.67,
+      "duffle": 18.67,
+      "ugg": 1.0,
+      "lowrise": 4.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2019-09",
+      "skinny": 14.33,
+      "duffle": 23.33,
+      "ugg": 1.33,
+      "lowrise": 5.67,
+      "velour": 0.0
+    },
+    {
+      "date": "2019-10",
+      "skinny": 14.33,
+      "duffle": 30.67,
+      "ugg": 2.0,
+      "lowrise": 4.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2019-11",
+      "skinny": 15.0,
+      "duffle": 48.0,
+      "ugg": 3.67,
+      "lowrise": 1.67,
+      "velour": 1.0
+    },
+    {
+      "date": "2019-12",
+      "skinny": 14.33,
+      "duffle": 63.33,
+      "ugg": 5.0,
+      "lowrise": 1.33,
+      "velour": 2.0
+    },
+    {
+      "date": "2020-01",
+      "skinny": 14.67,
+      "duffle": 65.33,
+      "ugg": 5.0,
+      "lowrise": 2.67,
+      "velour": 3.33
+    },
+    {
+      "date": "2020-02",
+      "skinny": 14.0,
+      "duffle": 53.67,
+      "ugg": 3.33,
+      "lowrise": 4.0,
+      "velour": 3.33
+    },
+    {
+      "date": "2020-03",
+      "skinny": 14.67,
+      "duffle": 35.67,
+      "ugg": 1.67,
+      "lowrise": 4.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2020-04",
+      "skinny": 14.33,
+      "duffle": 24.67,
+      "ugg": 1.0,
+      "lowrise": 5.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2020-05",
+      "skinny": 14.67,
+      "duffle": 17.0,
+      "ugg": 1.0,
+      "lowrise": 5.33,
+      "velour": 2.0
+    },
+    {
+      "date": "2020-06",
+      "skinny": 14.33,
+      "duffle": 17.67,
+      "ugg": 1.0,
+      "lowrise": 4.67,
+      "velour": 2.0
+    },
+    {
+      "date": "2020-07",
+      "skinny": 14.33,
+      "duffle": 16.67,
+      "ugg": 1.0,
+      "lowrise": 4.0,
+      "velour": 1.33
+    },
+    {
+      "date": "2020-08",
+      "skinny": 13.67,
+      "duffle": 17.67,
+      "ugg": 1.0,
+      "lowrise": 5.67,
+      "velour": 1.33
+    },
+    {
+      "date": "2020-09",
+      "skinny": 12.33,
+      "duffle": 21.67,
+      "ugg": 1.33,
+      "lowrise": 6.33,
+      "velour": 1.33
+    },
+    {
+      "date": "2020-10",
+      "skinny": 10.67,
+      "duffle": 29.33,
+      "ugg": 2.33,
+      "lowrise": 6.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2020-11",
+      "skinny": 10.0,
+      "duffle": 40.33,
+      "ugg": 4.33,
+      "lowrise": 5.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2020-12",
+      "skinny": 10.0,
+      "duffle": 43.33,
+      "ugg": 6.67,
+      "lowrise": 4.33,
+      "velour": 2.67
+    },
+    {
+      "date": "2021-01",
+      "skinny": 10.33,
+      "duffle": 40.67,
+      "ugg": 7.0,
+      "lowrise": 4.67,
+      "velour": 2.33
+    },
+    {
+      "date": "2021-02",
+      "skinny": 10.67,
+      "duffle": 31.67,
+      "ugg": 5.33,
+      "lowrise": 4.33,
+      "velour": 1.33
+    },
+    {
+      "date": "2021-03",
+      "skinny": 11.33,
+      "duffle": 25.67,
+      "ugg": 3.0,
+      "lowrise": 5.0,
+      "velour": 1.67
+    },
+    {
+      "date": "2021-04",
+      "skinny": 13.0,
+      "duffle": 22.0,
+      "ugg": 2.0,
+      "lowrise": 5.67,
+      "velour": 2.33
+    },
+    {
+      "date": "2021-05",
+      "skinny": 14.0,
+      "duffle": 18.67,
+      "ugg": 2.0,
+      "lowrise": 7.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2021-06",
+      "skinny": 14.33,
+      "duffle": 18.67,
+      "ugg": 2.0,
+      "lowrise": 7.0,
+      "velour": 2.0
+    },
+    {
+      "date": "2021-07",
+      "skinny": 13.67,
+      "duffle": 18.0,
+      "ugg": 2.0,
+      "lowrise": 6.33,
+      "velour": 1.33
+    },
+    {
+      "date": "2021-08",
+      "skinny": 13.0,
+      "duffle": 19.67,
+      "ugg": 2.0,
+      "lowrise": 6.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2021-09",
+      "skinny": 11.67,
+      "duffle": 18.67,
+      "ugg": 2.33,
+      "lowrise": 6.67,
+      "velour": 1.67
+    },
+    {
+      "date": "2021-10",
+      "skinny": 10.33,
+      "duffle": 23.0,
+      "ugg": 3.67,
+      "lowrise": 8.33,
+      "velour": 1.67
+    },
+    {
+      "date": "2021-11",
+      "skinny": 9.0,
+      "duffle": 37.0,
+      "ugg": 6.0,
+      "lowrise": 8.0,
+      "velour": 1.67
+    },
+    {
+      "date": "2021-12",
+      "skinny": 8.67,
+      "duffle": 53.33,
+      "ugg": 8.67,
+      "lowrise": 7.33,
+      "velour": 1.67
+    },
+    {
+      "date": "2022-01",
+      "skinny": 8.33,
+      "duffle": 64.33,
+      "ugg": 8.67,
+      "lowrise": 8.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2022-02",
+      "skinny": 8.67,
+      "duffle": 52.67,
+      "ugg": 6.67,
+      "lowrise": 14.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2022-03",
+      "skinny": 8.33,
+      "duffle": 37.0,
+      "ugg": 3.33,
+      "lowrise": 28.67,
+      "velour": 2.67
+    },
+    {
+      "date": "2022-04",
+      "skinny": 8.33,
+      "duffle": 20.67,
+      "ugg": 1.67,
+      "lowrise": 39.67,
+      "velour": 1.33
+    },
+    {
+      "date": "2022-05",
+      "skinny": 8.0,
+      "duffle": 13.33,
+      "ugg": 1.0,
+      "lowrise": 42.33,
+      "velour": 1.0
+    },
+    {
+      "date": "2022-06",
+      "skinny": 7.33,
+      "duffle": 8.67,
+      "ugg": 1.0,
+      "lowrise": 34.33,
+      "velour": 1.0
+    },
+    {
+      "date": "2022-07",
+      "skinny": 7.0,
+      "duffle": 10.0,
+      "ugg": 1.33,
+      "lowrise": 27.0,
+      "velour": 1.67
+    },
+    {
+      "date": "2022-08",
+      "skinny": 6.67,
+      "duffle": 13.67,
+      "ugg": 1.67,
+      "lowrise": 25.33,
+      "velour": 0.67
+    },
+    {
+      "date": "2022-09",
+      "skinny": 7.0,
+      "duffle": 17.67,
+      "ugg": 2.33,
+      "lowrise": 24.67,
+      "velour": 0.67
+    },
+    {
+      "date": "2022-10",
+      "skinny": 7.0,
+      "duffle": 27.67,
+      "ugg": 3.67,
+      "lowrise": 23.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2022-11",
+      "skinny": 6.67,
+      "duffle": 45.0,
+      "ugg": 7.67,
+      "lowrise": 20.0,
+      "velour": 0.0
+    },
+    {
+      "date": "2022-12",
+      "skinny": 6.33,
+      "duffle": 62.33,
+      "ugg": 13.67,
+      "lowrise": 26.0,
+      "velour": 1.0
+    },
+    {
+      "date": "2023-01",
+      "skinny": 6.33,
+      "duffle": 62.67,
+      "ugg": 14.33,
+      "lowrise": 44.0,
+      "velour": 2.0
+    },
+    {
+      "date": "2023-02",
+      "skinny": 6.33,
+      "duffle": 50.33,
+      "ugg": 11.0,
+      "lowrise": 48.33,
+      "velour": 2.67
+    },
+    {
+      "date": "2023-03",
+      "skinny": 7.0,
+      "duffle": 29.0,
+      "ugg": 4.67,
+      "lowrise": 42.33,
+      "velour": 2.67
+    },
+    {
+      "date": "2023-04",
+      "skinny": 6.67,
+      "duffle": 15.0,
+      "ugg": 2.67,
+      "lowrise": 25.67,
+      "velour": 1.67
+    },
+    {
+      "date": "2023-05",
+      "skinny": 9.0,
+      "duffle": 7.0,
+      "ugg": 3.0,
+      "lowrise": 22.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2023-06",
+      "skinny": 11.67,
+      "duffle": 8.0,
+      "ugg": 4.33,
+      "lowrise": 18.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2023-07",
+      "skinny": 14.67,
+      "duffle": 9.0,
+      "ugg": 5.67,
+      "lowrise": 17.0,
+      "velour": 4.0
+    },
+    {
+      "date": "2023-08",
+      "skinny": 15.0,
+      "duffle": 10.67,
+      "ugg": 6.0,
+      "lowrise": 16.67,
+      "velour": 3.33
+    },
+    {
+      "date": "2023-09",
+      "skinny": 14.33,
+      "duffle": 11.67,
+      "ugg": 6.33,
+      "lowrise": 17.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2023-10",
+      "skinny": 14.33,
+      "duffle": 17.0,
+      "ugg": 8.0,
+      "lowrise": 16.0,
+      "velour": 3.0
+    },
+    {
+      "date": "2023-11",
+      "skinny": 14.33,
+      "duffle": 29.33,
+      "ugg": 13.0,
+      "lowrise": 15.67,
+      "velour": 3.67
+    },
+    {
+      "date": "2023-12",
+      "skinny": 14.67,
+      "duffle": 40.0,
+      "ugg": 17.33,
+      "lowrise": 16.67,
+      "velour": 4.0
+    },
+    {
+      "date": "2024-01",
+      "skinny": 14.67,
+      "duffle": 41.67,
+      "ugg": 17.33,
+      "lowrise": 15.67,
+      "velour": 3.67
+    },
+    {
+      "date": "2024-02",
+      "skinny": 15.33,
+      "duffle": 31.0,
+      "ugg": 13.0,
+      "lowrise": 19.67,
+      "velour": 4.0
+    },
+    {
+      "date": "2024-03",
+      "skinny": 15.67,
+      "duffle": 20.67,
+      "ugg": 8.67,
+      "lowrise": 20.33,
+      "velour": 3.67
+    },
+    {
+      "date": "2024-04",
+      "skinny": 15.67,
+      "duffle": 13.0,
+      "ugg": 7.33,
+      "lowrise": 21.33,
+      "velour": 4.0
+    },
+    {
+      "date": "2024-05",
+      "skinny": 15.0,
+      "duffle": 9.33,
+      "ugg": 6.67,
+      "lowrise": 18.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-06",
+      "skinny": 14.67,
+      "duffle": 7.33,
+      "ugg": 6.33,
+      "lowrise": 17.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-07",
+      "skinny": 14.67,
+      "duffle": 8.33,
+      "ugg": 6.0,
+      "lowrise": 17.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-08",
+      "skinny": 14.67,
+      "duffle": 9.0,
+      "ugg": 6.0,
+      "lowrise": 16.33,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-09",
+      "skinny": 14.0,
+      "duffle": 11.0,
+      "ugg": 6.33,
+      "lowrise": 16.0,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-10",
+      "skinny": 13.67,
+      "duffle": 16.0,
+      "ugg": 7.67,
+      "lowrise": 17.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2024-11",
+      "skinny": 12.67,
+      "duffle": 29.33,
+      "ugg": 11.0,
+      "lowrise": 16.33,
+      "velour": 3.0
+    },
+    {
+      "date": "2024-12",
+      "skinny": 10.33,
+      "duffle": 41.67,
+      "ugg": 14.67,
+      "lowrise": 16.67,
+      "velour": 2.67
+    },
+    {
+      "date": "2025-01",
+      "skinny": 7.67,
+      "duffle": 45.33,
+      "ugg": 14.67,
+      "lowrise": 16.0,
+      "velour": 2.33
+    },
+    {
+      "date": "2025-02",
+      "skinny": 8.0,
+      "duffle": 36.67,
+      "ugg": 11.67,
+      "lowrise": 16.33,
+      "velour": 2.33
+    },
+    {
+      "date": "2025-03",
+      "skinny": 9.33,
+      "duffle": 23.33,
+      "ugg": 7.0,
+      "lowrise": 15.67,
+      "velour": 2.33
+    },
+    {
+      "date": "2025-04",
+      "skinny": 12.67,
+      "duffle": 15.0,
+      "ugg": 5.67,
+      "lowrise": 15.33,
+      "velour": 3.0
+    },
+    {
+      "date": "2025-05",
+      "skinny": 14.0,
+      "duffle": 10.0,
+      "ugg": 5.33,
+      "lowrise": 15.33,
+      "velour": 3.67
+    },
+    {
+      "date": "2025-06",
+      "skinny": 15.67,
+      "duffle": 10.0,
+      "ugg": 6.0,
+      "lowrise": 15.33,
+      "velour": 4.67
+    },
+    {
+      "date": "2025-07",
+      "skinny": 12.0,
+      "duffle": 9.0,
+      "ugg": 5.33,
+      "lowrise": 15.67,
+      "velour": 3.33
+    },
+    {
+      "date": "2025-08",
+      "skinny": 8.33,
+      "duffle": 10.0,
+      "ugg": 4.67,
+      "lowrise": 18.0,
+      "velour": 1.67
+    },
+    {
+      "date": "2025-09",
+      "skinny": 4.67,
+      "duffle": 10.67,
+      "ugg": 4.0,
+      "lowrise": 19.33,
+      "velour": 0.0
+    },
+    {
+      "date": "2025-10",
+      "skinny": 5.0,
+      "duffle": 14.67,
+      "ugg": 5.33,
+      "lowrise": 19.33,
+      "velour": 0.0
+    },
+    {
+      "date": "2025-11",
+      "skinny": 7.0,
+      "duffle": 24.67,
+      "ugg": 11.0,
+      "lowrise": 18.33,
+      "velour": 1.67
+    },
+    {
+      "date": "2025-12",
+      "skinny": 8.33,
+      "duffle": 36.33,
+      "ugg": 17.67,
+      "lowrise": 20.67,
+      "velour": 3.0
+    },
+    {
+      "date": "2026-01",
+      "skinny": 9.0,
+      "duffle": 38.33,
+      "ugg": 18.67,
+      "lowrise": 24.33,
+      "velour": 4.33
+    },
+    {
+      "date": "2026-02",
+      "skinny": 19.33,
+      "duffle": 34.0,
+      "ugg": 15.67,
+      "lowrise": 51.0,
+      "velour": 11.0
+    },
+    {
+      "date": "2026-03",
+      "skinny": 20.33,
+      "duffle": 22.0,
+      "ugg": 8.67,
+      "lowrise": 58.0,
+      "velour": 10.33
+    },
+    {
+      "date": "2026-04",
+      "skinny": 23.0,
+      "duffle": 16.33,
+      "ugg": 6.67,
+      "lowrise": 65.67,
+      "velour": 10.33
+    },
+    {
+      "date": "2026-05",
+      "skinny": 11.67,
+      "duffle": 9.0,
+      "ugg": 4.0,
+      "lowrise": 48.33,
+      "velour": 2.67
+    },
+    {
+      "date": "2026-06",
+      "skinny": 10.33,
+      "duffle": 6.33,
+      "ugg": 4.33,
+      "lowrise": 45.0,
+      "velour": 2.67
+    },
+    {
+      "date": "2026-07",
+      "skinny": 6.33,
+      "duffle": 5.0,
+      "ugg": 3.33,
+      "lowrise": 36.0,
+      "velour": 1.33
+    },
+    {
+      "date": "2026-08",
+      "skinny": 5.0,
+      "duffle": 4.67,
+      "ugg": 2.33,
+      "lowrise": 27.0,
+      "velour": 1.0
+    }
+  ]
+}

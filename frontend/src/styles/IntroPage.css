@@ -1,0 +1,433 @@
+/* =========================================================
+   PAGE
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+
+.intro-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #080e16;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ORIGINAL IMAGE
+========================================================= */
+
+.intro-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /*
+       이번 사진은 왼쪽에 인물이 있으므로
+       약간 왼쪽 중심으로 잡음
+    */
+    object-position: 42% center;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.intro-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    /*
+       오른쪽 글씨가 잘 보이도록
+       오른쪽을 더 어둡게 처리
+    */
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(5, 8, 13, 0.06) 0%,
+                    rgba(5, 8, 13, 0.08) 38%,
+                    rgba(5, 8, 13, 0.28) 58%,
+                    rgba(5, 8, 13, 0.66) 100%
+            ),
+            linear-gradient(
+                    0deg,
+                    rgba(5, 8, 13, 0.18) 0%,
+                    transparent 40%
+            );
+}
+
+
+/* =========================================================
+   TITLE AREA
+========================================================= */
+
+.intro-content {
+    position: absolute;
+    right: 4%;
+    top: 46%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 38%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   HANDWRITING
+========================================================= */
+
+.intro-handwriting {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    transform:
+            rotate(-2.5deg);
+}
+
+
+/* =========================================================
+   FONT
+========================================================= */
+
+.intro-small,
+.intro-bottom,
+.intro-graphdb {
+    font-family: "Nanum Brush Script", cursive;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   야, 너도
+========================================================= */
+
+.intro-small {
+    margin-left: 18px;
+
+    color: #ffffff;
+
+    font-size:
+            clamp(
+                    44px,
+                    4vw,
+                    76px
+            );
+
+    line-height: 0.95;
+
+
+    text-shadow:
+            0 4px 18px
+            rgba(0, 0, 0, 0.48);
+}
+
+
+/* =========================================================
+   GraphDB
+========================================================= */
+
+.intro-graphdb {
+    position: relative;
+
+    display: inline-block;
+
+    margin:
+            6px 0
+            4px;
+
+    color: #ff4d9b;
+
+    font-size:
+            clamp(
+                    80px,
+                    7vw,
+                    135px
+            );
+
+    line-height: 0.95;
+
+
+    letter-spacing: -4px;
+
+    text-shadow:
+            0 6px 24px
+            rgba(0, 0, 0, 0.45);
+}
+
+
+/* GraphDB 손글씨 밑줄 */
+
+.intro-graphdb::after {
+    content: "";
+
+    position: absolute;
+
+    left: -3%;
+
+    right: -8%;
+
+    bottom: -8px;
+
+    height: 7px;
+
+    border-radius: 999px;
+
+    background: #ff4d9b;
+
+    transform:
+            rotate(-3deg);
+
+    box-shadow:
+            0 4px 14px
+            rgba(255, 77, 155, 0.28);
+}
+
+
+/* =========================================================
+   이해할 수 있어
+========================================================= */
+
+.intro-bottom {
+    margin-top: 19px;
+
+    margin-left: 62px;
+
+    color: #ffffff;
+
+    font-size:
+            clamp(
+                    46px,
+                    4.2vw,
+                    79px
+            );
+
+    line-height: 1;
+
+
+    text-shadow:
+            0 4px 18px
+            rgba(0, 0, 0, 0.48);
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+.intro-start-button {
+    position: absolute;
+
+    right: 6%;
+
+    bottom: 7%;
+
+    z-index: 10;
+
+    min-width: 185px;
+
+    height: 58px;
+
+    padding:
+            0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border:
+            1px solid
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.2
+            );
+
+    border-radius: 11px;
+
+    background:
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.94
+            );
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 10px 30px
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.25
+            );
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+}
+
+
+.intro-start-button:hover {
+    transform:
+            translateY(-3px);
+
+    background: #ff5ca5;
+
+    box-shadow:
+            0 15px 38px
+            rgba(
+                    255,
+                    77,
+                    155,
+                    0.34
+            );
+}
+
+
+.intro-start-button svg {
+    transition:
+            transform 0.2s ease;
+}
+
+
+.intro-start-button:hover svg {
+    transform:
+            translateX(4px);
+}
+
+
+/* =========================================================
+   1920 × 1080
+========================================================= */
+
+@media (
+min-width: 1500px
+)
+and (
+min-height: 850px
+) {
+
+    .intro-content {
+        right: 4%;
+
+        width: 39%;
+    }
+
+
+    .intro-small {
+        font-size: 65px;
+    }
+
+
+    .intro-graphdb {
+        font-size: 118px;
+    }
+
+
+    .intro-bottom {
+        font-size: 67px;
+    }
+}
+
+
+/* =========================================================
+   SHORT SCREEN
+========================================================= */
+
+@media (
+max-height: 850px
+) {
+
+    .intro-content {
+        right: 6%;
+
+        transform:
+                translateY(-50%)
+                scale(0.88);
+
+        transform-origin:
+                right center;
+    }
+
+
+    .intro-start-button {
+        right: 4%;
+
+        bottom: 4%;
+
+        min-width: 160px;
+
+        height: 50px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   SMALL WIDTH
+========================================================= */
+
+@media (
+max-width: 1100px
+) {
+
+    .intro-content {
+        right: 4%;
+
+        width: 43%;
+    }
+
+
+    .intro-small {
+        font-size: 42px;
+    }
+
+
+    .intro-graphdb {
+        font-size: 78px;
+    }
+
+
+    .intro-bottom {
+        margin-left: 35px;
+
+        font-size: 45px;
+    }
+}

@@ -1,0 +1,1238 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --node-color: #ff6572;
+    --label-color: #51e493;
+    --relationship-color: #ffd65b;
+    --property-color: #61b9ff;
+    --direction-color: #b88cff;
+    --type-color: #49d9c2;
+
+    --node-soft: rgba(255, 101, 114, 0.11);
+    --label-soft: rgba(81, 228, 147, 0.10);
+    --relationship-soft: rgba(255, 214, 91, 0.09);
+    --property-soft: rgba(97, 185, 255, 0.10);
+    --direction-soft: rgba(184, 140, 255, 0.10);
+    --type-soft: rgba(73, 217, 194, 0.10);
+}
+
+.graph-structure-page {
+    min-height: 100vh;
+    padding: 18px 24px 22px;
+    overflow: hidden;
+    background:
+            radial-gradient(
+                    circle at 22% 24%,
+                    rgba(101, 65, 203, 0.09),
+                    transparent 30%
+            ),
+            #080a10;
+    color: #f8f8fb;
+    font-family:
+            Pretendard,
+            "Noto Sans KR",
+            Arial,
+            sans-serif;
+}
+
+.graph-structure-header {
+    height: 54px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 18px;
+}
+
+.structure-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.structure-brand span {
+    color: rgba(193, 170, 255, 0.88);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.20em;
+}
+
+.structure-brand strong {
+    font-size: 22px;
+    letter-spacing: -0.04em;
+}
+
+.structure-voice {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 1px solid rgba(151, 108, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(120, 74, 220, 0.06);
+    color: rgba(230, 220, 255, 0.88);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+}
+
+.structure-voice i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9768ff;
+    box-shadow: 0 0 11px #9768ff;
+}
+
+.structure-back,
+.structure-next,
+.graph-structure-empty button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.025);
+    color: rgba(250, 250, 252, 0.90);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+}
+
+.structure-back {
+    justify-self: end;
+}
+
+.structure-stage {
+    height: calc(100vh - 94px);
+    min-height: 700px;
+    display: grid;
+    grid-template-rows:
+        auto
+        1fr
+        auto;
+    gap: 13px;
+    padding: 20px 24px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 23px;
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.structure-heading > p {
+    margin: 0 0 5px;
+    color: #aa83ff;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.structure-heading > p span {
+    margin-left: 13px;
+    color: rgba(239, 236, 246, 0.72);
+}
+
+.structure-heading h1 {
+    margin: 0;
+    font-size: clamp(39px, 3vw, 52px);
+    line-height: 1.03;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+}
+
+.structure-subtitle {
+    display: block;
+    margin-top: 7px;
+    color: rgba(246, 246, 250, 0.80);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.structure-content {
+    min-height: 0;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.38fr)
+        minmax(540px, 0.92fr);
+    gap: 14px;
+}
+
+.simulation-fragment-panel,
+.relation-reader,
+.structure-keywords {
+    min-height: 0;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.013);
+}
+
+
+/* ===========================
+   LEFT GRAPH
+=========================== */
+
+.simulation-fragment-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.fragment-label {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    z-index: 40;
+    color: #b28dff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+}
+
+.fragment-label span {
+    margin-left: 9px;
+    color: rgba(245, 245, 250, 0.70);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0;
+}
+
+.mini-network {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    overflow: hidden;
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(87, 60, 174, 0.08),
+                    transparent 48%
+            ),
+            radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.05) 1px,
+                    transparent 1px
+            );
+    background-size:
+            auto,
+            27px 27px;
+}
+
+.mini-network-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.network-line {
+    stroke: rgba(151, 132, 201, 0.38);
+    stroke-width: 0.45;
+    vector-effect: non-scaling-stroke;
+}
+
+.network-line.relationship-line {
+    stroke: var(--relationship-color);
+    stroke-width: 2.7;
+    opacity: 1;
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    rgba(255, 214, 91, 0.72)
+            );
+}
+
+.mini-citizen {
+    position: absolute;
+    z-index: 8;
+    transform: translate(-50%, -50%);
+}
+
+.mini-avatar {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(155, 115, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(96, 63, 171, 0.10);
+    box-shadow:
+            0 0 10px
+            rgba(115, 79, 210, 0.18);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.mini-citizen.node-example {
+    z-index: 22;
+}
+
+.mini-citizen.node-example .mini-avatar {
+    width: 65px;
+    height: 65px;
+    border: 3px solid var(--node-color);
+    box-shadow:
+            0 0 0 5px var(--node-soft),
+            0 0 24px rgba(255, 101, 114, 0.36);
+    font-size: 42px;
+}
+
+.mini-citizen.relation-source-example {
+    z-index: 20;
+}
+
+.mini-citizen.relation-source-example .mini-avatar {
+    width: 63px;
+    height: 63px;
+    border: 3px solid var(--relationship-color);
+    box-shadow:
+            0 0 0 5px rgba(255, 214, 91, 0.08),
+            0 0 22px rgba(255, 214, 91, 0.26);
+    font-size: 41px;
+}
+
+.relation-source-name,
+.focus-target-name {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 7px);
+    transform: translateX(-50%);
+    min-width: max-content;
+    padding: 4px 9px;
+    border-radius: 7px;
+    background: rgba(8, 10, 16, 0.96);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.relation-source-name {
+    border: 1px solid rgba(255, 214, 91, 0.45);
+}
+
+.focus-target-name {
+    border: 1px solid rgba(255, 101, 114, 0.42);
+}
+
+.label-callout {
+    position: absolute;
+    left: 61px;
+    top: -15px;
+    padding: 7px 11px;
+    border: 2px solid var(--label-color);
+    border-radius: 8px;
+    background: #0d1512;
+    color: var(--label-color);
+    box-shadow:
+            0 0 13px
+            rgba(81, 228, 147, 0.15);
+    font-size: 14px;
+    font-weight: 950;
+    white-space: nowrap;
+}
+
+.property-callout {
+    position: absolute;
+    left: 61px;
+    top: 27px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    min-width: 155px;
+    padding: 8px;
+    border: 2px solid var(--property-color);
+    border-radius: 9px;
+    background: #0c1319;
+    box-shadow:
+            0 0 14px
+            rgba(97, 185, 255, 0.14);
+}
+
+.property-callout span {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: rgba(228, 242, 252, 0.83);
+    font-size: 9px;
+}
+
+.property-callout b {
+    color: var(--property-color);
+    font-size: 13px;
+}
+
+.relationship-callout {
+    position: absolute;
+    left: 43%;
+    top: 60%;
+    z-index: 25;
+    width: 225px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border: 2px solid var(--relationship-color);
+    border-radius: 11px;
+    background: rgba(18, 17, 10, 0.97);
+    box-shadow:
+            0 0 19px
+            rgba(255, 214, 91, 0.17);
+}
+
+.relationship-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px 9px;
+    border-bottom:
+            1px solid
+            rgba(255, 214, 91, 0.15);
+}
+
+.relationship-main span {
+    color: rgba(255, 241, 166, 0.78);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.relationship-main strong {
+    color: var(--relationship-color);
+    font-size: 17px;
+    font-weight: 950;
+}
+
+.relationship-meta {
+    display: grid;
+    gap: 5px;
+    padding: 9px 11px 10px;
+}
+
+.relationship-meta > div {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+    gap: 7px;
+}
+
+.relationship-meta span {
+    color: rgba(244, 244, 249, 0.72);
+    font-size: 8px;
+    font-weight: 900;
+}
+
+.relationship-meta b {
+    overflow: hidden;
+    color: rgba(250, 250, 252, 0.92);
+    font-size: 10px;
+    font-weight: 850;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.relationship-meta > div:nth-child(1) span {
+    color: var(--type-color);
+}
+
+.relationship-meta > div:nth-child(2) span {
+    color: var(--property-color);
+}
+
+.relationship-meta > div:nth-child(3) span {
+    color: var(--direction-color);
+}
+
+
+/* ===========================
+   RIGHT COLUMN
+=========================== */
+
+.right-learning-panel {
+    min-height: 0;
+    display: grid;
+    grid-template-rows:
+        minmax(300px, 1.22fr)
+        minmax(205px, 0.78fr);
+    gap: 10px;
+}
+
+
+/* ===========================
+   RELATION READER
+=========================== */
+
+.relation-reader {
+    padding: 14px 16px 12px;
+    overflow: hidden;
+    border-color:
+            rgba(255, 214, 91, 0.20);
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(255, 214, 91, 0.035),
+                    rgba(184, 140, 255, 0.025)
+            );
+}
+
+.reader-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.reader-heading > span {
+    color: rgba(255, 231, 128, 0.94);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.reader-heading > strong {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+}
+
+.reader-graph {
+    display: grid;
+    grid-template-columns:
+        105px
+        minmax(220px, 1fr)
+        105px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 11px;
+}
+
+.reader-node {
+    padding: 10px 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.reader-node > span {
+    display: block;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+}
+
+.reader-node > strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 16px;
+}
+
+.source-node {
+    border:
+            1px solid
+            rgba(255, 214, 91, 0.31);
+    background:
+            rgba(255, 214, 91, 0.06);
+}
+
+.source-node > span,
+.source-node > strong {
+    color: var(--relationship-color);
+}
+
+.target-node {
+    border:
+            1px solid
+            rgba(255, 101, 114, 0.31);
+    background:
+            rgba(255, 101, 114, 0.06);
+}
+
+.target-node > span,
+.target-node > strong {
+    color: var(--node-color);
+}
+
+.reader-relation {
+    min-width: 0;
+}
+
+.reader-arrow {
+    position: relative;
+    height: 18px;
+    margin: 0 8px 7px;
+}
+
+.reader-arrow-line {
+    position: absolute;
+    left: 0;
+    right: 9px;
+    top: 8px;
+    height: 2px;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(255, 214, 91, 0.38),
+                    var(--relationship-color)
+            );
+}
+
+.reader-arrow-head {
+    position: absolute;
+    right: -1px;
+    top: -11px;
+    color: var(--relationship-color);
+    font-size: 33px;
+    line-height: 1;
+}
+
+.reader-rel-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1.28fr;
+    gap: 7px;
+}
+
+.reader-box {
+    min-width: 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.reader-box > span {
+    display: block;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.reader-box > strong {
+    display: block;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.reader-box > small {
+    display: block;
+    margin-top: 2px;
+    color: rgba(247, 247, 250, 0.74);
+    font-size: 9px;
+}
+
+.type-reader {
+    border:
+            1px solid
+            rgba(73, 217, 194, 0.26);
+    background:
+            rgba(73, 217, 194, 0.055);
+}
+
+.type-reader > span,
+.type-reader > strong {
+    color: var(--type-color);
+}
+
+.property-reader {
+    border:
+            1px solid
+            rgba(97, 185, 255, 0.26);
+    background:
+            rgba(97, 185, 255, 0.055);
+}
+
+.property-reader > span,
+.property-reader > strong {
+    color: var(--property-color);
+}
+
+.reader-legend {
+    display: grid;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1.75fr;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.reader-legend > div {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    background:
+            rgba(255, 255, 255, 0.025);
+}
+
+.reader-legend b {
+    font-size: 11px;
+}
+
+.reader-legend span {
+    color: rgba(247, 247, 250, 0.76);
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.reader-type-color {
+    color: var(--type-color);
+}
+
+.reader-property-color {
+    color: var(--property-color);
+}
+
+.reader-direction-color {
+    color: var(--direction-color);
+    font-size: 16px !important;
+}
+
+.reader-other-types {
+    justify-content: flex-start;
+}
+
+.reader-other-types > span {
+    margin-right: 2px;
+    color: rgba(230, 219, 255, 0.78);
+}
+
+.reader-other-types > b {
+    padding: 3px 5px;
+    border-radius: 5px;
+    background:
+            rgba(184, 140, 255, 0.08);
+    color: #c8a8ff;
+    font-size: 8px;
+}
+
+
+/* ===========================
+   6 CONCEPT CARDS
+=========================== */
+
+.structure-keywords {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    grid-template-rows:
+        auto
+        repeat(3, 1fr);
+    gap: 7px;
+    padding: 12px;
+}
+
+.keyword-title {
+    grid-column: 1 / -1;
+    padding: 0 3px 3px;
+    color: rgba(249, 249, 252, 0.94);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.keyword-card {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.009);
+}
+
+.keyword-card > span {
+    color: rgba(245, 245, 250, 0.73);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.keyword-card strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+.keyword-card h2 {
+    margin: 2px 0 3px;
+    overflow: hidden;
+    font-size: clamp(17px, 1.15vw, 20px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.keyword-card p {
+    margin: 0;
+    color: rgba(246, 246, 250, 0.80);
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+.node-card {
+    border-color: rgba(255, 101, 114, 0.24);
+    background: var(--node-soft);
+}
+
+.node-card strong,
+.node-card h2 {
+    color: var(--node-color);
+}
+
+.label-card {
+    border-color: rgba(81, 228, 147, 0.23);
+    background: var(--label-soft);
+}
+
+.label-card strong,
+.label-card h2 {
+    color: var(--label-color);
+}
+
+.relationship-card {
+    border-color: rgba(255, 214, 91, 0.24);
+    background: var(--relationship-soft);
+}
+
+.relationship-card strong,
+.relationship-card h2 {
+    color: var(--relationship-color);
+}
+
+.property-card {
+    border-color: rgba(97, 185, 255, 0.24);
+    background: var(--property-soft);
+}
+
+.property-card strong,
+.property-card h2 {
+    color: var(--property-color);
+}
+
+.direction-card {
+    border-color: rgba(184, 140, 255, 0.24);
+    background: var(--direction-soft);
+}
+
+.direction-card strong,
+.direction-card h2 {
+    color: var(--direction-color);
+}
+
+.type-card {
+    border-color: rgba(73, 217, 194, 0.24);
+    background: var(--type-soft);
+}
+
+.type-card strong,
+.type-card h2 {
+    color: var(--type-color);
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.structure-footer {
+    min-height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.structure-key-message {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(246, 246, 250, 0.74);
+    font-size: 11px;
+}
+
+.structure-key-message span {
+    white-space: nowrap;
+}
+
+.structure-key-message i {
+    color: rgba(212, 197, 244, 0.50);
+    font-style: normal;
+}
+
+.message-node {
+    color: var(--node-color);
+}
+
+.message-property {
+    color: var(--property-color);
+}
+
+.message-relationship {
+    color: var(--relationship-color);
+}
+
+.message-direction {
+    color: var(--direction-color);
+}
+
+.structure-next {
+    color: #c8acff;
+    border-color:
+            rgba(155, 111, 255, 0.24);
+    background:
+            rgba(119, 73, 220, 0.055);
+}
+
+
+/* ===========================
+   EMPTY / RESPONSIVE
+=========================== */
+
+.graph-structure-empty {
+    max-width: 720px;
+    margin: 20vh auto 0;
+    text-align: center;
+}
+
+.graph-structure-empty > span {
+    color: #a77cf7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.graph-structure-empty h1 {
+    margin: 14px 0;
+    font-size: 36px;
+}
+
+.graph-structure-empty p {
+    color: rgba(235, 235, 243, 0.62);
+}
+
+@media (max-width: 1450px) {
+    .structure-content {
+        grid-template-columns:
+            minmax(0, 1.28fr)
+            minmax(510px, 0.98fr);
+    }
+
+    .reader-graph {
+        grid-template-columns:
+            90px
+            minmax(190px, 1fr)
+            90px;
+    }
+
+    .reader-heading > strong {
+        font-size: 16px;
+    }
+
+    .keyword-card h2 {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .graph-structure-page {
+        overflow: auto;
+    }
+
+    .structure-stage {
+        height: auto;
+    }
+
+    .structure-content {
+        grid-template-columns: 1fr;
+    }
+
+    .right-learning-panel {
+        grid-template-rows: auto auto;
+    }
+
+    .mini-network {
+        min-height: 440px;
+    }
+}
+
+
+/* =========================================================
+   FINAL TUNING
+========================================================= */
+
+.property-split {
+    line-height: 1.45 !important;
+}
+
+.property-split b {
+    display: inline-block;
+    min-width: 34px;
+    margin-right: 5px;
+    color: rgba(246, 246, 250, 0.62);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+.relationship-card h2 {
+    font-size: clamp(16px, 1.05vw, 18px);
+}
+
+.relationship-card p {
+    color: rgba(255, 235, 150, 0.78);
+}
+
+.relation-reader {
+    padding-top: 13px;
+}
+
+.structure-key-message {
+    font-size: 11px;
+}
+
+.structure-key-message .message-type {
+    color: var(--type-color);
+}
+
+.structure-key-message .message-property {
+    color: var(--property-color);
+}
+
+.structure-key-message .message-direction {
+    color: var(--direction-color);
+}
+
+@media (max-width: 1450px) {
+    .right-learning-panel {
+        grid-template-rows:
+            minmax(285px, 1.18fr)
+            minmax(210px, 0.82fr);
+    }
+
+    .relationship-callout {
+        left: 44%;
+        top: 59%;
+    }
+}
+
+/* =========================================================
+   작은 설명 텍스트 가독성 개선
+   기존 CSS 맨 마지막에 추가
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. Graph 안 시민 50 Property
+   age / interest
+--------------------------------------------------------- */
+
+.person-property span,
+.person-properties span,
+.node-property span {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+}
+
+
+/* 30 / 56% */
+.person-property strong,
+.person-properties strong,
+.node-property strong {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. 관계 읽는 법 - NODE / TYPE / PROPERTY 같은 작은 제목
+--------------------------------------------------------- */
+
+.relation-reader .label,
+.relation-reader .type-label,
+.relation-reader .property-label,
+.relation-reader .node-label,
+
+.relation-reading .label,
+.relation-reading .type-label,
+.relation-reading .property-label,
+.relation-reading .node-label {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.04em !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. 관계 읽는 법 - SPREAD / channel:SNS / 시민73 등 핵심 값
+--------------------------------------------------------- */
+
+.relation-reader .value,
+.relation-reader .type-value,
+.relation-reader .property-value,
+.relation-reader .node-value,
+
+.relation-reading .value,
+.relation-reading .type-value,
+.relation-reading .property-value,
+.relation-reading .node-value {
+    font-size: 17px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. 소문 전달 / 전달 경로 같은 보조 설명
+--------------------------------------------------------- */
+
+.relation-reader .description,
+.relation-reader .desc,
+.relation-reader small,
+
+.relation-reading .description,
+.relation-reading .desc,
+.relation-reading small {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. 관계 읽는 법 아래쪽
+   SPREAD 관계 종류 / SNS 관계 정보 / → 관계 방향
+--------------------------------------------------------- */
+
+.relation-reader .legend-item,
+.relation-reader .relation-legend,
+.relation-reader .hint-item,
+
+.relation-reading .legend-item,
+.relation-reading .relation-legend,
+.relation-reading .hint-item {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. FOLLOWS / LIKES / KNOWS 작은 배지
+--------------------------------------------------------- */
+
+.relation-reader .badge,
+.relation-reader .type-badge,
+.relation-reader .chip,
+
+.relation-reading .badge,
+.relation-reading .type-badge,
+.relation-reading .chip {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    padding: 3px 6px !important;
+}
+
+/* age / interest */
+.property-callout span {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+}
+
+/* 30 / 56% */
+.property-callout b {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+}
+
+/* =========================================================
+   GraphDB 핵심 6개 - 작은 글씨 가독성 최종 수정
+========================================================= */
+
+/* 01 ~ 06 번호 */
+.keyword-card > span {
+    font-size: 13px !important;
+    font-weight: 900 !important;
+}
+
+/* 하나의 대상 / Node의 종류 /
+   시민73 → 시민50 / 관계가 향하는 방향 / 관계의 종류 */
+.keyword-card p {
+    font-size: 14px !important;
+    font-weight: 650 !important;
+    line-height: 1.4 !important;
+    color: rgba(250, 250, 252, 0.90) !important;
+}
+
+/* PROPERTY 카드 안의 NODE / REL */
+.property-split b {
+    min-width: 40px !important;
+    margin-right: 7px !important;
+
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    line-height: 1.45 !important;
+
+    color: rgba(220, 215, 235, 0.85) !important;
+}
+
+/* PROPERTY 카드의 age · interest / channel */
+.property-split {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+
+/* =========================================================
+   GraphDB 핵심 6개
+   개념명 > 예시 > 설명 순서로 시각적 계층 변경
+========================================================= */
+
+/* NODE / LABEL / RELATIONSHIP / PROPERTY / DIRECTION / TYPE */
+.keyword-card strong {
+    display: block;
+
+    font-size: 17px !important;
+    font-weight: 950 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.02em !important;
+
+    margin-bottom: 3px !important;
+}
+
+/* 시민 50 / :Person / 두 Node의 연결 / 추가 정보 /
+   시민73 → 시민50 / SPREAD */
+.keyword-card h2 {
+    margin: 2px 0 5px !important;
+
+    font-size: 15px !important;
+    font-weight: 850 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* 하나의 대상 / Node의 종류 / 관계가 향하는 방향 등 */
+.keyword-card p {
+    margin: 0 !important;
+
+    font-size: 13px !important;
+    font-weight: 650 !important;
+    line-height: 1.3 !important;
+
+    color: rgba(250, 250, 252, 0.88) !important;
+}

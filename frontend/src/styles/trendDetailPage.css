@@ -1,0 +1,8005 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.trend-detail-page {
+    width: 100%;
+    height: 100vh;
+
+    padding:
+            9px
+            13px;
+
+    overflow: hidden;
+
+    color: #f5f6f9;
+
+    background:
+            radial-gradient(
+                    circle at 35% 48%,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color)
+                            4%,
+                            transparent
+                    ),
+                    transparent 34%
+            ),
+            #080a10;
+
+    font-family:
+            Inter,
+            Pretendard,
+            "Noto Sans KR",
+            sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.trend-detail-header {
+    flex: 0 0 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.detail-page-title {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.detail-page-title > span {
+    color:
+            var(--trend-color);
+
+    font-size: 8px;
+    font-weight: 950;
+
+    letter-spacing: 1.5px;
+}
+
+
+.detail-page-title > strong {
+    margin-top: 3px;
+
+    color: #f7f7fa;
+
+    font-size: 29px;
+    font-weight: 950;
+
+    line-height: 1;
+}
+
+
+.detail-page-title > small {
+    margin-top: 4px;
+
+    color: #747c8b;
+
+    font-size: 7px;
+}
+
+
+.trend-detail-header > button {
+    height: 31px;
+
+    padding:
+            0 13px;
+
+    border:
+            1px solid #292e38;
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: #c7cbd4;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 8px;
+    font-weight: 850;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   LAYOUT
+
+   ★ 오른쪽 430px 확장
+========================================================= */
+
+.trend-detail-layout {
+    min-height: 0;
+
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        430px;
+
+    gap: 11px;
+}
+
+
+.detail-graph-panel,
+.detail-inspector {
+    min-height: 0;
+
+    border:
+            1px solid #242934;
+
+    border-radius: 17px;
+
+    background: #0c0f16;
+}
+
+
+/* =========================================================
+   GRAPH PANEL
+========================================================= */
+
+.detail-graph-panel {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+.detail-graph-top {
+    flex: 0 0 48px;
+
+    padding:
+            0 13px;
+
+    border-bottom:
+            1px solid #222730;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.detail-graph-heading {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.detail-graph-heading strong {
+    color: #e6e8ed;
+
+    font-size: 9px;
+}
+
+
+.detail-graph-heading span {
+    color: #707887;
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.detail-legend {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.detail-legend span {
+    height: 21px;
+
+    padding:
+            0 7px;
+
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 5.5px;
+    font-weight: 900;
+}
+
+
+.legend-person {
+    color: #b594ff;
+    background: rgba(168,126,255,.09);
+}
+
+.legend-brand {
+    color: #66b4ff;
+    background: rgba(90,174,255,.09);
+}
+
+.legend-media {
+    color: #ed7bab;
+    background: rgba(231,111,165,.09);
+}
+
+.legend-style {
+    color: #66d9c4;
+    background: rgba(95,214,192,.09);
+}
+
+.legend-concept {
+    color: #e6c758;
+    background: rgba(224,194,73,.09);
+}
+
+.legend-product {
+    color: #f3a052;
+    background: rgba(242,152,69,.09);
+}
+
+
+/* =========================================================
+   ZOOM
+========================================================= */
+
+.detail-zoom {
+    display: flex;
+    align-items: center;
+
+    border:
+            1px solid #292e38;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+
+.detail-zoom button {
+    width: 28px;
+    height: 27px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-right:
+            1px solid #292e38;
+
+    background: transparent;
+
+    color: #959da9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+.detail-zoom button:last-child {
+    border-right: 0;
+}
+
+
+.detail-zoom > span {
+    width: 42px;
+
+    color: #c9cdd5;
+
+    text-align: center;
+
+    font-size: 6.5px;
+}
+
+
+/* =========================================================
+   STAGE TIMELINE
+========================================================= */
+
+.stage-timeline {
+    flex: 0 0 62px;
+
+    position: relative;
+
+    border-bottom:
+            1px solid #20242d;
+}
+
+
+.stage-timeline-start {
+    position: absolute;
+
+    left: 2%;
+    top: 26px;
+
+    color: #525b69;
+
+    font-size: 6px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+.stage-timeline-line {
+    position: absolute;
+
+    left: 12%;
+    right: 3%;
+
+    top: 39px;
+
+    height: 1px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(90,165,255,.22),
+                    rgba(90,165,255,.72),
+                    rgba(90,165,255,.2)
+            );
+}
+
+
+.stage-heading {
+    position: absolute;
+
+    top: 9px;
+
+    transform:
+            translateX(-50%);
+
+    text-align: center;
+}
+
+
+.stage-heading::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 27px;
+
+    width: 6px;
+    height: 6px;
+
+    transform:
+            translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #58a6ff;
+
+    box-shadow:
+            0 0 8px rgba(88,166,255,.5);
+}
+
+
+.stage-heading strong {
+    display: block;
+
+    color: #6eb4ff;
+
+    font-size: 11px;
+    font-weight: 950;
+}
+
+
+.stage-heading span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #939baa;
+
+    font-size: 7px;
+    font-weight: 800;
+}
+
+
+.stage-arrow {
+    position: absolute;
+
+    right: 1%;
+    top: 30px;
+
+    color: #5aa7ff;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CANVAS
+========================================================= */
+
+.detail-graph-canvas {
+    min-height: 0;
+
+    flex: 1;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image:
+            radial-gradient(
+                    circle,
+                    rgba(125,105,175,.105)
+                    1px,
+                    transparent 1px
+            );
+
+    background-size:
+            28px 28px;
+}
+
+
+.detail-graph-transform {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    transform-origin:
+            center center;
+
+    transition:
+            transform .16s ease;
+}
+
+
+.stage-column-guide {
+    position: absolute;
+
+    z-index: 0;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    border-left:
+            1px dashed rgba(105,126,160,.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   EDGES
+========================================================= */
+
+.detail-edge-layer {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    color:
+            var(--trend-color);
+
+    pointer-events: none;
+}
+
+
+.detail-edge {
+    stroke:
+            var(--trend-color);
+
+    stroke-width: .085;
+
+    opacity: .055;
+
+    transition:
+            opacity .16s ease,
+            stroke-width .16s ease;
+}
+
+
+.detail-edge.primary {
+    stroke-width: .115;
+
+    opacity: .27;
+}
+
+
+.detail-edge.selected {
+    stroke-width: .235;
+
+    opacity: .94;
+
+    filter:
+            drop-shadow(
+                    0 0 1.5px
+                    var(--trend-color)
+            );
+}
+
+
+.detail-edge.muted {
+    opacity: .009;
+}
+
+
+/* =========================================================
+   EDGE LABEL
+========================================================= */
+
+.detail-edge-label-layer {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+.detail-edge-label {
+    position: absolute;
+
+    transform:
+            translate(
+                    -50%,
+                    -50%
+            );
+
+    max-width: 110px;
+
+    padding:
+            3px 6px;
+
+    border:
+            1px solid rgba(255,255,255,.055);
+
+    border-radius: 4px;
+
+    background:
+            rgba(8,10,16,.92);
+
+    color: #7f8998;
+
+    font-size: 6.3px;
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+
+.detail-edge-label.selected {
+    z-index: 10;
+
+    color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    65%,
+                    white
+            );
+
+    font-size: 7px;
+
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    28%,
+                    transparent
+            );
+}
+
+
+/* =========================================================
+   NODE
+========================================================= */
+
+.detail-graph-node {
+    position: absolute;
+
+    z-index: 20;
+
+    width: 132px;
+    min-height: 83px;
+
+    padding: 6px;
+
+    transform:
+            translate(
+                    -50%,
+                    -50%
+            );
+
+    border: 0;
+
+    background: transparent;
+
+    color: #d6d9df;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transition:
+            opacity .16s ease,
+            transform .16s ease;
+}
+
+
+.graph-node-circle {
+    position: relative;
+
+    z-index: 2;
+
+    width: 34px;
+    height: 34px;
+
+    border:
+            2px solid rgba(255,255,255,.74);
+
+    border-radius: 50%;
+
+    background: #242938;
+
+    box-shadow:
+            0 0 15px currentColor;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* COLORS */
+
+.group-person {
+    color: #ad88ff;
+}
+
+.group-person .graph-node-circle {
+    background: #594286;
+}
+
+
+.group-media {
+    color: #ed77aa;
+}
+
+.group-media .graph-node-circle {
+    background: #814561;
+}
+
+
+.group-style {
+    color: #61d7c3;
+}
+
+.group-style .graph-node-circle {
+    background: #34756b;
+}
+
+
+.group-concept {
+    color: #e2c354;
+}
+
+.group-concept .graph-node-circle {
+    background: #78682f;
+}
+
+
+.group-brand {
+    color: #61afff;
+}
+
+.group-brand .graph-node-circle {
+    background: #315d88;
+}
+
+
+.group-market {
+    color: #72d4dc;
+}
+
+.group-market .graph-node-circle {
+    background: #356d73;
+}
+
+
+.group-product {
+    color: #f39a4a;
+}
+
+.group-product .graph-node-circle {
+    background: #805329;
+}
+
+
+.group-other {
+    color: #a7abb5;
+}
+
+
+/* NODE TEXT */
+
+.detail-graph-node > strong {
+    position: relative;
+
+    z-index: 2;
+
+    width: 125px;
+
+    margin-top: 7px;
+
+    overflow: hidden;
+
+    color: currentColor;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    line-height: 1.16;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.detail-graph-node > small {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 2px;
+
+    color: #77808f;
+
+    font-size: 6px;
+
+    text-transform: uppercase;
+}
+
+
+.detail-graph-node > em {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 2px;
+
+    color: #596271;
+
+    font-size: 5.8px;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   CENTER NODE
+========================================================= */
+
+.detail-graph-node.center {
+    z-index: 60;
+
+    width: 155px;
+
+    color:
+            var(--trend-color);
+}
+
+
+.detail-graph-node.center
+.graph-node-circle {
+    width: 88px;
+    height: 88px;
+
+    border:
+            3px solid rgba(255,255,255,.88);
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    55%,
+                    #111722
+            );
+
+    box-shadow:
+            0 0 0 10px
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    8%,
+                    transparent
+            ),
+            0 0 42px
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    70%,
+                    transparent
+            );
+}
+
+
+.trend-center-svg {
+    width: 49px;
+    height: 49px;
+
+    fill:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    15%,
+                    transparent
+            );
+
+    stroke: #f4f7fb;
+
+    stroke-width: 2.4;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.detail-graph-node.center
+> strong {
+    width: 150px;
+
+    margin-top: 11px;
+
+    color:
+            var(--trend-color);
+
+    font-size: 14px;
+    font-weight: 950;
+}
+
+
+.detail-graph-node.selected {
+    z-index: 80;
+
+    transform:
+            translate(-50%, -50%)
+            scale(1.1);
+}
+
+
+.detail-graph-node.dimmed {
+    opacity: .11;
+}
+
+
+/* =========================================================
+   GRAPH FOOTER
+========================================================= */
+
+.detail-graph-footer {
+    flex: 0 0 35px;
+
+    padding:
+            0 13px;
+
+    border-top:
+            1px solid #222730;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    color: #606978;
+
+    font-size: 6.5px;
+}
+
+
+.detail-graph-footer strong {
+    color: #b8bec8;
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.detail-inspector {
+    padding:
+            17px
+            16px;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+            #2c3340
+            transparent;
+}
+
+
+.detail-inspector::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.detail-inspector::-webkit-scrollbar-thumb {
+    background: #2c3340;
+
+    border-radius: 99px;
+}
+
+
+.inspector-eyebrow {
+    color:
+            var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1.3px;
+}
+
+
+/* =========================================================
+   DEFAULT TREND
+========================================================= */
+
+.inspector-main-trend {
+    margin-top: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.inspector-main-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border:
+            2px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    65%,
+                    white
+            );
+
+    border-radius: 50%;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    25%,
+                    #151922
+            );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inspector-main-icon .trend-center-svg {
+    width: 34px;
+    height: 34px;
+}
+
+
+.inspector-main-trend h2 {
+    margin: 0;
+
+    color: #f1f2f6;
+
+    font-size: 23px;
+}
+
+
+.inspector-main-trend small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #747c8a;
+
+    font-size: 7px;
+}
+
+
+.inspector-intro {
+    margin:
+            16px
+            0
+            0;
+
+    color: #9098a6;
+
+    font-size: 8px;
+
+    line-height: 1.7;
+}
+
+
+.inspector-summary-stats,
+.inspector-stats {
+    margin-top: 14px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    border:
+            1px solid #252a33;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.inspector-summary-stats > div,
+.inspector-stats > div {
+    min-height: 55px;
+
+    padding: 9px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+
+.inspector-summary-stats > div:first-child,
+.inspector-stats > div:first-child {
+    border-right:
+            1px solid #252a33;
+}
+
+
+.inspector-summary-stats span,
+.inspector-stats span {
+    color: #606977;
+
+    font-size: 6px;
+}
+
+
+.inspector-summary-stats strong {
+    color: #e3e5ea;
+
+    font-size: 16px;
+}
+
+
+.inspector-stats strong {
+    color: #e3e5ea;
+
+    font-size: 11px;
+}
+
+
+.inspector-divider {
+    height: 1px;
+
+    margin:
+            16px
+            0;
+
+    background: #292e37;
+}
+
+
+.inspector-section-title {
+    color: #daddE4;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   TIME FLOW SUMMARY
+========================================================= */
+
+.inspector-stage-list {
+    margin-top: 12px;
+}
+
+
+.inspector-stage {
+    position: relative;
+
+    min-height: 49px;
+
+    padding-left: 22px;
+}
+
+
+.inspector-stage:not(:last-child)::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: 11px;
+    bottom: -7px;
+
+    width: 1px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    20%,
+                    transparent
+            );
+}
+
+
+.inspector-stage > i {
+    position: absolute;
+
+    left: 2px;
+    top: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+            var(--trend-color);
+}
+
+
+.inspector-stage strong {
+    display: block;
+
+    color:
+            var(--trend-color);
+
+    font-size: 9px;
+}
+
+
+.inspector-stage span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #d0d4dc;
+
+    font-size: 8px;
+}
+
+
+.inspector-stage small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #616978;
+
+    font-size: 6px;
+}
+
+
+.inspector-tip {
+    margin-top: 14px;
+
+    padding: 11px;
+
+    border:
+            1px solid #252a33;
+
+    border-radius: 10px;
+
+    background:
+            rgba(255,255,255,.015);
+}
+
+
+.inspector-tip strong {
+    color:
+            var(--trend-color);
+
+    font-size: 7px;
+}
+
+
+.inspector-tip p {
+    margin:
+            5px
+            0
+            0;
+
+    color: #818a98;
+
+    font-size: 7px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SELECTED NODE HEADER
+========================================================= */
+
+.inspector-node-header {
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.inspector-node-dot {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    border:
+            2px solid rgba(255,255,255,.6);
+
+    border-radius: 50%;
+
+    background:
+            var(--trend-color);
+
+    box-shadow:
+            0 0 15px
+            var(--trend-color);
+}
+
+
+.inspector-node-header h2 {
+    margin: 0;
+
+    color: #f0f1f5;
+
+    font-size: 23px;
+
+    line-height: 1.08;
+}
+
+
+.inspector-type {
+    margin:
+            3px
+            0
+            0;
+
+    color: #777f8f;
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   EVIDENCE SECTION
+========================================================= */
+
+.evidence-section {
+    margin-top: 18px;
+
+    padding-top: 16px;
+
+    border-top:
+            1px solid #282d37;
+}
+
+
+.evidence-section-title span {
+    display: block;
+
+    color:
+            var(--trend-color);
+
+    font-size: 6px;
+    font-weight: 950;
+
+    letter-spacing: 1.2px;
+}
+
+
+.evidence-section-title strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #e8eaf0;
+
+    font-size: 12px;
+}
+
+
+.why-text {
+    margin:
+            10px
+            0
+            0;
+
+    padding:
+            11px
+            12px;
+
+    border:
+            1px solid #252b35;
+
+    border-radius: 10px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color)
+                            5%,
+                            transparent
+                    ),
+                    rgba(255,255,255,.01)
+            );
+
+    color: #aab1bd;
+
+    font-size: 8px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   CONNECTION CARD
+========================================================= */
+
+.connection-list {
+    margin-top: 10px;
+
+    display: grid;
+
+    gap: 8px;
+}
+
+
+.connection-card {
+    padding: 11px;
+
+    border:
+            1px solid #252b35;
+
+    border-radius: 10px;
+
+    background:
+            rgba(255,255,255,.013);
+}
+
+
+.connection-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+
+.connection-date {
+    color:
+            var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 900;
+}
+
+
+.connection-period {
+    max-width: 190px;
+
+    overflow: hidden;
+
+    color: #79818e;
+
+    font-size: 6px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.connection-flow {
+    margin-top: 9px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.connection-flow > strong {
+    overflow: hidden;
+
+    color: #e7e9ee;
+
+    font-size: 8px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.connection-flow > strong:last-child {
+    text-align: right;
+}
+
+
+.connection-arrow {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1px;
+}
+
+
+.connection-arrow b {
+    color:
+            var(--trend-color);
+
+    font-size: 5.5px;
+}
+
+
+.connection-arrow i {
+    color: #6c7583;
+
+    font-size: 11px;
+
+    font-style: normal;
+}
+
+
+.connection-context {
+    margin:
+            9px
+            0
+            0;
+
+    padding-top: 8px;
+
+    border-top:
+            1px solid rgba(255,255,255,.045);
+
+    color: #9199a7;
+
+    font-size: 7.3px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PUBLIC REACTION
+========================================================= */
+
+.reaction-list {
+    margin-top: 10px;
+
+    display: grid;
+
+    gap: 7px;
+}
+
+
+.reaction-card {
+    display: grid;
+
+    grid-template-columns:
+        32px
+        1fr;
+
+    gap: 10px;
+
+    padding: 9px;
+
+    border:
+            1px solid #252b35;
+
+    border-radius: 9px;
+
+    background:
+            rgba(255,255,255,.012);
+}
+
+
+.reaction-number {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 8px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    8%,
+                    #11151c
+            );
+
+    color:
+            var(--trend-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px;
+    font-weight: 950;
+}
+
+
+.reaction-card strong {
+    color: #dfe2e8;
+
+    font-size: 8px;
+}
+
+
+.reaction-card p {
+    margin:
+            4px
+            0
+            0;
+
+    color: #858e9c;
+
+    font-size: 7px;
+
+    line-height: 1.45;
+}
+
+
+.evidence-empty {
+    padding: 11px;
+
+    border:
+            1px dashed #2a303a;
+
+    border-radius: 9px;
+
+    color: #606977;
+
+    font-size: 7px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESOURCE CARDS
+========================================================= */
+
+.resource-grid {
+    margin-top: 10px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 7px;
+}
+
+
+.resource-card {
+    min-height: 68px;
+
+    padding: 9px;
+
+    border:
+            1px solid #252b35;
+
+    border-radius: 10px;
+
+    background:
+            rgba(255,255,255,.013);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    display: grid;
+
+    grid-template-columns:
+        32px
+        minmax(0, 1fr)
+        14px;
+
+    align-items: center;
+
+    gap: 7px;
+
+    transition:
+            border-color .15s ease,
+            background .15s ease,
+            transform .15s ease;
+}
+
+
+.resource-card:hover {
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    40%,
+                    #252b35
+            );
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    4%,
+                    #0c0f16
+            );
+
+    transform:
+            translateY(-1px);
+}
+
+
+.resource-icon {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 8px;
+
+    color:
+            var(--trend-color);
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    9%,
+                    #11151c
+            );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.resource-card strong {
+    display: block;
+
+    color: #e3e6eb;
+
+    font-size: 8px;
+}
+
+
+.resource-card span:not(.resource-icon) {
+    display: block;
+
+    margin-top: 2px;
+
+    overflow: hidden;
+
+    color: #7e8795;
+
+    font-size: 6px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.resource-card small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #596270;
+
+    font-size: 5.5px;
+}
+
+
+.resource-open {
+    color: #626b78;
+}
+
+
+/* =========================================================
+   RESOURCE PLACEHOLDER
+========================================================= */
+
+.resource-placeholder {
+    margin-top: 10px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 7px;
+}
+
+
+.resource-placeholder > div {
+    min-height: 55px;
+
+    border:
+            1px dashed #2a303a;
+
+    border-radius: 9px;
+
+    color: #596371;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.resource-placeholder > div span {
+    font-size: 6px;
+}
+
+
+.resource-placeholder > p {
+    grid-column:
+            1 / -1;
+
+    margin:
+            3px
+            0
+            0;
+
+    color: #626b79;
+
+    font-size: 6.5px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SMALL SCREEN
+========================================================= */
+
+@media (max-width: 1650px) {
+
+    .trend-detail-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            390px;
+    }
+
+
+    .detail-legend {
+        gap: 3px;
+    }
+
+
+    .detail-legend span {
+        padding:
+                0
+                5px;
+    }
+
+}
+
+
+@media (max-height: 850px) {
+
+    .trend-detail-page {
+        padding:
+                6px
+                10px;
+    }
+
+
+    .trend-detail-header {
+        flex-basis: 53px;
+    }
+
+
+    .detail-page-title > strong {
+        font-size: 25px;
+    }
+
+
+    .detail-graph-top {
+        flex-basis: 43px;
+    }
+
+
+    .stage-timeline {
+        flex-basis: 53px;
+    }
+
+
+    .detail-graph-node {
+        width: 118px;
+        min-height: 70px;
+    }
+
+
+    .graph-node-circle {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .detail-graph-node > strong {
+        width: 112px;
+
+        font-size: 8px;
+    }
+
+
+    .detail-graph-node.center
+    .graph-node-circle {
+        width: 75px;
+        height: 75px;
+    }
+
+
+    .trend-center-svg {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .detail-graph-node.center
+    > strong {
+        font-size: 12px;
+    }
+
+
+    .detail-inspector {
+        padding:
+                13px
+                13px;
+    }
+
+}
+
+/* =========================================================
+   EVIDENCE API DETAIL
+========================================================= */
+
+.evidence-relation-type {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--trend-color);
+
+    font-size: 6px;
+    font-weight: 850;
+
+    opacity: .8;
+}
+
+
+.evidence-reaction-text {
+    margin-top: 8px;
+
+    padding: 8px 9px;
+
+    border-left:
+            2px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    55%,
+                    transparent
+            );
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    4%,
+                    transparent
+            );
+
+    color: #a6adba;
+
+    font-size: 7px;
+
+    line-height: 1.55;
+}
+
+
+.evidence-reaction-text > span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--trend-color);
+
+    font-size: 5.5px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+
+.evidence-metric {
+    margin-top: 8px;
+
+    padding: 8px 9px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    18%,
+                    #252b35
+            );
+
+    border-radius: 8px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    5%,
+                    #10141b
+            );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.evidence-metric > span {
+    flex-shrink: 0;
+
+    color: var(--trend-color);
+
+    font-size: 5.5px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+
+.evidence-metric > div {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+
+.evidence-metric small {
+    color: #777f8d;
+
+    font-size: 6px;
+}
+
+
+.evidence-metric strong {
+    color: #f0f2f6;
+
+    font-size: 10px;
+}
+
+
+.evidence-metric em {
+    color: var(--trend-color);
+
+    font-size: 6.5px;
+    font-style: normal;
+    font-weight: 850;
+}
+
+
+.evidence-source-link {
+    width: fit-content;
+
+    margin-top: 8px;
+
+    padding: 6px 8px;
+
+    border:
+            1px solid #2a303a;
+
+    border-radius: 7px;
+
+    color: #9ca5b3;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-size: 6.5px;
+
+    transition:
+            border-color .15s ease,
+            color .15s ease,
+            background .15s ease;
+}
+
+
+.evidence-source-link:hover {
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    45%,
+                    #2a303a
+            );
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color)
+                    5%,
+                    transparent
+            );
+
+    color: var(--trend-color);
+}
+
+
+/* =========================================================
+   PRESENTATION EVIDENCE PANEL
+   음성 발표용: 스크롤 최소화 / 글씨 확대 / 이미지 중심
+========================================================= */
+
+.detail-inspector {
+    padding: 20px 20px 18px;
+    overflow: hidden;
+}
+
+.presentation-evidence-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inspector-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.presentation-node-header {
+    margin-top: 10px;
+    gap: 13px;
+}
+
+.presentation-node-header .inspector-node-dot {
+    width: 48px;
+    height: 48px;
+}
+
+.presentation-node-header h2 {
+    font-size: 30px;
+    line-height: 1.05;
+}
+
+.presentation-node-header .inspector-type {
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+/* 시각 자료 */
+.presentation-visual {
+    position: relative;
+    height: 220px;
+    margin: 18px 0 0;
+    overflow: hidden;
+    border: 1px solid #2b3340;
+    border-radius: 14px;
+    background: #111722;
+}
+
+.presentation-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.presentation-visual::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 48%;
+    background: linear-gradient(
+            transparent,
+            rgba(5, 8, 13, .92)
+    );
+    pointer-events: none;
+}
+
+.presentation-visual figcaption {
+    position: absolute;
+    z-index: 2;
+    left: 15px;
+    right: 15px;
+    bottom: 13px;
+    color: #f1f3f7;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.presentation-visual figcaption span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--trend-color);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 1.2px;
+}
+
+/* 핵심 흐름 */
+.presentation-story {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #2a303a;
+}
+
+.presentation-section-title span {
+    display: block;
+    color: var(--trend-color);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 1.3px;
+}
+
+.presentation-section-title strong {
+    display: block;
+    margin-top: 4px;
+    color: #f2f4f8;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.presentation-evidence-list {
+    margin-top: 11px;
+    display: grid;
+    gap: 10px;
+}
+
+.presentation-evidence-card {
+    padding: 12px 13px;
+    border: 1px solid #2b323e;
+    border-radius: 12px;
+    background: linear-gradient(
+            135deg,
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 5%,
+                    #10141c
+            ),
+            #0e1219
+    );
+}
+
+.presentation-flow-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.presentation-flow-line strong {
+    min-width: 0;
+    overflow: hidden;
+    color: #f0f2f6;
+    font-size: 13px;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.presentation-flow-line span {
+    flex-shrink: 0;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: color-mix(
+            in srgb,
+            var(--trend-color) 13%,
+            #151a22
+    );
+    color: var(--trend-color);
+    font-size: 8px;
+    font-weight: 950;
+}
+
+.presentation-context {
+    margin: 8px 0 0;
+    color: #c3c9d2;
+    font-size: 11.5px;
+    line-height: 1.55;
+}
+
+/* 판매량 / 증가율 등 숫자 */
+.presentation-metric {
+    margin-top: 9px;
+    padding: 9px 10px;
+    border-radius: 9px;
+    border: 1px solid
+    color-mix(
+            in srgb,
+            var(--trend-color) 25%,
+            #29313b
+    );
+    background: rgba(255,255,255,.025);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.presentation-metric small {
+    color: #8993a2;
+    font-size: 9px;
+}
+
+.presentation-metric strong {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 950;
+}
+
+.presentation-metric em {
+    color: var(--trend-color);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+/* 기사 페이지로 이동하지 않고 출처명만 표시 */
+.presentation-source {
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.055);
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    color: #75808e;
+}
+
+.presentation-source svg {
+    color: var(--trend-color);
+}
+
+.presentation-source span {
+    overflow: hidden;
+    font-size: 8.5px;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.presentation-source small {
+    color: #626c7a;
+    font-size: 8px;
+}
+
+.presentation-empty {
+    margin-top: 12px;
+    font-size: 10px;
+}
+
+/* 기본 상태 */
+.presentation-default .inspector-main-trend h2 {
+    font-size: 27px;
+}
+
+.presentation-default-intro {
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.presentation-time-title {
+    font-size: 12px;
+}
+
+.presentation-stage-list .inspector-stage {
+    min-height: 60px;
+}
+
+.presentation-stage-list .inspector-stage strong {
+    font-size: 12px;
+}
+
+.presentation-stage-list .inspector-stage span {
+    font-size: 11px;
+}
+
+/* 낮은 화면에서도 한 화면에 들어오도록 압축 */
+@media (max-height: 900px) {
+    .detail-inspector {
+        padding: 14px 15px;
+    }
+
+    .presentation-node-header .inspector-node-dot {
+        width: 42px;
+        height: 42px;
+    }
+
+    .presentation-node-header h2 {
+        font-size: 26px;
+    }
+
+    .presentation-visual {
+        height: 170px;
+        margin-top: 13px;
+    }
+
+    .presentation-story {
+        margin-top: 13px;
+        padding-top: 12px;
+    }
+
+    .presentation-section-title strong {
+        font-size: 16px;
+    }
+
+    .presentation-evidence-list {
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .presentation-evidence-card {
+        padding: 9px 10px;
+    }
+
+    .presentation-context {
+        font-size: 10.5px;
+        line-height: 1.45;
+    }
+
+    .presentation-metric strong {
+        font-size: 17px;
+    }
+}
+
+
+.presentation-visual-fallback {
+    height: 170px;
+    margin-top: 18px;
+    border: 1px solid #2b3340;
+    border-radius: 14px;
+    background:
+            radial-gradient(
+                    circle at 50% 40%,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 18%,
+                            transparent
+                    ),
+                    transparent 48%
+            ),
+            #10151d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-align: center;
+}
+
+.presentation-visual-fallback > span {
+    color: var(--trend-color);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 1.3px;
+}
+
+.presentation-visual-fallback > strong {
+    color: #f5f7fb;
+    font-size: 20px;
+    font-weight: 950;
+}
+
+.presentation-visual-fallback > i {
+    color: var(--trend-color);
+    font-size: 18px;
+    font-style: normal;
+}
+
+.presentation-visual-fallback > p {
+    margin: 0;
+    color: #aeb6c2;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+@media (max-height: 900px) {
+    .presentation-visual-fallback {
+        height: 130px;
+        margin-top: 13px;
+    }
+}
+
+
+/* =========================================================
+   2-HOP PRESENTATION STORY
+   이미지 + 3단계 흐름 + 소비 반응
+========================================================= */
+
+.presentation-evidence-list {
+    margin-top: 13px;
+    display: grid;
+    gap: 0;
+}
+
+.presentation-evidence-card {
+    position: relative;
+    min-height: 118px;
+    padding: 13px 14px 13px 58px;
+    border: 1px solid #2a313d;
+    border-radius: 13px;
+    background: rgba(255,255,255,.018);
+    display: block;
+}
+
+.presentation-evidence-card + .presentation-evidence-card {
+    margin-top: 10px;
+}
+
+.presentation-evidence-card.story-response {
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 35%,
+                    #2a313d
+            );
+    background:
+            linear-gradient(
+                    135deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 7%,
+                            #10151e
+                    ),
+                    #0f131a
+            );
+}
+
+.story-step-rail {
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    bottom: 13px;
+    width: 31px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-step-rail > span {
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 14%,
+                    #101722
+            );
+    color: var(--trend-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.story-step-rail > i {
+    margin-top: 7px;
+    color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 65%,
+                    #748092
+            );
+    font-size: 17px;
+    line-height: 1;
+    font-style: normal;
+}
+
+.story-card-content {
+    min-width: 0;
+}
+
+.story-stage-label {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 7px;
+}
+
+.story-stage-label > span {
+    color: var(--trend-color);
+    font-size: 7.5px;
+    font-weight: 950;
+    letter-spacing: 1px;
+}
+
+.story-stage-label > strong {
+    color: #f1f3f7;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.presentation-flow-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.presentation-flow-line > strong {
+    min-width: 0;
+    overflow: hidden;
+    color: #f1f3f7;
+    font-size: 12px;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.presentation-flow-line > span {
+    flex-shrink: 0;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 12%,
+                    #132033
+            );
+    color: var(--trend-color);
+    font-size: 7px;
+    font-weight: 950;
+}
+
+.presentation-context {
+    margin: 8px 0 0;
+    color: #c0c7d2;
+    font-size: 10.5px;
+    line-height: 1.55;
+}
+
+.presentation-source {
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.055);
+    color: #727d8c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 7.5px;
+}
+
+.presentation-source > span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.presentation-source > small {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: #697483;
+    font-size: 7px;
+}
+
+.consumer-signal-card {
+    margin-top: 14px;
+    padding: 15px 16px;
+    border: 1px solid
+    color-mix(
+            in srgb,
+            var(--trend-color) 42%,
+            #2b323d
+    );
+    border-radius: 14px;
+    background:
+            radial-gradient(
+                    circle at 85% 15%,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 16%,
+                            transparent
+                    ),
+                    transparent 42%
+            ),
+            #10151d;
+}
+
+.consumer-signal-heading > span {
+    display: block;
+    color: var(--trend-color);
+    font-size: 7px;
+    font-weight: 950;
+    letter-spacing: 1.2px;
+}
+
+.consumer-signal-heading > strong {
+    display: block;
+    margin-top: 3px;
+    color: #f2f4f8;
+    font-size: 14px;
+}
+
+.consumer-signal-value {
+    margin-top: 12px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 7px 10px;
+}
+
+.consumer-signal-value > small {
+    width: 100%;
+    color: #8d97a6;
+    font-size: 9px;
+}
+
+.consumer-signal-value > strong {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.consumer-signal-value > em {
+    color: var(--trend-color);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.consumer-signal-flow {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,.065);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.consumer-signal-flow > span {
+    color: #cdd3dc;
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.consumer-signal-flow > small {
+    color: #687382;
+    font-size: 7.5px;
+}
+
+.presentation-section-title > strong {
+    font-size: 17px;
+}
+
+@media (max-height: 900px) {
+    .presentation-visual {
+        height: 155px;
+    }
+
+    .presentation-evidence-card {
+        min-height: 103px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+
+    .presentation-context {
+        font-size: 9.5px;
+    }
+
+    .consumer-signal-value > strong {
+        font-size: 24px;
+    }
+}
+
+.detail-back-button {
+    position: relative;
+    z-index: 200;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.trend-detail-header {
+    position: relative;
+    z-index: 9999;
+}
+
+
+.detail-back-button {
+    position: relative;
+    z-index: 10000;
+
+    pointer-events: auto !important;
+
+    cursor: pointer !important;
+}
+
+.overview-back {
+    position: relative;
+    z-index: 1000;
+    pointer-events: auto;
+    cursor: pointer;
+}
+/* =========================================================
+   KEY TREND NODE
+========================================================= */
+
+.detail-graph-node.key-node {
+    z-index: 45;
+    width: 150px;
+    min-height: 105px;
+}
+
+.detail-graph-node.key-node .graph-node-circle {
+    width: 52px;
+    height: 52px;
+    border-width: 3px;
+    box-shadow:
+            0 0 0 6px color-mix(in srgb, currentColor 8%, transparent),
+            0 0 26px color-mix(in srgb, currentColor 65%, transparent);
+}
+
+.detail-graph-node.key-node > strong {
+    width: 145px;
+    margin-top: 9px;
+    font-size: 11.5px;
+    font-weight: 950;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+    line-height: 1.18;
+}
+
+.key-node-phase {
+    position: relative;
+    z-index: 3;
+    margin-top: 5px;
+    padding: 3px 7px;
+    border: 1px solid color-mix(in srgb, currentColor 34%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, currentColor 8%, #0d1118);
+    color: currentColor;
+    font-size: 6.7px;
+    font-weight: 950;
+    letter-spacing: .4px;
+}
+
+.detail-graph-node.key-node > small {
+    margin-top: 4px;
+    font-size: 6.3px;
+}
+
+.detail-graph-node.key-node > em {
+    margin-top: 2px;
+    font-size: 6px;
+}
+
+.detail-graph-node.center {
+    z-index: 60;
+}
+
+.detail-graph-node.center .key-node-phase {
+    display: none;
+}
+
+.detail-graph-node.key-node.selected {
+    z-index: 90;
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+.detail-graph-node.key-node.selected .graph-node-circle {
+    border-color: #ffffff;
+    box-shadow:
+            0 0 0 8px color-mix(in srgb, currentColor 12%, transparent),
+            0 0 38px color-mix(in srgb, currentColor 85%, transparent);
+}
+
+.detail-graph-node.key-phase-origin .graph-node-circle {
+    outline: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+}
+
+.detail-graph-node.key-phase-adoption .graph-node-circle {
+    outline: 2px solid color-mix(in srgb, currentColor 55%, transparent);
+}
+
+.detail-graph-node.key-phase-shift .graph-node-circle {
+    outline: 2px dashed color-mix(in srgb, currentColor 55%, transparent);
+}
+
+.detail-graph-node.key-phase-revival .graph-node-circle {
+    outline: 2px solid color-mix(in srgb, currentColor 70%, transparent);
+}
+
+.detail-graph-node.key-phase-transform .graph-node-circle {
+    outline: 3px double color-mix(in srgb, currentColor 65%, transparent);
+}
+
+/* =========================================================
+   RIGHT PANEL - KEY NODE SUMMARY
+========================================================= */
+
+.key-node-summary {
+    margin-top: 14px;
+    padding: 13px 14px;
+    border: 1px solid color-mix(in srgb, var(--trend-color) 27%, #29303a);
+    border-radius: 12px;
+    background:
+            linear-gradient(
+                    135deg,
+                    color-mix(in srgb, var(--trend-color) 8%, #11161e),
+                    #0e1219
+            );
+}
+
+.key-node-summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.key-node-summary-top > span {
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--trend-color) 14%, #131a24);
+    color: var(--trend-color);
+    font-size: 7.5px;
+    font-weight: 950;
+    letter-spacing: .8px;
+}
+
+.key-node-summary-top > strong {
+    color: #eef1f6;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.key-node-summary > p {
+    margin: 9px 0 0;
+    color: #bbc2cc;
+    font-size: 10.5px;
+    line-height: 1.55;
+}
+
+@media (max-height: 900px) {
+    .detail-graph-node.key-node {
+        width: 138px;
+        min-height: 90px;
+    }
+
+    .detail-graph-node.key-node .graph-node-circle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .detail-graph-node.key-node > strong {
+        width: 132px;
+        font-size: 10px;
+    }
+
+    .key-node-phase {
+        margin-top: 3px;
+        padding: 2px 6px;
+        font-size: 6px;
+    }
+
+    .key-node-summary {
+        margin-top: 10px;
+        padding: 10px 11px;
+    }
+
+    .key-node-summary > p {
+        font-size: 9.5px;
+        line-height: 1.45;
+    }
+}
+
+/* =========================================================
+   KEY NODE RED BORDER - VERIFIED WORKING RULE
+========================================================= */
+.detail-graph-node.key-node .graph-node-circle {
+    border: 4px solid red !important;
+    box-shadow:
+            0 0 0 3px rgba(255, 0, 0, 0.35),
+            0 0 20px red !important;
+}
+
+/* =========================================================
+   FINAL PRESENTATION PANEL
+   한 화면 완결 / NO SCROLL / VISUAL FIRST
+========================================================= */
+
+/* 오른쪽 전체 패널은 절대 스크롤하지 않음 */
+.detail-inspector {
+    min-height: 0;
+    padding: 14px 15px !important;
+    overflow: hidden !important;
+}
+
+/*
+    한 화면에 반드시 들어오도록:
+    HEADER + SUMMARY + VISUAL + GRAPH FLOW + SIGNAL
+*/
+.presentation-evidence-panel.no-scroll-evidence {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        minmax(108px, 1.25fr)
+        minmax(180px, 1.8fr)
+        auto;
+
+    align-content: stretch;
+
+    gap: 8px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.presentation-head-block {
+    min-height: 0;
+}
+
+.presentation-head-block .inspector-eyebrow {
+    display: block;
+
+    font-size: 7.5px;
+    letter-spacing: 1.35px;
+}
+
+.presentation-node-header {
+    margin-top: 5px !important;
+
+    gap: 10px !important;
+}
+
+.presentation-node-header .inspector-node-dot {
+    width: 39px !important;
+    height: 39px !important;
+
+    flex: 0 0 39px;
+}
+
+.presentation-node-header h2 {
+    margin: 0;
+
+    max-width: 330px;
+
+    overflow: hidden;
+
+    font-size: 25px !important;
+    font-weight: 950;
+
+    line-height: 1.02;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.presentation-node-header .inspector-type {
+    margin-top: 3px !important;
+
+    font-size: 8px !important;
+}
+
+
+/* =========================================================
+   KEY SUMMARY
+   발표자가 설명하므로 최대 두 줄만 표시
+========================================================= */
+
+.compact-key-summary {
+    margin: 0 !important;
+
+    padding: 8px 10px !important;
+
+    border-radius: 10px !important;
+}
+
+.compact-key-summary .key-node-summary-top > span {
+    padding: 3px 6px;
+
+    font-size: 6.6px;
+}
+
+.compact-key-summary .key-node-summary-top > strong {
+    font-size: 9.5px;
+}
+
+.compact-key-summary > p {
+    margin: 5px 0 0 !important;
+
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    color: #b9c1cc;
+
+    font-size: 8.5px !important;
+
+    line-height: 1.35 !important;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+
+/* =========================================================
+   IMAGE / GRAPH VISUAL
+========================================================= */
+
+.compact-presentation-visual,
+.compact-visual-fallback {
+    min-height: 0;
+    height: 100% !important;
+
+    margin: 0 !important;
+
+    border-radius: 11px !important;
+}
+
+
+/* 실제 이미지 */
+.compact-presentation-visual {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.compact-presentation-visual .visual-underlay {
+    position: absolute;
+    z-index: 0;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background:
+            radial-gradient(
+                    circle at 50% 45%,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 10%,
+                            transparent
+                    ),
+                    transparent 48%
+            ),
+            #0d121a;
+}
+
+.compact-presentation-visual .visual-underlay span {
+    color: var(--trend-color);
+
+    font-size: 6.8px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.compact-presentation-visual .visual-underlay strong {
+    max-width: 80%;
+
+    overflow: hidden;
+
+    color: #e9edf4;
+
+    font-size: 16px;
+    font-weight: 950;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-presentation-visual img {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 38%;
+}
+
+.compact-presentation-visual::after {
+    z-index: 2;
+
+    height: 42% !important;
+}
+
+.compact-presentation-visual figcaption {
+    z-index: 3;
+
+    left: 11px !important;
+    right: 11px !important;
+    bottom: 9px !important;
+
+    overflow: hidden;
+
+    font-size: 9.5px !important;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-presentation-visual figcaption span {
+    margin-bottom: 2px !important;
+
+    font-size: 6.5px !important;
+}
+
+
+/* 이미지가 없는 핵심 노드 = 그래프 관계를 시각자료로 사용 */
+.compact-visual-fallback {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    padding: 7px 10px !important;
+
+    background:
+            radial-gradient(
+                    circle at 50% 45%,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 14%,
+                            transparent
+                    ),
+                    transparent 52%
+            ),
+            linear-gradient(
+                    135deg,
+                    #101621,
+                    #0b0f16
+            ) !important;
+}
+
+.compact-visual-fallback > span {
+    color: var(--trend-color);
+
+    font-size: 6.7px !important;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.compact-visual-fallback > strong {
+    max-width: 92%;
+
+    overflow: hidden;
+
+    color: #f3f5f8;
+
+    font-size: 19px !important;
+    font-weight: 950;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fallback-flow-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+
+    color: var(--trend-color);
+}
+
+.fallback-flow-line i {
+    height: 16px;
+
+    font-size: 15px;
+    font-style: normal;
+    line-height: 16px;
+}
+
+.fallback-flow-line small {
+    padding: 2px 6px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 30%,
+                    #2a313c
+            );
+
+    border-radius: 999px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 8%,
+                    #111722
+            );
+
+    color: var(--trend-color);
+
+    font-size: 6px;
+    font-weight: 900;
+}
+
+.compact-visual-fallback > p {
+    max-width: 92%;
+
+    margin: 1px 0 0 !important;
+
+    overflow: hidden;
+
+    color: #dbe1e9;
+
+    font-size: 11px !important;
+    font-weight: 850;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   COMPACT GRAPH FLOW
+========================================================= */
+
+.compact-flow-section {
+    min-height: 0;
+
+    padding-top: 7px;
+
+    border-top: 1px solid #272e38;
+
+    overflow: hidden;
+}
+
+.compact-flow-title {
+    height: 24px;
+
+    display: flex;
+    align-items: baseline;
+
+    gap: 7px;
+}
+
+.compact-flow-title > span {
+    color: var(--trend-color);
+
+    font-size: 6.6px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.compact-flow-title > strong {
+    color: #e8ecf2;
+
+    font-size: 10.5px;
+    font-weight: 950;
+}
+
+.compact-flow-list {
+    height: calc(100% - 24px);
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 5px;
+}
+
+.compact-flow-row {
+    min-height: 0;
+
+    padding: 5px 7px;
+
+    border: 1px solid #29313c;
+    border-radius: 9px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 5%,
+                            #10151d
+                    ),
+                    #0e1218
+            );
+
+    display: grid;
+
+    grid-template-columns:
+        24px
+        minmax(0, 1fr);
+
+    gap: 7px;
+
+    overflow: hidden;
+}
+
+.compact-flow-step {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.compact-flow-step > span {
+    width: 23px;
+    height: 23px;
+
+    border-radius: 7px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 14%,
+                    #142033
+            );
+
+    color: var(--trend-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 7px;
+    font-weight: 950;
+}
+
+.compact-flow-body {
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        auto;
+
+    align-content: center;
+
+    gap: 2px;
+}
+
+.compact-flow-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.compact-flow-meta > span {
+    color: var(--trend-color);
+
+    font-size: 5.8px;
+    font-weight: 950;
+
+    letter-spacing: .8px;
+}
+
+.compact-flow-meta > small {
+    padding: 1px 5px;
+
+    border-radius: 999px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 11%,
+                    #15202d
+            );
+
+    color: #a8cfff;
+
+    font-size: 5.5px;
+    font-weight: 900;
+}
+
+.compact-flow-route {
+    min-width: 0;
+}
+
+.compact-flow-route > strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #f0f2f6;
+
+    font-size: 9px;
+    font-weight: 950;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-flow-proof {
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        12px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 4px;
+
+    color: #697586;
+}
+
+.compact-flow-proof svg {
+    color: var(--trend-color);
+}
+
+.compact-flow-proof > span {
+    overflow: hidden;
+
+    font-size: 6.5px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-flow-proof > small {
+    color: #596575;
+
+    font-size: 6px;
+}
+
+.compact-flow-empty {
+    margin: 0 !important;
+
+    height: calc(100% - 24px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px !important;
+}
+
+
+/* =========================================================
+   DATA SIGNAL
+========================================================= */
+
+.compact-consumer-signal,
+.signal-status-card {
+    min-height: 64px;
+
+    margin: 0 !important;
+
+    padding: 8px 10px !important;
+
+    border-radius: 10px !important;
+}
+
+.compact-consumer-signal .consumer-signal-heading {
+    margin: 0;
+}
+
+.compact-consumer-signal .consumer-signal-heading span,
+.signal-status-card > span {
+    color: var(--trend-color);
+
+    font-size: 6.5px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.compact-consumer-signal .consumer-signal-heading strong {
+    font-size: 10px;
+}
+
+.compact-consumer-signal .consumer-signal-value {
+    margin-top: 3px;
+
+    gap: 6px;
+}
+
+.compact-consumer-signal .consumer-signal-value small {
+    font-size: 7px;
+}
+
+.compact-consumer-signal .consumer-signal-value strong {
+    font-size: 21px;
+}
+
+.compact-consumer-signal .consumer-signal-value em {
+    font-size: 8.5px;
+}
+
+.compact-consumer-signal .consumer-signal-flow {
+    margin-top: 3px;
+    padding-top: 3px;
+}
+
+.compact-consumer-signal .consumer-signal-flow span,
+.compact-consumer-signal .consumer-signal-flow small {
+    font-size: 6.5px;
+}
+
+.signal-status-card {
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 25%,
+                    #29313b
+            );
+
+    background:
+            linear-gradient(
+                    135deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 7%,
+                            #10151d
+                    ),
+                    #0e1218
+            );
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        1fr;
+
+    align-items: center;
+
+    column-gap: 8px;
+}
+
+.signal-status-card > strong {
+    color: #f4f6fa;
+
+    font-size: 13px;
+    font-weight: 950;
+
+    text-align: right;
+}
+
+.signal-status-card > small {
+    grid-column: 1 / -1;
+
+    margin-top: 2px;
+
+    color: #788494;
+
+    font-size: 6.7px;
+}
+
+
+/* =========================================================
+   RESPONSIVE HEIGHT
+   발표 환경 768~900px 높이까지 스크롤 없이 유지
+========================================================= */
+
+@media (max-height: 900px) {
+
+    .detail-inspector {
+        padding: 10px 11px !important;
+    }
+
+    .presentation-evidence-panel.no-scroll-evidence {
+        grid-template-rows:
+            auto
+            auto
+            minmax(90px, 1.05fr)
+            minmax(160px, 1.65fr)
+            auto;
+
+        gap: 6px;
+    }
+
+    .presentation-node-header .inspector-node-dot {
+        width: 34px !important;
+        height: 34px !important;
+
+        flex-basis: 34px;
+    }
+
+    .presentation-node-header h2 {
+        font-size: 21px !important;
+    }
+
+    .compact-key-summary {
+        padding: 6px 8px !important;
+    }
+
+    .compact-key-summary > p {
+        font-size: 7.5px !important;
+
+        -webkit-line-clamp: 1;
+    }
+
+    .compact-flow-title {
+        height: 20px;
+    }
+
+    .compact-flow-list {
+        height: calc(100% - 20px);
+
+        gap: 4px;
+    }
+
+    .compact-flow-row {
+        padding: 4px 6px;
+
+        grid-template-columns:
+            21px
+            minmax(0, 1fr);
+
+        gap: 5px;
+    }
+
+    .compact-flow-step > span {
+        width: 20px;
+        height: 20px;
+
+        font-size: 6px;
+    }
+
+    .compact-flow-route > strong {
+        font-size: 8px;
+    }
+
+    .compact-flow-proof > span {
+        font-size: 5.8px;
+    }
+
+    .compact-consumer-signal,
+    .signal-status-card {
+        min-height: 54px;
+
+        padding: 6px 8px !important;
+    }
+
+    .compact-consumer-signal .consumer-signal-value strong {
+        font-size: 18px;
+    }
+}
+
+
+/* 아주 낮은 화면에서도 스크롤 대신 정보 밀도를 줄임 */
+@media (max-height: 760px) {
+
+    .trend-detail-header {
+        flex-basis: 50px;
+    }
+
+    .detail-page-title > strong {
+        font-size: 24px;
+    }
+
+    .presentation-evidence-panel.no-scroll-evidence {
+        grid-template-rows:
+            auto
+            auto
+            minmax(76px, .9fr)
+            minmax(132px, 1.45fr)
+            auto;
+
+        gap: 4px;
+    }
+
+    .compact-key-summary > p {
+        display: none;
+    }
+
+    .compact-flow-list {
+        grid-template-rows:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+    }
+
+    .compact-flow-proof {
+        display: none;
+    }
+
+    .compact-consumer-signal,
+    .signal-status-card {
+        min-height: 46px;
+    }
+}
+
+/* =========================================================
+   PRESENTATION DETAIL V2
+   더 큰 글씨 + 사진 + WHY + GRAPH FLOW
+   한 화면 완결 / 스크롤 없음
+========================================================= */
+
+.detail-inspector {
+    overflow: hidden !important;
+}
+
+.presentation-evidence-panel.no-scroll-evidence {
+    height: 100%;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        auto
+        minmax(150px, 1.35fr)
+        minmax(190px, 1.65fr)
+        auto;
+
+    gap: 7px;
+
+    overflow: hidden !important;
+}
+
+
+/* HEADER */
+.presentation-head-block .inspector-eyebrow {
+    font-size: 8px !important;
+}
+
+.presentation-node-header h2 {
+    max-width: 360px !important;
+
+    font-size: 27px !important;
+    line-height: 1.02 !important;
+}
+
+.presentation-node-header .inspector-type {
+    font-size: 9px !important;
+}
+
+
+/* PHASE SUMMARY */
+.compact-key-summary {
+    padding: 8px 10px !important;
+}
+
+.compact-key-summary .key-node-summary-top > span {
+    font-size: 7.3px !important;
+}
+
+.compact-key-summary .key-node-summary-top > strong {
+    font-size: 10.8px !important;
+}
+
+.compact-key-summary > p {
+    margin-top: 5px !important;
+
+    font-size: 9.2px !important;
+    line-height: 1.35 !important;
+
+    -webkit-line-clamp: 1 !important;
+}
+
+
+/* WHY */
+.why-signal-strip {
+    min-height: 44px;
+
+    padding: 7px 10px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 28%,
+                    #2b333e
+            );
+
+    border-radius: 10px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 9%,
+                            #111721
+                    ),
+                    #0e131b
+            );
+
+    display: grid;
+
+    grid-template-columns:
+        78px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 9px;
+
+    overflow: hidden;
+}
+
+.why-signal-strip > span {
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: .9px;
+}
+
+.why-signal-strip > strong {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    color: #e3e8ef;
+
+    font-size: 9.5px;
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+
+/* IMAGE */
+.compact-presentation-visual {
+    min-height: 150px !important;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 22%,
+                    #2a313b
+            ) !important;
+}
+
+.compact-presentation-visual img {
+    object-position: center 40% !important;
+}
+
+.compact-presentation-visual figcaption {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    align-items: end;
+
+    gap: 7px;
+
+    font-size: 10px !important;
+}
+
+.compact-presentation-visual figcaption > span {
+    margin: 0 !important;
+
+    font-size: 6.7px !important;
+}
+
+.compact-presentation-visual figcaption > strong {
+    overflow: hidden;
+
+    color: #f4f6f8;
+
+    font-size: 10px;
+    font-weight: 950;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-presentation-visual figcaption > small {
+    color: #9ba6b4;
+
+    font-size: 6.5px;
+
+    white-space: nowrap;
+}
+
+
+/* MODERN SLIM BEFORE -> NOW */
+.comparison-visual {
+    background: #0d1219;
+}
+
+.visual-comparison-grid {
+    position: absolute;
+    z-index: 1;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        34px
+        minmax(0, 1fr);
+
+    align-items: stretch;
+}
+
+.visual-compare-item {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.visual-compare-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.visual-compare-item > span {
+    position: absolute;
+
+    top: 8px;
+    left: 8px;
+
+    padding: 3px 6px;
+
+    border:
+            1px solid
+            rgba(255,255,255,.23);
+
+    border-radius: 999px;
+
+    background:
+            rgba(7,10,15,.72);
+
+    color: #f4f6f8;
+
+    font-size: 6.5px;
+    font-weight: 950;
+}
+
+.visual-compare-arrow {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(10,14,20,.15),
+                    rgba(10,14,20,.94),
+                    rgba(10,14,20,.15)
+            );
+
+    color: var(--trend-color);
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+
+/* GRAPH FLOW */
+.compact-flow-title {
+    height: 27px !important;
+}
+
+.compact-flow-title > span {
+    font-size: 7px !important;
+}
+
+.compact-flow-title > strong {
+    font-size: 12px !important;
+}
+
+.compact-flow-list {
+    height: calc(100% - 27px) !important;
+}
+
+.compact-flow-row {
+    grid-template-columns:
+        27px
+        minmax(0, 1fr) !important;
+
+    gap: 8px !important;
+
+    padding: 6px 8px !important;
+}
+
+.compact-flow-step > span {
+    width: 25px !important;
+    height: 25px !important;
+
+    font-size: 7.5px !important;
+}
+
+.compact-flow-meta > span {
+    font-size: 6.5px !important;
+}
+
+.compact-flow-meta > small {
+    font-size: 6.2px !important;
+}
+
+.compact-flow-route > strong {
+    font-size: 10.2px !important;
+}
+
+.compact-flow-proof > span {
+    font-size: 7px !important;
+}
+
+.compact-flow-proof > small {
+    font-size: 6.5px !important;
+}
+
+
+/* DATA / SIGNAL */
+.compact-consumer-signal,
+.signal-status-card {
+    min-height: 62px !important;
+}
+
+.compact-consumer-signal .consumer-signal-heading span,
+.signal-status-card > span {
+    font-size: 7px !important;
+}
+
+.compact-consumer-signal .consumer-signal-heading strong {
+    font-size: 11px !important;
+}
+
+.compact-consumer-signal .consumer-signal-value strong {
+    font-size: 24px !important;
+}
+
+.compact-consumer-signal .consumer-signal-value em {
+    font-size: 9.5px !important;
+}
+
+.signal-status-card > strong {
+    font-size: 15px !important;
+}
+
+
+/* 900px 이하에서도 한 화면 유지 */
+@media (max-height: 900px) {
+
+    .presentation-evidence-panel.no-scroll-evidence {
+        grid-template-rows:
+            auto
+            auto
+            auto
+            minmax(124px, 1.15fr)
+            minmax(164px, 1.45fr)
+            auto;
+
+        gap: 5px;
+    }
+
+    .presentation-node-header h2 {
+        font-size: 23px !important;
+    }
+
+    .why-signal-strip {
+        min-height: 37px;
+
+        padding: 5px 8px;
+
+        grid-template-columns:
+            68px
+            minmax(0, 1fr);
+    }
+
+    .why-signal-strip > strong {
+        font-size: 8.3px;
+
+        -webkit-line-clamp: 1;
+    }
+
+    .compact-presentation-visual {
+        min-height: 124px !important;
+    }
+
+    .compact-presentation-visual figcaption > strong {
+        font-size: 8.8px;
+    }
+
+    .compact-flow-title {
+        height: 22px !important;
+    }
+
+    .compact-flow-list {
+        height: calc(100% - 22px) !important;
+    }
+
+    .compact-flow-row {
+        padding: 4px 6px !important;
+    }
+
+    .compact-flow-route > strong {
+        font-size: 9px !important;
+    }
+
+    .compact-consumer-signal,
+    .signal-status-card {
+        min-height: 52px !important;
+    }
+}
+
+
+/* 760px 이하에서는 출처 텍스트만 줄이고 주요 내용은 유지 */
+@media (max-height: 760px) {
+
+    .presentation-evidence-panel.no-scroll-evidence {
+        grid-template-rows:
+            auto
+            auto
+            auto
+            minmax(95px, 1fr)
+            minmax(135px, 1.3fr)
+            auto;
+    }
+
+    .compact-key-summary > p {
+        display: none !important;
+    }
+
+    .why-signal-strip {
+        min-height: 32px;
+    }
+
+    .why-signal-strip > strong {
+        font-size: 7.6px;
+    }
+
+    .compact-presentation-visual figcaption > small {
+        display: none;
+    }
+
+    .compact-flow-proof > span,
+    .compact-flow-proof > small {
+        font-size: 5.7px !important;
+    }
+}
+
+/* =========================================================
+   PRESENTATION DETAIL V3
+   한 화면 / 큰 글씨 / 단일 FLOW 박스 / 시각 근거 중심
+========================================================= */
+
+.detail-inspector {
+    overflow: hidden !important;
+}
+
+.v3-panel {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        minmax(220px, 1.65fr)
+        auto
+        auto;
+
+    gap: 8px;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.v3-header .inspector-eyebrow {
+    font-size: 8px !important;
+    letter-spacing: 1.3px !important;
+}
+
+.v3-header .presentation-node-header {
+    margin-top: 5px !important;
+}
+
+.v3-header .presentation-node-header h2 {
+    max-width: 360px !important;
+
+    font-size: 29px !important;
+    line-height: 1.02 !important;
+
+    overflow: visible !important;
+
+    text-overflow: unset !important;
+    white-space: normal !important;
+}
+
+.v3-header .presentation-node-header .inspector-type {
+    font-size: 9px !important;
+}
+
+
+/* =========================================================
+   CONTEXT
+========================================================= */
+
+.v3-context-card {
+    padding: 9px 11px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 35%,
+                    #2a3340
+            );
+
+    border-radius: 11px;
+
+    background:
+            linear-gradient(
+                    120deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 7%,
+                            #111721
+                    ),
+                    #0d1219
+            );
+}
+
+.v3-context-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+.v3-context-top > span {
+    padding: 3px 7px;
+
+    border-radius: 999px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 15%,
+                    #152033
+            );
+
+    color: var(--trend-color);
+
+    font-size: 7.5px;
+    font-weight: 950;
+
+    letter-spacing: .8px;
+}
+
+.v3-context-top > strong {
+    color: #f2f5f8;
+
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.v3-meaning {
+    margin: 6px 0 0;
+
+    color: #c4ccd6;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    line-height: 1.35;
+
+    white-space: normal;
+}
+
+.v3-why {
+    margin-top: 6px;
+
+    padding-top: 6px;
+
+    border-top:
+            1px solid
+            #242d38;
+
+    display: grid;
+
+    grid-template-columns:
+        42px
+        minmax(0, 1fr);
+
+    gap: 7px;
+
+    align-items: start;
+}
+
+.v3-why > span {
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-why > strong {
+    color: #e8edf3;
+
+    font-size: 9.5px;
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    white-space: normal;
+}
+
+
+/* =========================================================
+   VISUAL CARD
+========================================================= */
+
+.v3-visual-card {
+    position: relative;
+
+    min-height: 0;
+
+    border:
+            1px solid
+            #2c3541;
+
+    border-radius: 12px;
+
+    background:
+            #0c1118;
+
+    overflow: hidden;
+}
+
+.v3-visual-source {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    min-height: 28px;
+
+    padding:
+            6px
+            10px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(7,10,15,.94)
+            );
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+.v3-visual-source > span {
+    color: var(--trend-color);
+
+    font-size: 6.5px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-visual-source > small {
+    max-width: 70%;
+
+    overflow: hidden;
+
+    color: #a7b1be;
+
+    font-size: 6.5px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ---------- HEDI ---------- */
+
+.v3-focus-visual {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(150px, .85fr);
+
+    padding-bottom: 28px;
+}
+
+.v3-focus-image {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+            radial-gradient(
+                    circle,
+                    rgba(255,255,255,.06),
+                    transparent 65%
+            );
+}
+
+.v3-focus-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+.v3-focus-copy {
+    padding:
+            18px
+            14px
+            36px;
+
+    border-left:
+            1px solid
+            #252e39;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #111721,
+                    #0c1118
+            );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.v3-focus-copy > span {
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-focus-copy > strong {
+    color: #f1f4f8;
+
+    font-size: 13px;
+    font-weight: 950;
+
+    line-height: 1.35;
+}
+
+.v3-focus-copy > small {
+    color: #7d8897;
+
+    font-size: 7px;
+}
+
+
+/* ---------- SNSD ---------- */
+
+.v3-photo-chart {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(155px, .6fr);
+
+    padding-bottom: 28px;
+}
+
+.v3-photo-chart-image {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.v3-photo-chart-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 38%;
+}
+
+.v3-photo-chart-image > span {
+    position: absolute;
+
+    left: 9px;
+    bottom: 9px;
+
+    padding:
+            4px
+            7px;
+
+    border-radius: 7px;
+
+    background:
+            rgba(6,9,14,.8);
+
+    color: #f4f6f8;
+
+    font-size: 7px;
+    font-weight: 850;
+}
+
+.v3-mini-chart {
+    padding:
+            14px
+            12px
+            36px;
+
+    border-left:
+            1px solid
+            #27303a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 11px;
+
+    background:
+            linear-gradient(
+                    150deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 8%,
+                            #111721
+                    ),
+                    #0c1118
+            );
+}
+
+.v3-mini-chart-head > span {
+    display: block;
+
+    color: var(--trend-color);
+
+    font-size: 6.5px;
+    font-weight: 950;
+
+    letter-spacing: .9px;
+}
+
+.v3-mini-chart-head > strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #f2f5f8;
+
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.v3-bar-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.v3-bar-row {
+    display: grid;
+
+    grid-template-columns:
+        45px
+        minmax(0, 1fr)
+        34px;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.v3-bar-row > span {
+    color: #9fa9b6;
+
+    font-size: 7px;
+}
+
+.v3-bar-track {
+    height: 11px;
+
+    border-radius: 999px;
+
+    background: #1b2430;
+
+    overflow: hidden;
+}
+
+.v3-bar-track > i {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    var(--trend-color),
+                    #ffffff
+            );
+
+    box-shadow:
+            0 0 10px
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 70%,
+                    transparent
+            );
+}
+
+.v3-bar-row > strong {
+    color: #f6f7f9;
+
+    font-size: 10px;
+    font-weight: 950;
+
+    text-align: right;
+}
+
+.v3-mini-chart > p {
+    margin: 0;
+
+    color: #d8dee7;
+
+    font-size: 8px;
+    font-weight: 850;
+}
+
+
+/* ---------- SPAO ---------- */
+
+.v3-shift-visual {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(170px, .9fr);
+
+    padding-bottom: 28px;
+}
+
+.v3-shift-image {
+    overflow: hidden;
+}
+
+.v3-shift-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.v3-shift-data {
+    padding:
+            14px
+            12px
+            34px;
+
+    border-left:
+            1px solid
+            #27303a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10px;
+
+    background:
+            linear-gradient(
+                    150deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 7%,
+                            #101721
+                    ),
+                    #0c1118
+            );
+}
+
+.v3-shift-eyebrow {
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-driver-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.v3-driver-list > span {
+    padding:
+            4px
+            7px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 28%,
+                    #2b3542
+            );
+
+    border-radius: 999px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 7%,
+                    #121923
+            );
+
+    color: #dce3eb;
+
+    font-size: 7px;
+    font-weight: 850;
+}
+
+.v3-shift-stat {
+    margin-top: 2px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    align-items: end;
+
+    gap: 2px 7px;
+}
+
+.v3-shift-stat > small {
+    grid-column: 1 / -1;
+
+    color: #8f9baa;
+
+    font-size: 7px;
+}
+
+.v3-shift-stat > strong {
+    color: #ffffff;
+
+    font-size: 26px;
+    font-weight: 950;
+}
+
+.v3-shift-stat > em {
+    color: var(--trend-color);
+
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+
+/* ---------- CORTIS ---------- */
+
+.v3-gallery-visual {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto;
+
+    padding-bottom: 28px;
+}
+
+.v3-gallery-images {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 3px;
+}
+
+.v3-gallery-images img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 62%;
+}
+
+.v3-media-signal {
+    padding:
+            7px
+            10px;
+
+    border-top:
+            1px solid
+            #28313c;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 7%,
+                    #10161f
+            );
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.v3-media-signal > span {
+    color: var(--trend-color);
+
+    font-size: 6.5px;
+    font-weight: 950;
+
+    letter-spacing: .8px;
+}
+
+.v3-media-signal > strong {
+    color: #edf1f5;
+
+    font-size: 8.5px;
+    font-weight: 850;
+
+    line-height: 1.25;
+}
+
+
+/* ---------- MODERN SLIM ---------- */
+
+.v3-modern-visual {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto
+        auto;
+
+    padding-bottom: 28px;
+}
+
+.v3-modern-compare {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        30px
+        minmax(0, 1fr);
+}
+
+.v3-modern-compare > div {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.v3-modern-compare img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 58%;
+}
+
+.v3-modern-compare > div > span {
+    position: absolute;
+
+    top: 7px;
+    left: 7px;
+
+    padding:
+            3px
+            6px;
+
+    border-radius: 999px;
+
+    background:
+            rgba(7,10,15,.78);
+
+    color: #f4f6f8;
+
+    font-size: 6.5px;
+    font-weight: 900;
+}
+
+.v3-modern-compare > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--trend-color);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 950;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #0b1017,
+                    #111923,
+                    #0b1017
+            );
+}
+
+.v3-style-signals {
+    padding:
+            6px
+            8px;
+
+    border-top:
+            1px solid
+            #27303a;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    background:
+            #0e141c;
+}
+
+.v3-style-signals > span {
+    padding:
+            3px
+            6px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 30%,
+                    #2b3440
+            );
+
+    border-radius: 999px;
+
+    color: #dfe5ec;
+
+    font-size: 6.7px;
+    font-weight: 850;
+}
+
+.v3-modern-visual > p {
+    margin: 0;
+
+    padding:
+            6px
+            8px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 6%,
+                    #111721
+            );
+
+    color: #b9c3cf;
+
+    font-size: 7.5px;
+    font-weight: 750;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   ONE FLOW BOX
+========================================================= */
+
+.v3-flow-summary {
+    padding:
+            9px
+            10px;
+
+    border:
+            1px solid
+            #2a3340;
+
+    border-radius: 11px;
+
+    background:
+            linear-gradient(
+                    120deg,
+                    #10161f,
+                    #0d1219
+            );
+}
+
+.v3-flow-heading {
+    display: flex;
+    align-items: baseline;
+
+    gap: 7px;
+}
+
+.v3-flow-heading > span {
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-flow-heading > strong {
+    color: #f0f3f7;
+
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.v3-flow-routes {
+    margin-top: 7px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.v3-flow-route {
+    display: grid;
+
+    grid-template-columns:
+        24px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.v3-flow-route > span {
+    width: 23px;
+    height: 23px;
+
+    border-radius: 7px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 15%,
+                    #152136
+            );
+
+    color: var(--trend-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 6.5px;
+    font-weight: 950;
+}
+
+.v3-flow-route > div {
+    min-width: 0;
+}
+
+.v3-flow-route > div > small {
+    display: block;
+
+    color: #7f8a99;
+
+    font-size: 6px;
+    font-weight: 850;
+
+    letter-spacing: .5px;
+}
+
+.v3-flow-route > div > strong {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #edf1f5;
+
+    font-size: 9.5px;
+    font-weight: 950;
+
+    white-space: normal;
+}
+
+.v3-flow-route > em {
+    padding:
+            2px
+            5px;
+
+    border-radius: 999px;
+
+    background:
+            #132033;
+
+    color: #8cc4ff;
+
+    font-size: 5.8px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.v3-flow-source {
+    margin-top: 7px;
+
+    padding-top: 6px;
+
+    border-top:
+            1px solid
+            #252e39;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #778392;
+
+    font-size: 6.5px;
+}
+
+.v3-flow-source svg {
+    color: var(--trend-color);
+}
+
+.v3-flow-message {
+    margin:
+            8px
+            0
+            0;
+
+    color: #8d98a6;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   BOTTOM SIGNAL
+========================================================= */
+
+.v3-bottom-signal {
+    min-height: 60px;
+
+    padding:
+            8px
+            10px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 35%,
+                    #2a3340
+            );
+
+    border-radius: 11px;
+
+    background:
+            linear-gradient(
+                    115deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 10%,
+                            #111925
+                    ),
+                    #101720
+            );
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    align-items: center;
+
+    column-gap: 10px;
+}
+
+.v3-bottom-signal > div > span {
+    display: block;
+
+    color: var(--trend-color);
+
+    font-size: 7px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-bottom-signal > div > small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8e99a7;
+
+    font-size: 7px;
+}
+
+.v3-bottom-signal > strong {
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 950;
+}
+
+.v3-bottom-signal > em {
+    grid-column: 1 / -1;
+
+    margin-top: 3px;
+
+    color: #aeb9c6;
+
+    font-size: 7.5px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   높이 900 이하
+========================================================= */
+
+@media (max-height: 900px) {
+
+    .v3-panel {
+        grid-template-rows:
+            auto
+            auto
+            minmax(175px, 1.5fr)
+            auto
+            auto;
+
+        gap: 6px;
+    }
+
+    .v3-header .presentation-node-header h2 {
+        font-size: 24px !important;
+    }
+
+    .v3-context-card {
+        padding:
+                7px
+                9px;
+    }
+
+    .v3-meaning {
+        font-size: 8.8px;
+    }
+
+    .v3-why > strong {
+        font-size: 8.2px;
+    }
+
+    .v3-focus-copy > strong {
+        font-size: 11px;
+    }
+
+    .v3-flow-route > div > strong {
+        font-size: 8.5px;
+    }
+
+    .v3-bottom-signal {
+        min-height: 52px;
+
+        padding:
+                6px
+                8px;
+    }
+
+    .v3-bottom-signal > strong {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   높이 760 이하
+   그래도 스크롤 없이 핵심 정보 유지
+========================================================= */
+
+@media (max-height: 760px) {
+
+    .v3-panel {
+        grid-template-rows:
+            auto
+            auto
+            minmax(130px, 1.2fr)
+            auto
+            auto;
+
+        gap: 4px;
+    }
+
+    .v3-context-card {
+        padding:
+                5px
+                7px;
+    }
+
+    .v3-meaning {
+        display: none;
+    }
+
+    .v3-why {
+        margin-top: 3px;
+        padding-top: 3px;
+    }
+
+    .v3-why > strong {
+        font-size: 7.5px;
+    }
+
+    .v3-gallery-images img,
+    .v3-modern-compare img {
+        object-position: center 62%;
+    }
+
+    .v3-flow-summary {
+        padding:
+                6px
+                8px;
+    }
+
+    .v3-flow-routes {
+        margin-top: 4px;
+
+        gap: 3px;
+    }
+
+    .v3-flow-route > div > small {
+        display: none;
+    }
+
+    .v3-flow-route > div > strong {
+        font-size: 7.8px;
+    }
+
+    .v3-flow-source {
+        display: none;
+    }
+
+    .v3-bottom-signal {
+        min-height: 44px;
+    }
+}
+
+/* =========================================================
+   KEY NODE RED BORDER - VERIFIED WORKING RULE
+========================================================= */
+.detail-graph-node.key-node .graph-node-circle {
+    border: 4px solid red !important;
+    box-shadow:
+            0 0 0 3px rgba(255, 0, 0, 0.35),
+            0 0 20px red !important;
+}
+
+
+/* =========================================================
+   2026-08-24 PRESENTATION READABILITY OVERRIDE
+   - 오른쪽 패널 글자 대폭 확대
+   - DATA VISUAL을 실제 차트처럼 강화
+   - 코르티스/Modern Slim 이미지 가독성 강화
+   ========================================================= */
+
+.detail-inspector {
+    padding: 14px 14px !important;
+}
+
+.inspector-eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
+}
+
+.inspector-node-header {
+    margin-top: 8px !important;
+    gap: 12px !important;
+}
+
+.inspector-node-dot {
+    width: 42px !important;
+    height: 42px !important;
+}
+
+.inspector-node-header h2 {
+    font-size: 27px !important;
+    line-height: 1.02 !important;
+}
+
+.inspector-type {
+    font-size: 9px !important;
+}
+
+.v3-story-card,
+.v3-flow-card,
+.v3-signal-card {
+    font-size: 10px !important;
+}
+
+.v3-story-card p,
+.v3-story-card strong,
+.v3-story-card span,
+.v3-story-card small {
+    line-height: 1.35 !important;
+}
+
+.v3-story-card p {
+    font-size: 10.5px !important;
+}
+
+.v3-story-card strong {
+    font-size: 11px !important;
+}
+
+.v3-story-card small {
+    font-size: 8px !important;
+}
+
+.v3-photo-chart {
+    min-height: 205px !important;
+}
+
+.v3-photo-chart-image span {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+}
+
+.v3-mini-chart {
+    padding: 16px 16px !important;
+}
+
+.v3-mini-chart-head > span,
+.v3-shift-eyebrow,
+.v3-media-signal > span {
+    font-size: 8px !important;
+    letter-spacing: 1.2px !important;
+}
+
+.v3-mini-chart-head > strong {
+    margin-top: 5px !important;
+    font-size: 15px !important;
+}
+
+.v3-bar-list {
+    margin-top: 15px !important;
+    gap: 12px !important;
+}
+
+.v3-bar-row {
+    grid-template-columns: 58px minmax(0, 1fr) 40px !important;
+    gap: 8px !important;
+}
+
+.v3-bar-row > span {
+    font-size: 9px !important;
+}
+
+.v3-bar-row > strong {
+    font-size: 12px !important;
+}
+
+.v3-bar-track {
+    height: 12px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.08) !important;
+    overflow: hidden !important;
+}
+
+.v3-bar-track > i {
+    height: 100% !important;
+    display: block !important;
+    border-radius: inherit !important;
+    background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--trend-color) 45%, #ffffff),
+            var(--trend-color)
+    ) !important;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--trend-color) 45%, transparent) !important;
+}
+
+.v3-mini-chart > p {
+    margin-top: 14px !important;
+    font-size: 10px !important;
+    font-weight: 850 !important;
+    line-height: 1.35 !important;
+}
+
+/* SPAO */
+.v3-shift-visual {
+    min-height: 220px !important;
+}
+
+.v3-shift-image img {
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+.v3-shift-data {
+    padding: 15px !important;
+}
+
+.v3-driver-list {
+    margin-top: 10px !important;
+    gap: 6px !important;
+}
+
+.v3-driver-list > span {
+    padding: 5px 8px !important;
+    font-size: 8.5px !important;
+}
+
+.v3-shift-stat {
+    margin-top: 12px !important;
+}
+
+.v3-shift-stat > small {
+    font-size: 9px !important;
+}
+
+.v3-shift-chart {
+    margin-top: 9px;
+    display: grid;
+    gap: 8px;
+}
+
+.v3-shift-bar-row {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) 34px;
+    align-items: center;
+    gap: 7px;
+}
+
+.v3-shift-bar-row > span {
+    color: #aab3c0;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.v3-shift-bar-row > b {
+    color: #f5f7fb;
+    font-size: 9px;
+    text-align: right;
+}
+
+.v3-shift-bar-track {
+    height: 11px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255,255,255,.075);
+}
+
+.v3-shift-bar-track > i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--trend-color) 45%, #fff),
+            var(--trend-color)
+    );
+    box-shadow: 0 0 12px color-mix(in srgb, var(--trend-color) 40%, transparent);
+}
+
+.v3-shift-stat-numbers {
+    margin-top: 9px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.v3-shift-stat-numbers > strong {
+    color: #fff;
+    font-size: 29px !important;
+    line-height: 1 !important;
+}
+
+.v3-shift-stat-numbers > em {
+    color: var(--trend-color);
+    font-size: 11px !important;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.v3-shift-chart-note {
+    margin: 7px 0 0 !important;
+    color: #9aa5b5 !important;
+    font-size: 8px !important;
+    font-weight: 750 !important;
+}
+
+/* 코르티스 */
+.v3-gallery-visual {
+    min-height: 230px !important;
+}
+
+.v3-gallery-images {
+    height: 190px !important;
+}
+
+.v3-gallery-images img {
+    width: 50% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 55% !important;
+}
+
+.v3-media-signal {
+    min-height: 42px !important;
+    padding: 8px 10px !important;
+}
+
+.v3-media-signal > strong {
+    font-size: 9.5px !important;
+    line-height: 1.3 !important;
+}
+
+/* Modern Slim */
+.v3-modern-visual {
+    min-height: 250px !important;
+}
+
+.v3-modern-compare {
+    height: 180px !important;
+}
+
+.v3-modern-compare > div img {
+    object-fit: cover !important;
+    object-position: center 48% !important;
+}
+
+.v3-modern-compare > div > span {
+    padding: 5px 7px !important;
+    font-size: 8px !important;
+}
+
+.v3-modern-compare > i {
+    font-size: 22px !important;
+}
+
+.v3-style-signals {
+    gap: 7px !important;
+    padding: 9px 10px 0 !important;
+}
+
+.v3-style-signals > span {
+    padding: 5px 8px !important;
+    font-size: 8.5px !important;
+}
+
+.v3-modern-visual > p {
+    padding: 9px 10px 10px !important;
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+}
+
+/* 핵심 관계 흐름 */
+.v3-flow-title span {
+    font-size: 8px !important;
+}
+
+.v3-flow-title strong {
+    font-size: 14px !important;
+}
+
+.v3-flow-row {
+    min-height: 34px !important;
+}
+
+.v3-flow-row strong,
+.v3-flow-row b {
+    font-size: 9px !important;
+}
+
+.v3-flow-row small,
+.v3-flow-row span {
+    font-size: 7.5px !important;
+}
+
+/* 하단 시그널 */
+.v3-signal-card span {
+    font-size: 8px !important;
+}
+
+.v3-signal-card strong {
+    font-size: 25px !important;
+}
+
+.v3-signal-card em {
+    font-size: 8.5px !important;
+}
+
+/* 왼쪽 그래프도 발표 거리에서 읽히도록 */
+.detail-graph-heading strong {
+    font-size: 11px !important;
+}
+
+.detail-graph-heading span {
+    font-size: 8px !important;
+}
+
+.detail-legend span {
+    font-size: 7px !important;
+}
+
+.stage-heading strong {
+    font-size: 13px !important;
+}
+
+.stage-heading span {
+    font-size: 8px !important;
+}
+
+.detail-graph-node > strong {
+    font-size: 10.5px !important;
+}
+
+.detail-graph-node > small {
+    font-size: 7px !important;
+}
+
+.detail-graph-node > em {
+    font-size: 6.8px !important;
+}
+
+.detail-edge-label {
+    font-size: 7.3px !important;
+}
+
+.detail-edge-label.selected {
+    font-size: 8px !important;
+}
+
+.detail-graph-footer {
+    font-size: 7.5px !important;
+}
+
+/* =========================================================
+   BOTTOM VISUAL SIGNAL FINAL
+   하단의 큰 빈 박스를 노드별 시각자료로 사용
+========================================================= */
+
+.v3-panel {
+    grid-template-rows:
+        auto
+        auto
+        minmax(185px, 1.25fr)
+        auto
+        minmax(145px, .9fr) !important;
+
+    gap: 7px !important;
+}
+
+/* 발표용 글씨 확대 */
+.v3-header .presentation-node-header h2 {
+    font-size: 32px !important;
+}
+
+.v3-context-top > strong {
+    font-size: 13px !important;
+}
+
+.v3-meaning {
+    font-size: 11.5px !important;
+}
+
+.v3-why > strong {
+    font-size: 11px !important;
+}
+
+.v3-flow-heading > strong {
+    font-size: 14px !important;
+}
+
+.v3-flow-route > div > strong {
+    font-size: 10.5px !important;
+}
+
+.v3-flow-route > div > small {
+    font-size: 7.5px !important;
+}
+
+.v3-flow-route > em {
+    font-size: 7px !important;
+}
+
+/* 소녀시대 상단 사진만 크게 */
+.v3-photo-only {
+    width: 100%;
+    height: 100%;
+}
+
+.v3-photo-only-image {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.v3-photo-only-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 38%;
+}
+
+.v3-photo-only-image > span {
+    position: absolute;
+
+    left: 10px;
+    bottom: 10px;
+
+    padding:
+            5px
+            8px;
+
+    border-radius: 7px;
+
+    background:
+            rgba(6,9,14,.82);
+
+    color: #f4f6f9;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+/* 하단 시각 자료 공통 */
+.v3-bottom-visual {
+    min-height: 145px !important;
+
+    padding:
+            11px
+            13px !important;
+
+    display: grid !important;
+
+    grid-template-rows:
+        auto
+        minmax(0, 1fr) !important;
+
+    row-gap: 9px;
+
+    overflow: hidden;
+}
+
+.v3-bottom-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.v3-bottom-title > span {
+    color: var(--trend-color);
+
+    font-size: 8.5px;
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.v3-bottom-title > strong {
+    color: #f3f5f8;
+
+    font-size: 14px;
+    font-weight: 950;
+}
+
+
+/* 소녀시대 / SPAO 막대그래프 */
+.v3-bottom-chart-wrap {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(145px, .9fr)
+        minmax(165px, 1.1fr);
+
+    align-items: stretch;
+
+    gap: 15px;
+}
+
+.v3-bottom-bars {
+    min-height: 0;
+
+    padding:
+            2px
+            8px
+            0;
+
+    border-bottom:
+            1px solid
+            rgba(255,255,255,.13);
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    gap: 26px;
+}
+
+.v3-bottom-bar-item {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        1fr
+        auto;
+
+    align-items: end;
+
+    gap: 3px;
+}
+
+.v3-bottom-bar-item > strong {
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 950;
+
+    text-align: center;
+}
+
+.v3-bottom-bar-column {
+    width: 34px;
+    height: 100%;
+
+    min-height: 55px;
+
+    border-radius:
+            6px
+            6px
+            0
+            0;
+
+    background:
+            rgba(255,255,255,.055);
+
+    display: flex;
+    align-items: end;
+
+    overflow: hidden;
+}
+
+.v3-bottom-bar-column > i {
+    display: block;
+
+    width: 100%;
+
+    min-height: 8px;
+
+    border-radius:
+            6px
+            6px
+            0
+            0;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 35%,
+                            #ffffff
+                    ),
+                    var(--trend-color)
+            );
+
+    box-shadow:
+            0 0 14px
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 50%,
+                    transparent
+            );
+}
+
+.v3-bottom-bar-item > span {
+    color: #9faab8;
+
+    font-size: 9px;
+    font-weight: 850;
+
+    text-align: center;
+}
+
+.v3-bottom-kpi {
+    padding-left: 14px;
+
+    border-left:
+            1px solid
+            rgba(255,255,255,.11);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.v3-bottom-kpi > small {
+    color: #9aa6b4;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.v3-bottom-kpi > strong {
+    color: #ffffff;
+
+    font-size: 29px;
+    font-weight: 950;
+
+    line-height: 1;
+}
+
+.v3-bottom-kpi > em {
+    color: var(--trend-color);
+
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+
+/* Hedi - 형태 포인트 */
+.v3-point-grid {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 8px;
+}
+
+.v3-point-grid > div {
+    padding: 10px;
+
+    border:
+            1px solid
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 25%,
+                    #2c3541
+            );
+
+    border-radius: 10px;
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 5%,
+                    #111821
+            );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.v3-point-grid b {
+    color: var(--trend-color);
+
+    font-size: 10px;
+    font-weight: 950;
+}
+
+.v3-point-grid span {
+    color: #e1e6ed;
+
+    font-size: 10px;
+    font-weight: 850;
+}
+
+
+/* 코르티스 - 미디어 반응 흐름 */
+.v3-signal-flow {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        24px
+        1.25fr
+        24px
+        1fr;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.v3-signal-flow > div {
+    height: 100%;
+
+    padding: 9px;
+
+    border:
+            1px solid
+            #2b3541;
+
+    border-radius: 10px;
+
+    background: #111821;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 5px;
+
+    text-align: center;
+}
+
+.v3-signal-flow > i {
+    color: var(--trend-color);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 950;
+
+    text-align: center;
+}
+
+.v3-signal-flow strong {
+    color: #f3f5f8;
+
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.v3-signal-flow span {
+    color: #9ca7b5;
+
+    font-size: 8.5px;
+    font-weight: 800;
+}
+
+.v3-signal-result {
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 45%,
+                    #2b3541
+            ) !important;
+}
+
+
+/* Modern Slim - 현재 조합 */
+.v3-style-transform-grid {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    grid-template-rows:
+        1fr
+        auto;
+
+    gap: 7px;
+}
+
+.v3-style-transform-grid > div {
+    padding: 9px;
+
+    border:
+            1px solid
+            #2c3541;
+
+    border-radius: 10px;
+
+    background: #111821;
+}
+
+.v3-style-transform-grid small {
+    display: block;
+
+    color: var(--trend-color);
+
+    font-size: 7.5px;
+    font-weight: 950;
+
+    letter-spacing: .7px;
+}
+
+.v3-style-transform-grid strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #f2f5f8;
+
+    font-size: 10.5px;
+    font-weight: 950;
+
+    line-height: 1.25;
+}
+
+.v3-transform-result {
+    grid-column:
+            1
+        /
+        -1;
+
+    display: grid !important;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items: center;
+
+    column-gap: 10px;
+}
+
+.v3-transform-result strong {
+    margin: 0 !important;
+
+    font-size: 12px !important;
+}
+
+.v3-transform-result span {
+    color: #a7b2bf;
+
+    font-size: 9px;
+    font-weight: 850;
+}
+
+@media (max-height: 900px) {
+
+    .v3-panel {
+        grid-template-rows:
+            auto
+            auto
+            minmax(150px, 1.15fr)
+            auto
+            minmax(120px, .8fr) !important;
+
+        gap: 5px !important;
+    }
+
+    .v3-header .presentation-node-header h2 {
+        font-size: 27px !important;
+    }
+
+    .v3-meaning {
+        font-size: 10px !important;
+    }
+
+    .v3-why > strong {
+        font-size: 9.5px !important;
+    }
+
+    .v3-bottom-visual {
+        min-height: 120px !important;
+
+        padding:
+                8px
+                10px !important;
+    }
+
+    .v3-bottom-kpi > strong {
+        font-size: 24px;
+    }
+
+    .v3-point-grid > div,
+    .v3-signal-flow > div,
+    .v3-style-transform-grid > div {
+        padding: 7px;
+    }
+}
+
+/* =========================================================
+   CLEAN PRESENTATION FINAL
+   작은 라벨 제거 / 핵심 설명 확대 / 하단 비교 간결화
+========================================================= */
+
+.detail-inspector {
+    padding: 16px 18px !important;
+}
+
+.v3-panel {
+    grid-template-rows:
+        auto
+        auto
+        minmax(190px, 1.28fr)
+        auto
+        minmax(150px, .92fr) !important;
+
+    gap: 8px !important;
+}
+
+/* 제목 */
+.v3-header .presentation-node-header {
+    margin-top: 0 !important;
+}
+
+.v3-header .presentation-node-header h2 {
+    font-size: 35px !important;
+    line-height: 1.02 !important;
+}
+
+.v3-header .presentation-node-header .inspector-type {
+    font-size: 11px !important;
+}
+
+/* 불필요한 작은 라벨 제거 */
+.inspector-eyebrow,
+.v3-context-top > span,
+.v3-bottom-title > span,
+.v3-visual-source {
+    display: none !important;
+}
+
+/* 핵심 설명 */
+.v3-context-card {
+    padding: 11px 13px !important;
+}
+
+.v3-context-top-clean {
+    justify-content: flex-start !important;
+}
+
+.v3-context-top-clean > strong {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+}
+
+.v3-meaning {
+    margin-top: 7px !important;
+    font-size: 13px !important;
+    line-height: 1.42 !important;
+    font-weight: 850 !important;
+    color: #eef2f6 !important;
+}
+
+.v3-why {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    grid-template-columns: 84px minmax(0, 1fr) !important;
+    gap: 10px !important;
+}
+
+.v3-why-title {
+    color: var(--trend-color) !important;
+    font-size: 11px !important;
+    font-weight: 950 !important;
+    white-space: nowrap !important;
+}
+
+.v3-why > strong:last-child {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: #dfe6ee !important;
+}
+
+/* 사진/시각자료 텍스트 */
+.v3-photo-only-image > span,
+.v3-focus-copy > strong,
+.v3-media-signal > strong,
+.v3-modern-visual > p {
+    font-size: 11px !important;
+}
+
+/* 핵심 관계 */
+.v3-flow-summary {
+    padding: 10px 12px !important;
+}
+
+.v3-flow-heading-clean {
+    margin-bottom: 5px !important;
+}
+
+.v3-flow-heading-clean > strong {
+    font-size: 15px !important;
+}
+
+.v3-flow-route > div > small,
+.v3-flow-source {
+    display: none !important;
+}
+
+.v3-flow-route > div > strong {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+}
+
+.v3-flow-route > em {
+    font-size: 7.5px !important;
+}
+
+/* 하단 제목 */
+.v3-bottom-title {
+    justify-content: flex-start !important;
+}
+
+.v3-bottom-title > strong {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+}
+
+/* 소녀시대 / SPAO: 복잡한 그래프 대신 큰 전후 비교 */
+.v3-bottom-evidence-grid {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(74px, .7fr)
+        28px
+        minmax(86px, .8fr)
+        minmax(160px, 1.35fr);
+
+    align-items: stretch;
+
+    gap: 9px;
+}
+
+.v3-compare-card {
+    border: 1px solid #2c3744;
+    border-radius: 11px;
+    background: #111821;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.v3-compare-card.emphasized {
+    border-color:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 55%,
+                    #2c3744
+            );
+
+    background:
+            color-mix(
+                    in srgb,
+                    var(--trend-color) 8%,
+                    #111821
+            );
+}
+
+.v3-compare-card > small {
+    color: #9aa6b4;
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.v3-compare-card > strong {
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.v3-compare-card.emphasized > strong {
+    color: var(--trend-color);
+    font-size: 31px;
+}
+
+.v3-compare-card > span {
+    color: #788493;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.v3-compare-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--trend-color);
+    font-size: 27px;
+    font-weight: 950;
+}
+
+.v3-bottom-kpi-clean {
+    border-left: 1px solid rgba(255,255,255,.12) !important;
+    padding-left: 14px !important;
+}
+
+.v3-bottom-kpi-clean > small {
+    font-size: 10px !important;
+}
+
+.v3-bottom-kpi-clean > strong {
+    font-size: 31px !important;
+}
+
+.v3-bottom-kpi-clean > em {
+    font-size: 11px !important;
+}
+
+/* Hedi */
+.v3-point-grid b {
+    font-size: 11px !important;
+}
+
+.v3-point-grid span {
+    font-size: 11px !important;
+}
+
+/* 코르티스 */
+.v3-signal-flow strong {
+    font-size: 12px !important;
+}
+
+.v3-signal-flow span {
+    font-size: 9px !important;
+}
+
+/* Modern Slim */
+.v3-style-transform-grid small {
+    font-size: 8px !important;
+}
+
+.v3-style-transform-grid strong {
+    font-size: 12px !important;
+}
+
+.v3-style-transform-grid span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8f9baa;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.v3-transform-result strong {
+    font-size: 13px !important;
+}
+
+.v3-transform-result span {
+    font-size: 10px !important;
+}
+
+/* 왼쪽 그래프 핵심도 조금 키움 */
+.detail-graph-node.selected > strong,
+.detail-graph-node.key-node > strong {
+    font-size: 11.5px !important;
+}
+
+.stage-heading strong {
+    font-size: 14px !important;
+}
+
+.stage-heading span {
+    font-size: 9px !important;
+}
+
+@media (max-height: 900px) {
+
+    .detail-inspector {
+        padding: 12px 14px !important;
+    }
+
+    .v3-panel {
+        grid-template-rows:
+            auto
+            auto
+            minmax(155px, 1.12fr)
+            auto
+            minmax(125px, .78fr) !important;
+
+        gap: 6px !important;
+    }
+
+    .v3-header .presentation-node-header h2 {
+        font-size: 30px !important;
+    }
+
+    .v3-context-top-clean > strong {
+        font-size: 13px !important;
+    }
+
+    .v3-meaning {
+        font-size: 11px !important;
+    }
+
+    .v3-why > strong:last-child {
+        font-size: 10px !important;
+    }
+
+    .v3-flow-route > div > strong {
+        font-size: 10.5px !important;
+    }
+
+    .v3-bottom-title > strong {
+        font-size: 14px !important;
+    }
+
+    .v3-compare-card > strong {
+        font-size: 22px !important;
+    }
+
+    .v3-compare-card.emphasized > strong {
+        font-size: 25px !important;
+    }
+
+    .v3-bottom-kpi-clean > strong {
+        font-size: 25px !important;
+    }
+}
+
+/* =========================================================
+   FINAL POLISH
+   - 한국어 중심 라벨
+   - 비선택 노드를 아주 조금 더 밝게 표시
+========================================================= */
+
+/* 비선택 노드 전체는 유지하되, 너무 사라져 보이지 않게만 조정 */
+.detail-graph-node:not(.selected):not(.key-node) {
+    opacity: 0.34 !important;
+}
+
+/* 핵심 노드이지만 현재 선택되지 않은 경우는 조금 더 또렷하게 */
+.detail-graph-node.key-node:not(.selected) {
+    opacity: 0.48 !important;
+}
+
+/* 비선택 연결선도 아주 조금만 보이도록 */
+.detail-edge:not(.selected),
+.detail-edge-path:not(.selected) {
+    opacity: 0.22 !important;
+}
+
+/* 선택 노드는 기존처럼 강하게 유지 */
+.detail-graph-node.selected {
+    opacity: 1 !important;
+}
+
+/* 선택 관계선도 기존처럼 강하게 유지 */
+.detail-edge.selected,
+.detail-edge-path.selected {
+    opacity: 1 !important;
+}
+
+/* =========================================================
+   BOTTOM PANEL TITLE FIX - FINAL
+   모든 하단 박스를 무조건 '제목 위 / 내용 아래' 한 열 구조로 고정
+   기존 .v3-bottom-signal 의 2열 grid 상속을 완전히 덮어씀
+========================================================= */
+
+/* 핵심 원인 해결:
+   기존 .v3-bottom-signal 에 grid-template-columns: 1fr auto 가 있어서
+   제목이 왼쪽 좁은 열로 밀리고 세로처럼 보였음.
+*/
+.v3-bottom-signal.v3-bottom-visual {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr) !important;
+
+    grid-template-rows:
+        auto
+        minmax(0, 1fr) !important;
+
+    align-items: stretch !important;
+
+    column-gap: 0 !important;
+    row-gap: 10px !important;
+
+    padding:
+            12px
+            14px
+            14px !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   박스 제목
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual .v3-bottom-title {
+    grid-column:
+            1
+        /
+        -1 !important;
+
+    grid-row: 1 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    margin: 0 !important;
+
+    padding:
+            0
+            0
+            9px
+            0 !important;
+
+    border-right: none !important;
+
+    border-bottom:
+            1px solid
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+            ) !important;
+
+    writing-mode:
+            horizontal-tb !important;
+
+    text-orientation:
+            mixed !important;
+
+    transform:
+            none !important;
+}
+
+
+/* 작은 영문 라벨이 남아 있어도 제거 */
+.v3-bottom-signal.v3-bottom-visual
+.v3-bottom-title > span {
+    display: none !important;
+}
+
+
+/* 실제 판매 반응 / Wide-Leg 소비 이동 /
+   2005 Slim Silhouette / 최근 재노출 과정 /
+   현재 스타일링 조합
+*/
+.v3-bottom-signal.v3-bottom-visual
+.v3-bottom-title > strong {
+    display: block !important;
+
+    width: auto !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 17px !important;
+    font-weight: 950 !important;
+
+    line-height: 1.15 !important;
+
+    letter-spacing:
+            -0.02em !important;
+
+    white-space:
+            nowrap !important;
+
+    word-break:
+            keep-all !important;
+
+    writing-mode:
+            horizontal-tb !important;
+
+    text-orientation:
+            mixed !important;
+
+    transform:
+            none !important;
+}
+
+
+/* =========================================================
+   제목 아래 실제 콘텐츠
+   모두 두 번째 행 전체 폭 사용
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-bottom-evidence-grid,
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-point-grid,
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-signal-flow,
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-style-transform-grid {
+    grid-column:
+            1
+        /
+        -1 !important;
+
+    grid-row: 2 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+}
+
+
+/* =========================================================
+   소녀시대 / SPAO
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-bottom-evidence-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(78px, 0.8fr)
+        30px
+        minmax(90px, 0.9fr)
+        minmax(160px, 1.45fr) !important;
+
+    align-items:
+            stretch !important;
+
+    gap: 10px !important;
+}
+
+
+/* =========================================================
+   Hedi Slimane
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-point-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                    0,
+                    1fr
+            )
+        ) !important;
+
+    gap: 9px !important;
+}
+
+
+/* =========================================================
+   코르티스
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-signal-flow {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        24px
+        minmax(0, 1.2fr)
+        24px
+        minmax(0, 1fr) !important;
+
+    align-items:
+            stretch !important;
+
+    gap: 7px !important;
+}
+
+
+/* =========================================================
+   Modern Slim
+========================================================= */
+
+.v3-bottom-signal.v3-bottom-visual
+.v3-style-transform-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                    0,
+                    1fr
+            )
+        ) !important;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto !important;
+
+    gap: 8px !important;
+}
+
+
+/* 결과행은 아래 전체 폭 */
+.v3-bottom-signal.v3-bottom-visual
+.v3-transform-result {
+    grid-column:
+            1
+        /
+        -1 !important;
+}
+
+
+/* =========================================================
+   높이 900px 이하에서도 무조건 가로 제목 유지
+========================================================= */
+
+@media (max-height: 900px) {
+
+    .v3-bottom-signal.v3-bottom-visual {
+        grid-template-columns:
+            minmax(0, 1fr) !important;
+
+        grid-template-rows:
+            auto
+            minmax(0, 1fr) !important;
+
+        row-gap: 7px !important;
+
+        padding:
+                9px
+                11px
+                11px !important;
+    }
+
+
+    .v3-bottom-signal.v3-bottom-visual
+    .v3-bottom-title {
+        padding-bottom:
+                6px !important;
+    }
+
+
+    .v3-bottom-signal.v3-bottom-visual
+    .v3-bottom-title > strong {
+        font-size:
+                15px !important;
+
+        white-space:
+                nowrap !important;
+
+        writing-mode:
+                horizontal-tb !important;
+
+        transform:
+                none !important;
+    }
+}
+
+/* =========================================================
+   UGG PRESENTATION POLISH
+   스키니진 상세와 동일한 밀도: 사진 + 핵심 흐름 + 숫자
+========================================================= */
+
+.v3-bottom-visual .v3-point-grid b {
+    font-size: 14px !important;
+    line-height: 1.05 !important;
+}
+
+.v3-bottom-visual .v3-point-grid span {
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
+}
+
+.v3-bottom-visual .v3-signal-flow strong {
+    font-size: 12px !important;
+}
+
+.v3-bottom-visual .v3-signal-flow span {
+    font-size: 9.5px !important;
+}
+
+@media (max-height: 900px) {
+    .v3-bottom-visual .v3-point-grid b {
+        font-size: 12px !important;
+    }
+
+    .v3-bottom-visual .v3-point-grid span {
+        font-size: 9.5px !important;
+    }
+}
+
+/* =========================================================
+   UGG DETAIL REWORK
+   - 핵심 관계 큰 박스 대신 사진/설명/수치 중심
+   - 소연: 인물 사진 + 10~20대 연결
+   - 연준: 가로 큰 사진 + 아래 설명
+   - All-Season: 사진 위 텍스트 겹침 제거
+========================================================= */
+
+.v3-ugg-portrait {
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(145px, .72fr);
+    background: #0b1017;
+}
+
+.v3-ugg-portrait-image {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background: #111720;
+}
+
+.v3-ugg-portrait-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 210px;
+    display: block;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.v3-ugg-portrait-copy {
+    min-width: 0;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.v3-ugg-portrait-copy > span {
+    color: #ff9b4a;
+    font-size: 10px;
+    font-weight: 950;
+}
+
+.v3-ugg-portrait-copy > strong {
+    margin-top: 10px;
+    color: #f7f8fb;
+    font-size: 15px;
+    line-height: 1.45;
+    word-break: keep-all;
+}
+
+.v3-ugg-portrait-copy > small {
+    margin-top: 12px;
+    color: #73808d;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+
+.v3-ugg-wide {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #0b1017;
+}
+
+.v3-ugg-wide > img {
+    width: 100%;
+    height: 215px;
+    flex: 0 0 215px;
+    display: block;
+    object-fit: cover;
+    object-position: center 31%;
+    background: #111720;
+}
+
+.v3-ugg-wide-copy {
+    padding: 11px 14px 12px;
+}
+
+.v3-ugg-wide-copy > strong {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 950;
+    margin-bottom: 7px;
+}
+
+.v3-ugg-wide-copy > p {
+    position: relative;
+    margin: 4px 0 0;
+    padding-left: 12px;
+    color: #c4ccd5;
+    font-size: 10.5px;
+    font-weight: 780;
+    line-height: 1.35;
+    word-break: keep-all;
+}
+
+.v3-ugg-wide-copy > p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff9846;
+}
+
+
+.v3-ugg-season {
+    height: 100%;
+    padding: 10px 12px 11px;
+    display: flex;
+    flex-direction: column;
+    background: #0b1017;
+}
+
+.v3-ugg-season-images {
+    min-height: 0;
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr);
+    align-items: stretch;
+    gap: 7px;
+}
+
+.v3-ugg-season-images > div {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #263341;
+    border-radius: 10px;
+    background: #111720;
+}
+
+.v3-ugg-season-images img {
+    width: 100%;
+    height: 100%;
+    min-height: 175px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.v3-ugg-season-images > i {
+    align-self: center;
+    color: #ff9948;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 950;
+    text-align: center;
+}
+
+.v3-ugg-season-labels {
+    margin-top: 7px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 33px;
+}
+
+.v3-ugg-season-labels > strong {
+    color: #f4f6f9;
+    font-size: 10px;
+    font-weight: 950;
+    text-align: center;
+}
+
+.v3-ugg-season > p {
+    margin: 8px 0 0;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.09);
+    color: #b8c1cc;
+    font-size: 10px;
+    font-weight: 760;
+    line-height: 1.35;
+    text-align: center;
+    word-break: keep-all;
+}
+
+
+.v3-ugg-key-flow {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1.18fr) 22px minmax(0, 1fr);
+    gap: 7px;
+    align-items: stretch;
+}
+
+.v3-ugg-key-flow > div {
+    min-width: 0;
+    padding: 10px 11px;
+    border: 1px solid #34404d;
+    border-radius: 10px;
+    background: #111820;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.v3-ugg-key-flow > div.highlight {
+    border-color: rgba(255, 153, 72, .70);
+    background: rgba(255, 143, 61, .08);
+}
+
+.v3-ugg-key-flow > i {
+    align-self: center;
+    color: #ff9948;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 950;
+    text-align: center;
+}
+
+.v3-ugg-key-flow small,
+.v3-ugg-stat-big small,
+.v3-ugg-yeonjun-bottom small,
+.v3-ugg-season-stats small {
+    color: #8793a1;
+    font-size: 8.5px;
+    font-weight: 900;
+}
+
+.v3-ugg-key-flow strong {
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 950;
+    line-height: 1.18;
+}
+
+.v3-ugg-key-flow > div.highlight strong {
+    color: #ff9c4e;
+    font-size: 15px;
+}
+
+.v3-ugg-key-flow span {
+    margin-top: 4px;
+    color: #aeb8c4;
+    font-size: 9px;
+    font-weight: 780;
+    line-height: 1.25;
+}
+
+.v3-ugg-relation-note {
+    margin: 7px 0 0;
+    color: #728090;
+    font-size: 8.5px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+
+.v3-ugg-consumer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(90px, .7fr) minmax(105px, .85fr);
+    gap: 9px;
+    align-items: stretch;
+}
+
+.v3-ugg-consumer-copy,
+.v3-ugg-stat-big {
+    padding: 10px 11px;
+    border: 1px solid #34404d;
+    border-radius: 10px;
+    background: #111820;
+}
+
+.v3-ugg-consumer-copy > strong {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 950;
+}
+
+.v3-ugg-consumer-copy > p {
+    margin: 6px 0 0;
+    color: #b8c1cc;
+    font-size: 9.5px;
+    font-weight: 760;
+    line-height: 1.35;
+    word-break: keep-all;
+}
+
+.v3-ugg-stat-big {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.v3-ugg-stat-big > strong {
+    margin-top: 3px;
+    color: #ff9a48;
+    font-size: 24px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.v3-ugg-stat-big > span {
+    margin-top: 5px;
+    color: #aeb8c4;
+    font-size: 8.5px;
+    font-weight: 800;
+}
+
+
+.v3-ugg-yeonjun-bottom {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 9px;
+}
+
+.v3-ugg-yeonjun-bottom > div {
+    padding: 10px 12px;
+    border: 1px solid #34404d;
+    border-radius: 10px;
+    background: #111820;
+}
+
+.v3-ugg-yeonjun-bottom > div:first-child {
+    border-color: rgba(255,153,72,.68);
+}
+
+.v3-ugg-yeonjun-bottom strong {
+    display: block;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 950;
+    line-height: 1.15;
+}
+
+.v3-ugg-yeonjun-bottom > div:first-child strong {
+    color: #ff9b49;
+    font-size: 26px;
+}
+
+.v3-ugg-yeonjun-bottom span {
+    display: block;
+    margin-top: 5px;
+    color: #aeb8c4;
+    font-size: 9px;
+    font-weight: 780;
+}
+
+
+.v3-ugg-season-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.v3-ugg-season-stats > div {
+    padding: 10px 11px;
+    border: 1px solid #34404d;
+    border-radius: 10px;
+    background: #111820;
+    text-align: center;
+}
+
+.v3-ugg-season-stats strong {
+    display: block;
+    margin-top: 4px;
+    color: #ff9a48;
+    font-size: 22px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.v3-ugg-season-stats span {
+    display: block;
+    margin-top: 5px;
+    color: #aeb8c4;
+    font-size: 8.5px;
+    font-weight: 780;
+    line-height: 1.2;
+}
+
+
+@media (max-height: 900px) {
+
+    .v3-ugg-wide > img {
+        height: 175px;
+        flex-basis: 175px;
+    }
+
+    .v3-ugg-portrait-image img {
+        min-height: 175px;
+    }
+
+    .v3-ugg-season-images img {
+        min-height: 145px;
+    }
+
+    .v3-ugg-portrait-copy > strong,
+    .v3-ugg-wide-copy > strong {
+        font-size: 12px;
+    }
+
+    .v3-ugg-portrait-copy > small,
+    .v3-ugg-wide-copy > p,
+    .v3-ugg-consumer-copy > p {
+        font-size: 8.5px;
+    }
+
+    .v3-ugg-stat-big > strong,
+    .v3-ugg-yeonjun-bottom > div:first-child strong {
+        font-size: 20px;
+    }
+
+    .v3-ugg-season-stats strong {
+        font-size: 18px;
+    }
+}
+
+/* =========================================================
+   UGG FINAL VISUAL REFINEMENT
+   연준: 인물 + 남성 UGG 제품 2장
+   All-Season: 과거 부츠 vs 현재 클로그 제품 자체 비교
+========================================================= */
+
+.v3-ugg-yeonjun-compare {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #0b1017;
+}
+
+.v3-ugg-yeonjun-visuals {
+    min-height: 0;
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(145px, .78fr);
+    gap: 8px;
+    padding: 8px 8px 0;
+}
+
+.v3-ugg-yeonjun-person,
+.v3-ugg-yeonjun-product {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid #2c3743;
+    border-radius: 10px;
+    background: #111720;
+}
+
+.v3-ugg-yeonjun-person img {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    display: block;
+    object-fit: cover;
+    object-position: center 28%;
+}
+
+.v3-ugg-yeonjun-product {
+    background: #f1f1ef;
+}
+
+.v3-ugg-yeonjun-product img {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    padding: 8px;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    box-sizing: border-box;
+}
+
+.v3-ugg-yeonjun-person span,
+.v3-ugg-yeonjun-product span {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 5px 7px;
+    border-radius: 7px;
+    background: rgba(4, 8, 13, .84);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 950;
+    line-height: 1.2;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.v3-ugg-yeonjun-copy {
+    flex: 0 0 auto;
+    padding: 9px 13px 11px;
+}
+
+.v3-ugg-yeonjun-copy p {
+    position: relative;
+    margin: 4px 0;
+    padding-left: 12px;
+    color: #c3ccd6;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.32;
+    word-break: keep-all;
+}
+
+.v3-ugg-yeonjun-copy p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .5em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff9846;
+}
+
+.v3-ugg-yeonjun-copy small {
+    display: block;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #6f7d8c;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+
+/* All-Season은 사람 착장보다 '제품 형태 변화'가 핵심 */
+.v3-ugg-season-images > div {
+    background: #ededeb;
+}
+
+.v3-ugg-season-images img {
+    padding: 10px;
+    object-fit: contain !important;
+    object-position: center !important;
+    box-sizing: border-box;
+}
+
+.v3-ugg-season-labels > strong {
+    font-size: 10.5px;
+}
+
+.v3-ugg-season > p {
+    font-size: 10.5px;
+    line-height: 1.4;
+}
+
+
+@media (max-height: 900px) {
+
+    .v3-ugg-yeonjun-person img,
+    .v3-ugg-yeonjun-product img {
+        min-height: 155px;
+    }
+
+    .v3-ugg-yeonjun-copy p {
+        font-size: 8.8px;
+    }
+
+    .v3-ugg-yeonjun-person span,
+    .v3-ugg-yeonjun-product span {
+        font-size: 8px;
+    }
+
+    .v3-ugg-season-images img {
+        min-height: 135px;
+    }
+}
+
+/* ===== FINAL: KEY NODE RED BORDER ===== */
+.detail-graph-node.key-node .graph-node-circle {
+    border: 3px solid #ff3b3b !important;
+    outline: 2px solid rgba(255,59,59,.22) !important;
+    box-shadow: 0 0 0 7px rgba(255,59,59,.08), 0 0 28px rgba(255,59,59,.58) !important;
+}
+.detail-graph-node.key-node.selected .graph-node-circle {
+    border-color: #ff3b3b !important;
+    outline-color: rgba(255,59,59,.38) !important;
+    box-shadow: 0 0 0 9px rgba(255,59,59,.12), 0 0 40px rgba(255,59,59,.82) !important;
+}
+
+/* ===== SIMPLE NON-KEY NODE PANEL ===== */
+.simple-node-panel { height:100%; padding:6px 2px; display:flex; flex-direction:column; }
+.simple-node-eyebrow { color:var(--trend-color); font-size:7px; font-weight:950; letter-spacing:1.3px; }
+.simple-node-header { margin-top:18px; display:flex; align-items:center; gap:13px; }
+.simple-node-dot { width:44px; height:44px; flex:0 0 44px; border:2px solid rgba(255,255,255,.72); border-radius:50%; background:#252b36; box-shadow:0 0 18px currentColor; }
+.simple-node-header h2 { margin:0; color:#f2f3f6; font-size:22px; line-height:1.12; }
+.simple-node-header small { display:block; margin-top:5px; color:#777f8e; font-size:7px; font-weight:800; text-transform:uppercase; }
+.simple-node-description { margin:20px 0 0; padding:15px; border:1px solid #282e38; border-radius:12px; background:rgba(255,255,255,.018); color:#aab1bd; font-size:9px; line-height:1.75; }
+.simple-node-info { margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.simple-node-info>div { min-height:67px; padding:12px; border:1px solid #272d37; border-radius:11px; background:rgba(255,255,255,.012); display:flex; flex-direction:column; justify-content:center; gap:5px; }
+.simple-node-info span { color:#697281; font-size:7px; }
+.simple-node-info strong { color:#e5e8ed; font-size:17px; }
+.simple-node-connections { margin-top:18px; }
+.simple-node-connections>strong { color:#d9dde4; font-size:9px; }
+.simple-node-connections>div { margin-top:9px; display:flex; flex-wrap:wrap; gap:6px; }
+.simple-node-connections span { padding:6px 8px; border:1px solid #2b313c; border-radius:999px; background:#11151d; color:#9199a7; font-size:7px; font-weight:800; }
+.simple-node-hint { margin:auto 0 0; padding-top:16px; border-top:1px solid #252b34; color:#666f7d; font-size:7px; line-height:1.6; }
+
+/* =========================================================
+   FINAL SIMPLE NODE VIEW
+   핵심 노드 상세화면은 변경하지 않음
+========================================================= */
+
+.simple-node-panel {
+    height: 100%;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.simple-node-header {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.simple-node-header h2 {
+    margin: 0;
+    color: #f5f6f8;
+    font-size: 25px;
+    font-weight: 950;
+    line-height: 1.08;
+}
+
+.simple-node-header small {
+    display: block;
+    margin-top: 5px;
+    color: #7d8795;
+    font-size: 8px;
+    font-weight: 850;
+    text-transform: none;
+}
+
+.simple-node-description-card {
+    margin-top: 24px;
+    padding: 18px 17px;
+    border: 1px solid color-mix(
+            in srgb,
+            var(--trend-color) 45%,
+            #2a313c
+    );
+    border-radius: 13px;
+    background:
+            linear-gradient(
+                    135deg,
+                    color-mix(
+                            in srgb,
+                            var(--trend-color) 8%,
+                            #111720
+                    ),
+                    #0d1219
+            );
+}
+
+.simple-node-description-card > strong {
+    display: block;
+    color: var(--trend-color);
+    font-size: 10px;
+    font-weight: 950;
+}
+
+.simple-node-description-card > p {
+    margin: 10px 0 0;
+    color: #d1d6dd;
+    font-size: 11px;
+    font-weight: 760;
+    line-height: 1.65;
+    word-break: keep-all;
+}
+
+.simple-node-relation-list {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #292f38;
+}
+
+.simple-node-relation-list > strong {
+    color: #f0f2f5;
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.simple-node-relation-row {
+    margin-top: 9px;
+    min-height: 43px;
+    padding: 9px 11px;
+    border: 1px solid #29313b;
+    border-radius: 9px;
+    background: #10151d;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 9px;
+    align-items: center;
+}
+
+.simple-node-relation-row > span {
+    overflow: hidden;
+    color: #d8dce2;
+    font-size: 9px;
+    font-weight: 850;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.simple-node-relation-row > span:last-child {
+    text-align: right;
+}
+
+.simple-node-relation-row > b {
+    padding: 4px 7px;
+    border: 1px solid color-mix(
+            in srgb,
+            var(--trend-color) 45%,
+            transparent
+    );
+    border-radius: 999px;
+    color: var(--trend-color);
+    font-size: 6.5px;
+    font-weight: 950;
+    white-space: nowrap;
+}
+
+.simple-node-summary {
+    margin: 14px 0 0;
+    color: #6f7987;
+    font-size: 8px;
+    font-weight: 750;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+/* 핵심 노드 빨간 테두리는 항상 유지 */
+.detail-graph-node.key-node .graph-node-circle {
+    border: 3px solid #ff3030 !important;
+    outline: 2px solid rgba(255, 48, 48, .25) !important;
+    box-shadow:
+            0 0 0 7px rgba(255, 48, 48, .08),
+            0 0 30px rgba(255, 48, 48, .62) !important;
+}
+
+.detail-graph-node.key-node.selected .graph-node-circle {
+    border-color: #ff3030 !important;
+    outline-color: rgba(255, 48, 48, .42) !important;
+    box-shadow:
+            0 0 0 9px rgba(255, 48, 48, .13),
+            0 0 42px rgba(255, 48, 48, .88) !important;
+}

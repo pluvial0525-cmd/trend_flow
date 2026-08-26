@@ -1,0 +1,1252 @@
+* {
+    box-sizing: border-box;
+}
+
+.cypher-page {
+    min-height: 100vh;
+    padding: 20px 28px 24px;
+    overflow: hidden;
+    background:
+            radial-gradient(
+                    circle at 22% 26%,
+                    rgba(101, 65, 203, 0.10),
+                    transparent 31%
+            ),
+            #080a10;
+    color: #f7f7fb;
+}
+
+.cypher-header {
+    height: 56px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 20px;
+}
+
+.cypher-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cypher-brand span {
+    color: rgba(183, 158, 255, 0.76);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+}
+
+.cypher-brand strong {
+    font-size: 20px;
+    letter-spacing: -0.04em;
+}
+
+.voice-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 1px solid rgba(147, 104, 255, 0.20);
+    border-radius: 999px;
+    background: rgba(120, 74, 220, 0.055);
+    color: rgba(213, 197, 255, 0.72);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.10em;
+}
+
+.voice-pill i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9768ff;
+    box-shadow: 0 0 12px #9768ff;
+}
+
+.cypher-back,
+.cypher-next,
+.cypher-empty button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.025);
+    color: rgba(245, 245, 250, 0.76);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    cursor: pointer;
+}
+
+.cypher-back {
+    justify-self: end;
+}
+
+.cypher-stage {
+    height: calc(100vh - 100px);
+    min-height: 690px;
+    display: grid;
+    grid-template-rows:
+        auto
+        auto
+        1fr
+        auto;
+    gap: 14px;
+    padding: 22px 28px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.cypher-heading > p {
+    margin: 0 0 5px;
+    color: #a986ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.cypher-heading > p span {
+    margin-left: 14px;
+    color: rgba(224, 219, 239, 0.40);
+}
+
+.cypher-heading h1 {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(34px, 2.8vw, 47px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.cypher-subtitle {
+    display: block;
+    margin-top: 8px;
+    color: rgba(235, 235, 243, 0.46);
+    font-size: 12px;
+}
+
+.cypher-subtitle b {
+    color: #b88dff;
+}
+
+
+/* =========================================================
+   4 COMMAND TABS
+========================================================= */
+
+.command-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.command-tab {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    align-items: center;
+    gap: 8px;
+    min-height: 66px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.012);
+    color: rgba(236, 236, 244, 0.68);
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.command-tab > span {
+    color: rgba(169, 128, 255, 0.45);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.command-tab strong {
+    display: block;
+    overflow: hidden;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.command-tab small {
+    display: block;
+    margin-top: 3px;
+    color: rgba(235, 235, 244, 0.62);
+    font-size: 11px;
+}
+
+.command-tab.active {
+    border-color: rgba(177, 111, 255, 0.55);
+    background: rgba(117, 70, 213, 0.10);
+    color: #c79cff;
+    box-shadow:
+            inset 3px 0 #a766ff;
+}
+
+.command-tab.active > span {
+    color: #a96cff;
+}
+
+.command-tab.active small {
+    color: rgba(246, 240, 255, 0.90);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.cypher-content {
+    min-height: 0;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(0, 0.95fr);
+    gap: 18px;
+}
+
+.graph-side,
+.code-side {
+    min-height: 0;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.014);
+}
+
+.graph-side,
+.code-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.panel-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border: 1px solid rgba(151, 109, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(120, 75, 220, 0.06);
+    color: #a77cf7;
+}
+
+.panel-title strong {
+    display: block;
+    font-size: 18px;
+}
+
+.panel-title span {
+    display: block;
+    margin-top: 3px;
+    color: rgba(238, 238, 246, 0.68);
+    font-size: 11px;
+}
+
+.code-icon {
+    color: #7db7ff;
+    border-color: rgba(82, 163, 255, 0.18);
+    background: rgba(55, 133, 231, 0.055);
+}
+
+
+/* =========================================================
+   LEFT RESULT STAGE
+========================================================= */
+
+.left-result-stage {
+    flex: 1;
+    min-height: 0;
+    margin-top: 14px;
+}
+
+.create-result,
+.relationship-result,
+.simulation-fragment {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 16px;
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(86, 60, 168, 0.10),
+                    transparent 48%
+            ),
+            radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.045)
+                    1px,
+                    transparent 1px
+            );
+    background-size:
+            auto,
+            27px 27px;
+}
+
+
+/* CREATE */
+
+.create-result {
+    display: grid;
+    place-items: center;
+}
+
+
+
+.created-node-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.created-node-ring {
+    display: grid;
+    place-items: center;
+    width: 118px;
+    height: 118px;
+    border: 2px solid #b87dff;
+    border-radius: 50%;
+    box-shadow:
+            0 0 0 8px rgba(165, 102, 255, 0.07),
+            0 0 34px rgba(160, 101, 255, 0.22);
+}
+
+.created-avatar {
+    font-size: 72px;
+    line-height: 1;
+}
+
+.created-label {
+    margin-top: 14px;
+    color: #6ddeab;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.created-node-wrap > strong {
+    margin-top: 4px;
+    font-size: 24px;
+}
+
+.created-properties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 360px;
+    max-width: 82%;
+    margin-top: 15px;
+}
+
+.created-properties > div {
+    padding: 8px 10px;
+    border: 1px solid rgba(114, 182, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(41, 119, 208, 0.04);
+}
+
+.created-properties span {
+    display: block;
+    color: rgba(224, 231, 243, 0.58);
+    font-size: 9px;
+}
+
+.created-properties b {
+    display: block;
+    overflow: hidden;
+    margin-top: 2px;
+    color: #80c0ff;
+    font-size: 11px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.visual-result-note {
+    position: absolute;
+    left: 50%;
+    bottom: 17px;
+    transform: translateX(-50%);
+    margin: 0;
+    color: rgba(240, 240, 246, 0.72);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.visual-result-note b {
+    color: white;
+}
+
+
+/* RELATIONSHIP */
+
+.relationship-result {
+    display: grid;
+    grid-template-columns:
+        minmax(120px, 1fr)
+        minmax(180px, 0.8fr)
+        minmax(120px, 1fr);
+    align-items: center;
+    gap: 15px;
+    padding: 36px 35px 60px;
+}
+
+.relation-person-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.relation-avatar {
+    display: grid;
+    place-items: center;
+    width: 94px;
+    height: 94px;
+    border: 2px solid #a777ff;
+    border-radius: 50%;
+    background: rgba(113, 72, 205, 0.10);
+    box-shadow:
+            0 0 0 6px rgba(145, 91, 241, 0.06);
+    font-size: 58px;
+}
+
+.source-ring {
+    border-color: #6d9dff;
+}
+
+.target-ring {
+    border-color: #b875ff;
+}
+
+.relation-person-card > span {
+    margin-top: 10px;
+    color: #68d9a0;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.relation-person-card > strong {
+    margin-top: 4px;
+    font-size: 21px;
+}
+
+.created-relation {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+}
+
+.relation-type {
+    color: #ffd261;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.created-relation > strong {
+    margin-top: 3px;
+    color: white;
+    font-size: 12px;
+}
+
+.relation-arrow {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    margin: 8px 0 4px;
+}
+
+.relation-arrow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 12px;
+    top: 50%;
+    height: 2px;
+    background:
+            linear-gradient(
+                    90deg,
+                    #759dff,
+                    #b274ff
+            );
+}
+
+.relation-arrow::after {
+    content: "";
+    position: absolute;
+    right: 1px;
+    top: calc(50% - 6px);
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #b274ff;
+    border-right: 2px solid #b274ff;
+    transform: rotate(45deg);
+}
+
+.created-relation small {
+    color: rgba(236, 236, 244, 0.58);
+    font-size: 10px;
+}
+
+.relation-note {
+    grid-column: 1 / -1;
+}
+
+
+/* MATCH / WHERE GRAPH */
+
+.simulation-fragment {
+    position: relative;
+}
+
+.fragment-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.fragment-edge {
+    stroke: rgba(116, 102, 157, 0.42);
+    stroke-width: 0.34;
+    vector-effect: non-scaling-stroke;
+}
+
+
+/*
+ * MATCH 실행 결과
+ * 현재 그래프에 표시된 관계가 모두 SPREAD 검색 결과이므로
+ * 전체 관계선을 보라색으로 강조합니다.
+ */
+.fragment-edge.match-spread-edge {
+    stroke: #a977ff;
+    stroke-width: 0.72;
+    opacity: 0.92;
+    filter:
+            drop-shadow(
+                    0 0 3px
+                    rgba(169, 119, 255, 0.44)
+            );
+}
+
+
+
+.fragment-edge.focus-edge {
+    stroke: #bd8cff;
+    stroke-width: 0.92;
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    rgba(189, 140, 255, 0.62)
+            );
+}
+
+.where-hidden-edge {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fragment-person {
+    position: absolute;
+    z-index: 7;
+    transform: translate(-50%, -50%);
+    transition: 0.25s ease;
+}
+
+.fragment-avatar {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(157, 119, 255, 0.16);
+    border-radius: 50%;
+    background: rgba(91, 61, 163, 0.10);
+    box-shadow:
+            0 0 11px
+            rgba(113, 78, 198, 0.18);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.focus-source,
+.focus-target {
+    z-index: 13;
+}
+
+.focus-source .fragment-avatar,
+.focus-target .fragment-avatar {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #bb8bff;
+    box-shadow:
+            0 0 0 5px
+            rgba(162, 107, 255, 0.08),
+            0 0 22px
+            rgba(165, 111, 255, 0.35);
+    font-size: 39px;
+}
+
+.where-hidden-person {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.person-name-badge {
+    position: absolute;
+    left: 50%;
+    bottom: -24px;
+    transform: translateX(-50%);
+    padding: 5px 8px;
+    border: 1px solid rgba(170, 125, 255, 0.22);
+    border-radius: 8px;
+    background: rgba(13, 14, 22, 0.94);
+    color: #e8dcff;
+    font-size: 10px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.fragment-relationship-label {
+    position: absolute;
+    left: 51%;
+    top: 50%;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    transform: translate(-50%, -50%);
+    padding: 8px 11px;
+    border: 1px solid rgba(185, 139, 255, 0.34);
+    border-radius: 10px;
+    background: rgba(12, 13, 21, 0.95);
+    box-shadow:
+            0 0 18px
+            rgba(159, 108, 244, 0.16);
+}
+
+.fragment-relationship-label strong {
+    color: #c495ff;
+    font-size: 11px;
+}
+
+.fragment-relationship-label span {
+    color: white;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.fragment-relationship-label small {
+    color: rgba(240, 240, 246, 0.60);
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.query-result-badge {
+    position: absolute;
+    left: 18px;
+    bottom: 17px;
+    z-index: 18;
+    padding: 8px 11px;
+    border: 1px solid rgba(153, 109, 255, 0.20);
+    border-radius: 9px;
+    background: rgba(15, 16, 26, 0.92);
+    color: #a987ff;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.query-result-badge b {
+    color: white;
+}
+
+.where-badge {
+    border-color: rgba(95, 176, 255, 0.24);
+    color: #75baff;
+}
+
+
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.code-window {
+    margin-top: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    background: #070910;
+}
+
+.code-window-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    background: #0b0d14;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.window-dots i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.code-window-top > span {
+    color: rgba(230, 230, 240, 0.34);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+.code-window pre {
+    min-height: 285px;
+    margin: 0;
+    padding: 22px 22px;
+    overflow: auto;
+}
+
+.code-window code {
+    color: #d9dce5;
+    font-family:
+            "Cascadia Code",
+            "Consolas",
+            monospace;
+    font-size: clamp(16px, 1.25vw, 20px);
+    line-height: 1.8;
+}
+
+.kw {
+    color: #c18cff;
+    font-weight: 900;
+}
+
+.node-code {
+    color: #65d6a0;
+}
+
+.rel-code {
+    color: #ffd25d;
+}
+
+.string-code {
+    color: #72b6ff;
+}
+
+.number-code {
+    color: #ff9ebd;
+}
+
+.command-result-explain {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 48px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.command-result-explain span {
+    color: #b891ff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.command-result-explain strong {
+    color: rgba(248, 248, 252, 0.90);
+    font-size: 12px;
+}
+
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.cypher-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 40px;
+}
+
+.cypher-key-message {
+    color: rgba(242, 242, 248, 0.78);
+    font-size: 13px;
+}
+
+.cypher-key-message b {
+    color: white;
+}
+
+.cypher-next {
+    color: #c3a4ff;
+    border-color: rgba(155, 111, 255, 0.24);
+    background: rgba(119, 73, 220, 0.055);
+}
+
+.cypher-empty {
+    max-width: 720px;
+    margin: 20vh auto 0;
+    text-align: center;
+}
+
+.cypher-empty > span {
+    color: #a77cf7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.cypher-empty h1 {
+    margin: 14px 0;
+    font-size: 36px;
+}
+
+.cypher-empty p {
+    color: rgba(235, 235, 243, 0.5);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1300px) {
+    .command-tab strong {
+        font-size: 12px;
+    }
+
+    .command-tab small {
+        font-size: 10px;
+    }
+
+    .created-properties {
+        width: 300px;
+    }
+
+    .code-window code {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .cypher-page {
+        overflow: auto;
+    }
+
+    .cypher-stage {
+        height: auto;
+    }
+
+    .command-tabs {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cypher-content {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+/* =========================================
+   발표용 가독성 개선
+   ========================================= */
+
+/* 상단 4개 버튼 - CREATE / RELATIONSHIP / MATCH / WHERE */
+.command-tab strong {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.4px;
+}
+
+.command-tab span {
+    font-size: 12px !important;
+    line-height: 1.4;
+    color: rgba(235, 235, 245, 0.72) !important;
+}
+
+/* 버튼 왼쪽 01, 02, 03, 04 */
+.command-tab .command-number {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+}
+
+
+/* 왼쪽 결과 영역 제목
+   Graph 실행 결과 / Graph 조회 결과 등 */
+.panel-title strong {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+/* 결과 영역 제목 아래 설명 */
+.panel-title span {
+    font-size: 13px !important;
+    line-height: 1.5;
+    color: rgba(235, 235, 245, 0.72) !important;
+}
+
+
+/* 오른쪽 Cypher 코드 영역 제목 */
+.code-panel-title strong {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+/* 오른쪽 제목 아래 설명 */
+.code-panel-title span {
+    font-size: 13px !important;
+    line-height: 1.5;
+    color: rgba(235, 235, 245, 0.72) !important;
+}
+
+
+/* Cypher 실제 코드 */
+.cypher-code {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
+}
+
+
+/* 오른쪽 실행 결과 */
+.execution-result {
+    font-size: 14px !important;
+    line-height: 1.5;
+}
+
+
+/* 왼쪽 Graph 안 시민 이름 */
+.node-name {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+}
+
+
+/* 왼쪽 Graph 하단 결과 배지
+   MATCH 결과 SPREAD 관계들이 검색됨 */
+.result-badge {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+
+/* 페이지 맨 아래 설명 */
+.cypher-summary {
+    font-size: 14px !important;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   MATCH / WHERE FINAL VISUAL RULES
+========================================================= */
+
+/*
+ * MATCH는 특정 두 Node를 선택하는 조회가 아닙니다.
+ * 따라서 모든 Node는 동일한 크기와 밝기로 표시합니다.
+ */
+.match-result .fragment-person {
+    opacity: 1;
+}
+
+.match-result .fragment-avatar {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(176, 128, 255, 0.30);
+    box-shadow:
+            0 0 13px
+            rgba(139, 92, 246, 0.16);
+    font-size: 31px;
+}
+
+/*
+ * MATCH에서 조회된 SPREAD 관계는 모두 같은 보라색으로 표시합니다.
+ * 한 관계만 특별히 선택된 것처럼 보이지 않게 통일합니다.
+ */
+.match-result .fragment-edge.match-spread-edge {
+    stroke: #a977ff;
+    stroke-width: 0.78;
+    opacity: 0.92;
+    filter:
+            drop-shadow(
+                    0 0 3px
+                    rgba(169, 119, 255, 0.42)
+            );
+}
+
+/*
+ * WHERE에서는 조건에 맞지 않는 Node와 Relationship을
+ * 흐리게 두는 대신 아예 숨겨서
+ * 실제 필터링 결과처럼 두 시민과 한 관계만 보이게 합니다.
+ */
+.where-hidden-person,
+.where-hidden-edge {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* WHERE로 남은 두 시민은 명확히 강조 */
+.where-result .focus-source .fragment-avatar,
+.where-result .focus-target .fragment-avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid #bb8bff;
+    box-shadow:
+            0 0 0 5px rgba(162, 107, 255, 0.08),
+            0 0 22px rgba(165, 111, 255, 0.35);
+    font-size: 41px;
+}
+
+/* WHERE의 한 관계만 또렷하게 */
+.where-result .fragment-edge.focus-edge {
+    stroke: #c295ff;
+    stroke-width: 1.05;
+    opacity: 1;
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    rgba(194, 149, 255, 0.62)
+            );
+}
+
+
+/* =========================================================
+   04 WHERE — MATCH 결과를 유지한 채 SNS만 강조
+========================================================= */
+
+/*
+ * 03 MATCH
+ * 모든 SPREAD 관계가 검색되었음을 동일한 보라색으로 표시.
+ */
+.match-result .fragment-edge.match-spread-edge {
+    stroke: #a977ff;
+    stroke-width: 0.78;
+    opacity: 0.92;
+    filter:
+            drop-shadow(
+                    0 0 3px
+                    rgba(169, 119, 255, 0.42)
+            );
+}
+
+.match-result .fragment-person {
+    opacity: 1;
+}
+
+.match-result .fragment-avatar {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(176, 128, 255, 0.30);
+    box-shadow:
+            0 0 13px
+            rgba(139, 92, 246, 0.16);
+    font-size: 31px;
+}
+
+
+/*
+ * 04 WHERE
+ * 3번 MATCH에서 보였던 노드/관계를 지우지 않고
+ * 조건에서 제외된 요소는 배경처럼 흐리게 남깁니다.
+ */
+.where-result .where-context-person {
+    opacity: 0.16 !important;
+    filter: grayscale(0.25);
+    pointer-events: none;
+}
+
+.where-result .where-context-person .fragment-avatar {
+    border-color: rgba(120, 112, 150, 0.14);
+    box-shadow: none;
+}
+
+.where-result .fragment-edge.where-context-edge {
+    stroke: rgba(112, 104, 145, 0.28);
+    stroke-width: 0.34;
+    opacity: 0.16 !important;
+    filter: none;
+}
+
+
+/*
+ * WHERE r.channel = "SNS"에 해당하는 관계는
+ * 파란색으로 또렷하게 남겨 조건 결과임을 구분.
+ */
+.where-result .fragment-edge.sns-filter-edge {
+    stroke: #55a8ff;
+    stroke-width: 0.90;
+    opacity: 1;
+    filter:
+            drop-shadow(
+                    0 0 4px
+                    rgba(85, 168, 255, 0.62)
+            );
+}
+
+
+/*
+ * SNS 관계에 포함된 시민만 선명하게.
+ */
+.where-result .sns-result-person {
+    opacity: 1 !important;
+    z-index: 8;
+}
+
+.where-result .sns-result-person .fragment-avatar {
+    width: 56px;
+    height: 56px;
+
+    border: 2px solid #55a8ff;
+
+    box-shadow:
+            0 0 0 4px
+            rgba(85, 168, 255, 0.08),
+            0 0 20px
+            rgba(85, 168, 255, 0.34);
+
+    font-size: 35px;
+}
+
+.where-result .sns-result-person .person-name-badge {
+    border-color:
+            rgba(85, 168, 255, 0.46);
+
+    background:
+            rgba(8, 16, 30, 0.96);
+
+    color: #d9ecff;
+}
+
+
+/*
+ * 예전 WHERE에서 노드/관계를 완전히 숨기던 규칙 무효화.
+ */
+.where-result .where-hidden-person,
+.where-result .where-hidden-edge {
+    opacity: 0.16 !important;
+    pointer-events: none;
+}
+
+
+/*
+ * WHERE 하단 결과 배지
+ */
+.where-result .where-badge {
+    border-color:
+            rgba(85, 168, 255, 0.45);
+}
+
+.where-result .where-badge b {
+    color: #55a8ff;
+}
+
+
+/* =========================================================
+   04 WHERE — 가독성 최종 조정
+   3번 MATCH의 전체 그래프는 보이게 유지하고
+   SNS 관계만 파란색으로 강하게 강조
+========================================================= */
+
+/* SNS가 아닌 노드도 '배경 맥락'으로 충분히 보이게 */
+.where-result .where-context-person {
+    opacity: 0.42 !important;
+    filter: grayscale(0.05) !important;
+}
+
+/* 배경 노드 테두리/광택도 완전히 죽이지 않음 */
+.where-result .where-context-person .fragment-avatar {
+    border-color: rgba(164, 126, 255, 0.24) !important;
+    box-shadow:
+            0 0 10px rgba(137, 92, 226, 0.10) !important;
+}
+
+/*
+ * SNS가 아닌 기존 SPREAD 선:
+ * 3번 MATCH에서 보였던 전체 연결 구조가 읽히도록
+ * 보라색을 유지하면서 중간 밝기로 표시
+ */
+.where-result .fragment-edge.where-context-edge {
+    stroke: #8d68c8 !important;
+    stroke-width: 0.62 !important;
+    opacity: 0.52 !important;
+    filter:
+            drop-shadow(
+                    0 0 2px
+                    rgba(141, 104, 200, 0.22)
+            ) !important;
+}
+
+/* SNS 관계는 기존처럼 파란색으로 가장 강하게 강조 */
+.where-result .fragment-edge.sns-filter-edge {
+    stroke: #55a8ff !important;
+    stroke-width: 0.98 !important;
+    opacity: 1 !important;
+    filter:
+            drop-shadow(
+                    0 0 5px
+                    rgba(85, 168, 255, 0.72)
+            ) !important;
+}
+
+/* SNS에 해당하는 노드 */
+.where-result .sns-result-person {
+    opacity: 1 !important;
+}
+
+.where-result .sns-result-person .fragment-avatar {
+    width: 58px !important;
+    height: 58px !important;
+
+    border: 2px solid #55a8ff !important;
+
+    box-shadow:
+            0 0 0 4px rgba(85, 168, 255, 0.08),
+            0 0 22px rgba(85, 168, 255, 0.42) !important;
+
+    font-size: 36px !important;
+}
+
+/* WHERE 하단 배지 */
+.where-result .where-badge {
+    border-color: rgba(85, 168, 255, 0.50) !important;
+}
+
+.where-result .where-badge b {
+    color: #69b6ff !important;
+}

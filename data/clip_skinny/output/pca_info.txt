@@ -1,0 +1,7 @@
+CLIP Embedding PCA Result
+========================================
+Original embedding shape: (30, 512)
+PCA output shape: (30, 2)
+PC1 explained variance: 0.161147 (16.11%)
+PC2 explained variance: 0.083927 (8.39%)
+Total explained variance: 0.245074 (24.51%)

@@ -1,0 +1,282 @@
+{
+  "title": "스키니진 실루엣 변화 분석",
+  "question": "과거의 스키니진은 최근 어떤 형태로 다시 나타나고 있을까?",
+  "method": {
+    "embedding": "CLIP ViT-B/32",
+    "dimension": 512,
+    "projection": "PCA",
+    "imageCount": 30,
+    "similarity": "Cosine Similarity",
+    "features": [
+      {
+        "id": "skinny",
+        "label": "Skinny"
+      },
+      {
+        "id": "straight",
+        "label": "Straight"
+      },
+      {
+        "id": "wide",
+        "label": "Wide"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": "past_skinny",
+      "label": "과거 스키니",
+      "period": "2000s",
+      "description": "몸에 밀착되는 Skinny 실루엣",
+      "features": {
+        "skinny": 0.2636,
+        "straight": 0.2326,
+        "wide": 0.1972
+      },
+      "dominantFeature": "skinny",
+      "dominantFeatureLabel": "Skinny",
+      "pcaCenter": {
+        "pc1": -0.232071,
+        "pc2": 0.026483
+      }
+    },
+    {
+      "id": "wide_period",
+      "label": "와이드 전성기",
+      "period": "Wide Period",
+      "description": "폭이 넓은 Wide 실루엣",
+      "features": {
+        "skinny": 0.1678,
+        "straight": 0.2184,
+        "wide": 0.2681
+      },
+      "dominantFeature": "wide",
+      "dominantFeatureLabel": "Wide",
+      "pcaCenter": {
+        "pc1": 0.314732,
+        "pc2": 0.113313
+      }
+    },
+    {
+      "id": "modern_slim",
+      "label": "최근 실루엣",
+      "period": "Recent",
+      "description": "과거 Skinny와 현재 Wide 사이에서 나타나는 최근 실루엣",
+      "features": {
+        "skinny": 0.242,
+        "straight": 0.2395,
+        "wide": 0.2325
+      },
+      "dominantFeature": "skinny",
+      "dominantFeatureLabel": "Skinny",
+      "pcaCenter": {
+        "pc1": -0.08266,
+        "pc2": -0.139796
+      }
+    }
+  ],
+  "pca": {
+    "points": [
+      {
+        "group": "past_skinny",
+        "filename": "1.jpeg",
+        "pc1": -0.082775,
+        "pc2": 0.100901
+      },
+      {
+        "group": "past_skinny",
+        "filename": "10.jpeg",
+        "pc1": -0.245307,
+        "pc2": 0.141722
+      },
+      {
+        "group": "past_skinny",
+        "filename": "2.jpeg",
+        "pc1": -0.263166,
+        "pc2": -0.166693
+      },
+      {
+        "group": "past_skinny",
+        "filename": "3.jpeg",
+        "pc1": -0.417095,
+        "pc2": 0.127468
+      },
+      {
+        "group": "past_skinny",
+        "filename": "4.jpeg",
+        "pc1": -0.288392,
+        "pc2": -0.102525
+      },
+      {
+        "group": "past_skinny",
+        "filename": "5.jpeg",
+        "pc1": 0.059805,
+        "pc2": -0.10207
+      },
+      {
+        "group": "past_skinny",
+        "filename": "6.jpeg",
+        "pc1": 0.01688,
+        "pc2": 0.040062
+      },
+      {
+        "group": "past_skinny",
+        "filename": "7.jpeg",
+        "pc1": -0.392544,
+        "pc2": 0.157275
+      },
+      {
+        "group": "past_skinny",
+        "filename": "8.jpeg",
+        "pc1": -0.187134,
+        "pc2": -0.024615
+      },
+      {
+        "group": "past_skinny",
+        "filename": "9.jpeg",
+        "pc1": -0.520981,
+        "pc2": 0.093303
+      },
+      {
+        "group": "wide_period",
+        "filename": "1.jpeg",
+        "pc1": 0.347486,
+        "pc2": 0.3278
+      },
+      {
+        "group": "wide_period",
+        "filename": "10.jpeg",
+        "pc1": -0.13769,
+        "pc2": 0.172045
+      },
+      {
+        "group": "wide_period",
+        "filename": "2.jpeg",
+        "pc1": 0.4133,
+        "pc2": 0.037935
+      },
+      {
+        "group": "wide_period",
+        "filename": "3.jpeg",
+        "pc1": 0.239982,
+        "pc2": -0.258506
+      },
+      {
+        "group": "wide_period",
+        "filename": "4.jpeg",
+        "pc1": 0.495573,
+        "pc2": -0.010459
+      },
+      {
+        "group": "wide_period",
+        "filename": "5.jpeg",
+        "pc1": 0.383739,
+        "pc2": -0.221913
+      },
+      {
+        "group": "wide_period",
+        "filename": "6.jpeg",
+        "pc1": 0.445305,
+        "pc2": 0.230273
+      },
+      {
+        "group": "wide_period",
+        "filename": "7.jpeg",
+        "pc1": 0.326906,
+        "pc2": 0.076831
+      },
+      {
+        "group": "wide_period",
+        "filename": "8.jpeg",
+        "pc1": 0.33437,
+        "pc2": 0.364685
+      },
+      {
+        "group": "wide_period",
+        "filename": "9.jpeg",
+        "pc1": 0.298345,
+        "pc2": 0.41444
+      },
+      {
+        "group": "modern_slim",
+        "filename": "1.jpeg",
+        "pc1": 0.319173,
+        "pc2": -0.231737
+      },
+      {
+        "group": "modern_slim",
+        "filename": "10.jpeg",
+        "pc1": 0.067426,
+        "pc2": -0.258657
+      },
+      {
+        "group": "modern_slim",
+        "filename": "2.jpeg",
+        "pc1": -0.167058,
+        "pc2": -0.255688
+      },
+      {
+        "group": "modern_slim",
+        "filename": "3.jpeg",
+        "pc1": 0.020017,
+        "pc2": -0.345112
+      },
+      {
+        "group": "modern_slim",
+        "filename": "4.jpeg",
+        "pc1": -0.485062,
+        "pc2": 0.356153
+      },
+      {
+        "group": "modern_slim",
+        "filename": "5.jpeg",
+        "pc1": -0.032463,
+        "pc2": -0.218365
+      },
+      {
+        "group": "modern_slim",
+        "filename": "6.jpeg",
+        "pc1": -0.096709,
+        "pc2": -0.167247
+      },
+      {
+        "group": "modern_slim",
+        "filename": "7.jpeg",
+        "pc1": -0.098519,
+        "pc2": -0.326658
+      },
+      {
+        "group": "modern_slim",
+        "filename": "8.jpeg",
+        "pc1": -0.021702,
+        "pc2": -0.011184
+      },
+      {
+        "group": "modern_slim",
+        "filename": "9.jpeg",
+        "pc1": -0.331708,
+        "pc2": 0.060535
+      }
+    ],
+    "centers": {
+      "past_skinny": {
+        "pc1": -0.232071,
+        "pc2": 0.026483
+      },
+      "wide_period": {
+        "pc1": 0.314732,
+        "pc2": 0.113313
+      },
+      "modern_slim": {
+        "pc1": -0.08266,
+        "pc2": -0.139796
+      }
+    }
+  },
+  "interpretation": {
+    "past": "과거에는 몸에 밀착되는 Skinny 특징이 강하게 나타난다.",
+    "wide": "와이드 유행 시기에는 Wide 특징이 강하게 나타난다.",
+    "modern": "최근 실루엣은 Skinny와 Straight, Wide 사이의 특징을 함께 비교해 과거 스타일이 어떤 형태로 재해석되는지 확인한다.",
+    "conclusion": "최근 스타일이 과거 Skinny로 완전히 회귀한 것인지, Straight 또는 Wide 특징을 함께 가진 중간 형태인지 비교한다."
+  }
+}

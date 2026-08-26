@@ -1,0 +1,2690 @@
+* {
+    box-sizing: border-box;
+}
+
+.compare-page {
+    min-height: 100vh;
+    padding: 20px 28px 24px;
+    overflow: hidden;
+    background:
+            radial-gradient(
+                    circle at 22% 26%,
+                    rgba(101, 65, 203, 0.10),
+                    transparent 31%
+            ),
+            #080a10;
+    color: #f7f7fb;
+}
+
+.compare-header {
+    height: 56px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 20px;
+}
+
+.compare-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compare-brand span {
+    color: rgba(183, 158, 255, 0.76);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+}
+
+.compare-brand strong {
+    font-size: 20px;
+    letter-spacing: -0.04em;
+}
+
+.voice-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 13px;
+    border: 1px solid rgba(147, 104, 255, 0.20);
+    border-radius: 999px;
+    background: rgba(120, 74, 220, 0.055);
+    color: rgba(213, 197, 255, 0.72);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.10em;
+}
+
+.voice-pill i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9768ff;
+    box-shadow: 0 0 12px #9768ff;
+}
+
+.compare-back,
+.compare-next,
+.compare-empty button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.025);
+    color: rgba(245, 245, 250, 0.76);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    cursor: pointer;
+}
+
+.compare-back {
+    justify-self: end;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 92px;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: rgba(245, 245, 250, 0.78);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.compare-back:hover {
+    border-color: rgba(168, 116, 255, 0.38);
+    background: rgba(130, 82, 220, 0.08);
+    color: #ffffff;
+}
+
+.compare-stage {
+    height: calc(100vh - 100px);
+    min-height: 690px;
+    display: grid;
+    grid-template-rows:
+        auto
+        1fr
+        auto
+        auto;
+    gap: 14px;
+    padding: 24px 28px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.compare-heading > p {
+    margin: 0 0 6px;
+    color: #a986ff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.compare-heading > p span {
+    margin-left: 14px;
+    color: rgba(224, 219, 239, 0.40);
+}
+
+.compare-heading h1 {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(38px, 3.05vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.compare-heading h1 em {
+    color: #b88dff;
+    font-style: normal;
+}
+
+.compare-question {
+    display: inline-flex;
+    margin-top: 12px;
+    padding: 9px 13px;
+    border: 1px solid rgba(165, 112, 255, 0.10);
+    border-radius: 10px;
+    background: rgba(111, 69, 203, 0.035);
+    color: rgba(237, 237, 244, 0.56);
+    font-size: 12px;
+}
+
+.compare-question b {
+    color: white;
+}
+
+
+/* =========================================================
+   MAIN VS
+========================================================= */
+
+.compare-content {
+    min-height: 0;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        74px
+        minmax(0, 1fr);
+    align-items: stretch;
+    gap: 16px;
+}
+
+.compare-card {
+    min-height: 0;
+    padding: 24px 26px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.014);
+}
+
+.rdb-card {
+    box-shadow:
+            inset 4px 0 0 rgba(76, 158, 255, 0.48);
+}
+
+.graph-card {
+    box-shadow:
+            inset 4px 0 0 rgba(172, 111, 255, 0.52);
+}
+
+.card-kicker {
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: 0.12em;
+}
+
+.rdb-kicker {
+    color: #6bb5ff;
+}
+
+.graph-kicker {
+    color: #bd8fff;
+}
+
+.compare-card h2 {
+    margin: 6px 0 0;
+    font-size: clamp(25px, 2vw, 34px);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+}
+
+.compare-card h2 span {
+    margin-right: 7px;
+}
+
+.rdb-card h2 span {
+    color: #68b2ff;
+}
+
+.graph-card h2 span {
+    color: #bd8fff;
+}
+
+.card-summary {
+    margin: 9px 0 0;
+    color: rgba(235, 235, 243, 0.45);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.card-summary b {
+    color: rgba(250, 250, 252, 0.84);
+}
+
+.center-vs {
+    display: grid;
+    place-items: center;
+    color: rgba(190, 156, 255, 0.62);
+    font-size: 24px;
+    font-weight: 950;
+}
+
+
+/* =========================================================
+   RDB VISUAL
+========================================================= */
+
+.rdb-visual.detailed-rdb {
+    min-height: 300px;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        82px
+        minmax(0, 1.22fr)
+        82px
+        minmax(0, 0.92fr);
+    align-items: center;
+    gap: 10px;
+    padding: 22px 0 12px;
+}
+
+.rdb-table-card {
+    overflow: hidden;
+    border: 1px solid rgba(76, 157, 255, 0.17);
+    border-radius: 15px;
+    background:
+            radial-gradient(
+                    circle at 50% 0%,
+                    rgba(64, 142, 240, 0.07),
+                    transparent 58%
+            ),
+            rgba(255, 255, 255, 0.008);
+}
+
+.rdb-table-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 13px;
+    border-bottom: 1px solid rgba(76, 157, 255, 0.12);
+    color: #6db5ff;
+}
+
+.rdb-table-title strong {
+    display: block;
+    color: rgba(247, 249, 253, 0.94);
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.rdb-table-title span {
+    display: block;
+    margin-top: 3px;
+    color: rgba(200, 219, 241, 0.38);
+    font-size: 8px;
+}
+
+.mini-table {
+    padding: 7px 9px 9px;
+}
+
+.mini-row {
+    display: grid;
+    grid-template-columns:
+        1.05fr
+        0.95fr
+        0.75fr;
+    align-items: center;
+    gap: 5px;
+    min-height: 31px;
+    padding: 6px 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.mini-row:last-child {
+    border-bottom: 0;
+}
+
+.mini-row span,
+.mini-row b {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mini-row span {
+    color: rgba(219, 228, 240, 0.45);
+    font-size: 8px;
+}
+
+.mini-row b {
+    color: rgba(246, 248, 252, 0.86);
+    font-size: 8px;
+}
+
+.mini-head {
+    min-height: 27px;
+    border-radius: 7px;
+    background: rgba(62, 127, 209, 0.045);
+}
+
+.mini-head span {
+    color: #67afff;
+    font-size: 7px;
+    font-weight: 850;
+}
+
+.highlight-row {
+    background: rgba(70, 145, 239, 0.055);
+}
+
+.highlight-row b {
+    color: #8cc8ff;
+}
+
+.spread-grid {
+    grid-template-columns:
+        1.1fr
+        1.1fr
+        0.8fr
+        0.42fr;
+}
+
+.channel-grid {
+    grid-template-columns:
+        0.9fr
+        1.2fr;
+}
+
+.big-join.detailed-join {
+    min-height: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid rgba(77, 157, 255, 0.22);
+    border-radius: 11px;
+    background: rgba(51, 115, 195, 0.042);
+}
+
+.big-join.detailed-join span {
+    color: #64afff;
+    font-size: 14px;
+    font-weight: 950;
+}
+
+.big-join.detailed-join small {
+    color: rgba(137, 190, 255, 0.42);
+    font-size: 7px;
+}
+
+.rdb-message,
+.graph-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 55px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.rdb-message {
+    border: 1px solid rgba(77, 157, 255, 0.11);
+    background: rgba(51, 115, 195, 0.025);
+    color: #6db5ff;
+}
+
+.rdb-message span {
+    color: rgba(240, 244, 250, 0.64);
+}
+
+.rdb-message b {
+    color: #75b9ff;
+}
+
+
+/* =========================================================
+   GRAPH VISUAL
+========================================================= */
+
+.graph-visual {
+    min-height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 12px;
+}
+
+.graph-segment {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.graph-person {
+    width: 82px;
+    flex: 0 0 82px;
+    text-align: center;
+}
+
+.graph-avatar {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border: 1px solid rgba(160, 120, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(91, 61, 163, 0.09);
+    box-shadow: 0 0 12px rgba(112, 79, 197, 0.17);
+    font-size: 39px;
+}
+
+.graph-person strong {
+    display: block;
+    margin-top: 8px;
+    overflow: hidden;
+    color: rgba(246, 246, 250, 0.86);
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.graph-start .graph-avatar {
+    border: 2px solid #6f8cff;
+    box-shadow:
+            0 0 0 4px rgba(92, 118, 255, 0.07),
+            0 0 18px rgba(92, 118, 255, 0.24);
+}
+
+.graph-start strong {
+    color: #88a0ff;
+}
+
+.graph-target .graph-avatar {
+    border: 2px solid #bc8bff;
+    box-shadow:
+            0 0 0 4px rgba(171, 111, 255, 0.07),
+            0 0 18px rgba(171, 111, 255, 0.25);
+}
+
+.graph-target strong {
+    color: #c59cff;
+}
+
+.graph-edge {
+    position: relative;
+    width: clamp(32px, 3vw, 50px);
+    height: 60px;
+    flex: 0 0 clamp(32px, 3vw, 50px);
+}
+
+.graph-edge::before {
+    content: "";
+    position: absolute;
+    left: 1px;
+    right: 3px;
+    top: 31px;
+    height: 2px;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(144, 104, 238, 0.28),
+                    #a77cf7
+            );
+}
+
+.graph-edge i {
+    position: absolute;
+    right: 1px;
+    top: 26px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #a77cf7;
+    border-right: 2px solid #a77cf7;
+    transform: rotate(45deg);
+}
+
+.graph-edge > span {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    transform: translateX(-50%);
+    color: rgba(218, 205, 255, 0.68);
+    font-size: 8px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.graph-edge.skipped::before {
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(154, 123, 224, 0.45) 0 4px,
+                    transparent 4px 8px
+            );
+}
+
+.graph-edge.skipped i {
+    display: none;
+}
+
+.graph-message {
+    border: 1px solid rgba(169, 112, 255, 0.12);
+    background: rgba(108, 67, 187, 0.028);
+    color: #b88cff;
+}
+
+.graph-message span {
+    color: rgba(240, 237, 247, 0.66);
+}
+
+.graph-message b {
+    color: #c099ff;
+}
+
+
+/* =========================================================
+   ONE-LINE DIFFERENCE
+========================================================= */
+
+.compare-one-line {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        52px
+        minmax(0, 1fr);
+
+    align-items: stretch;
+    gap: 15px;
+}
+
+.compare-one-line > div {
+    min-height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border-radius: 13px;
+}
+
+.rdb-line {
+    border: 1px solid rgba(78, 157, 255, 0.10);
+    background: rgba(54, 111, 181, 0.022);
+}
+
+.graph-line {
+    border: 1px solid rgba(168, 111, 255, 0.11);
+    background: rgba(110, 68, 193, 0.024);
+}
+
+.compare-one-line span {
+    font-size: 10px;
+    font-weight: 950;
+    letter-spacing: 0.08em;
+}
+
+.rdb-line span {
+    color: #6cb5ff;
+}
+
+.graph-line span {
+    color: #ba8fff;
+}
+
+.compare-one-line strong {
+    font-size: 15px;
+}
+
+.compare-one-line > i {
+    width: 52px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: stretch;
+
+    margin: 0;
+    padding: 0;
+
+    color: rgba(187, 154, 255, 0.65);
+
+    font-size: 22px;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 1;
+
+    transform: translateY(0);
+}
+
+.compare-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 42px;
+}
+
+.compare-key-message {
+    color: rgba(240, 240, 246, 0.64);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.compare-key-message b {
+    color: white;
+}
+
+.compare-next {
+    color: #c3a4ff;
+    border-color: rgba(155, 111, 255, 0.24);
+    background: rgba(119, 73, 220, 0.055);
+}
+
+.compare-empty {
+    max-width: 720px;
+    margin: 20vh auto 0;
+    text-align: center;
+}
+
+.compare-empty > span {
+    color: #a77cf7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.compare-empty h1 {
+    margin: 14px 0;
+    font-size: 36px;
+}
+
+.compare-empty p {
+    color: rgba(235, 235, 243, 0.5);
+}
+
+@media (max-width: 1300px) {
+    .compare-page {
+        overflow: auto;
+    }
+
+    .compare-stage {
+        height: auto;
+    }
+
+    .compare-content {
+        grid-template-columns: 1fr;
+    }
+
+    .center-vs {
+        min-height: 50px;
+    }
+
+    .rdb-visual {
+        grid-template-columns:
+            1fr
+            68px
+            1fr
+            68px
+            1fr;
+    }
+}
+
+
+@media (max-width: 1500px) {
+    .rdb-visual.detailed-rdb {
+        grid-template-columns:
+            minmax(0, 1fr)
+            66px
+            minmax(0, 1.15fr)
+            66px
+            minmax(0, 0.9fr);
+        gap: 7px;
+    }
+
+    .rdb-table-title strong {
+        font-size: 12px;
+    }
+
+    .mini-row span,
+    .mini-row b {
+        font-size: 7px;
+    }
+}
+
+
+/* =========================================================
+   PRESENTATION SIZE BOOST
+   테이블 내부 글씨 + 핵심 비교 문구 확대
+========================================================= */
+
+/* 왼쪽/오른쪽 카드 제목 */
+.compare-card h2 {
+    font-size: clamp(30px, 2.35vw, 40px);
+}
+
+.card-kicker {
+    font-size: 13px;
+}
+
+.card-summary {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* RDB 테이블 영역 자체를 조금 더 크게 */
+.rdb-visual.detailed-rdb {
+    grid-template-columns:
+        minmax(0, 1.08fr)
+        88px
+        minmax(0, 1.34fr)
+        88px
+        minmax(0, 1fr);
+    gap: 12px;
+    padding-top: 28px;
+}
+
+/* 테이블 제목 */
+.rdb-table-title {
+    gap: 11px;
+    padding: 15px 15px;
+}
+
+.rdb-table-title strong {
+    font-size: 17px;
+    line-height: 1.25;
+}
+
+.rdb-table-title span {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+/* 표 자체 */
+.mini-table {
+    padding: 9px 10px 11px;
+}
+
+.mini-row {
+    min-height: 39px;
+    gap: 7px;
+    padding: 8px 9px;
+}
+
+/* 표 헤더 */
+.mini-head {
+    min-height: 34px;
+}
+
+.mini-head span {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+}
+
+/* 표 데이터 */
+.mini-row span,
+.mini-row b {
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.highlight-row b {
+    font-size: 11px;
+}
+
+/* JOIN 박스 */
+.big-join.detailed-join {
+    min-height: 78px;
+    gap: 6px;
+}
+
+.big-join.detailed-join span {
+    font-size: 18px;
+}
+
+.big-join.detailed-join small {
+    font-size: 9px;
+}
+
+/* RDB 하단 설명 */
+.rdb-message,
+.graph-message {
+    min-height: 62px;
+    font-size: 14px;
+}
+
+.rdb-message span,
+.graph-message span {
+    line-height: 1.4;
+}
+
+/* Graph 쪽 시민 이름/채널도 같이 확대 */
+.graph-person {
+    width: 92px;
+    flex-basis: 92px;
+}
+
+.graph-avatar {
+    width: 68px;
+    height: 68px;
+    font-size: 44px;
+}
+
+.graph-person strong {
+    margin-top: 9px;
+    font-size: 12px;
+}
+
+.graph-edge {
+    width: clamp(38px, 3.4vw, 58px);
+    height: 66px;
+    flex-basis: clamp(38px, 3.4vw, 58px);
+}
+
+.graph-edge::before {
+    top: 34px;
+}
+
+.graph-edge i {
+    top: 29px;
+}
+
+.graph-edge > span {
+    top: 3px;
+    font-size: 10px;
+}
+
+/* 하단 비교 바 */
+.compare-one-line > div {
+    min-height: 74px;
+}
+
+.compare-one-line span {
+    font-size: 12px;
+}
+
+.compare-one-line strong {
+    font-size: 18px;
+}
+
+/* 최하단 결론 */
+.compare-key-message {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* 1600px 이하에서도 너무 작아지지 않게 */
+@media (max-width: 1600px) {
+    .rdb-table-title strong {
+        font-size: 15px;
+    }
+
+    .rdb-table-title span {
+        font-size: 9px;
+    }
+
+    .mini-head span {
+        font-size: 9px;
+    }
+
+    .mini-row span,
+    .mini-row b {
+        font-size: 10px;
+    }
+
+    .big-join.detailed-join span {
+        font-size: 16px;
+    }
+
+    .big-join.detailed-join small {
+        font-size: 8px;
+    }
+
+    .graph-avatar {
+        width: 62px;
+        height: 62px;
+        font-size: 40px;
+    }
+
+    .graph-person strong {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   FINAL POLISH — RDB 간소화 / Graph 확대 / 결론 강조
+========================================================= */
+
+/* RDB 표는 행을 줄인 만큼 더 크게 */
+.rdb-table-card {
+    min-height: 190px;
+}
+
+.rdb-table-title {
+    padding: 16px 16px;
+}
+
+.rdb-table-title strong {
+    font-size: 18px;
+}
+
+.rdb-table-title span {
+    font-size: 10px;
+}
+
+.mini-table {
+    padding: 10px 10px 12px;
+}
+
+.mini-row {
+    min-height: 45px;
+    padding: 9px 9px;
+}
+
+.mini-head {
+    min-height: 38px;
+}
+
+.mini-head span {
+    font-size: 11px;
+}
+
+.mini-row span,
+.mini-row b {
+    font-size: 12px;
+}
+
+.highlight-row b {
+    font-size: 12px;
+}
+
+/* 전파기록 테이블은 열이 4개라 약간만 작게 */
+.spread-grid span,
+.spread-grid b {
+    font-size: 10px;
+}
+
+/* JOIN도 조금 더 크게 */
+.big-join.detailed-join {
+    min-height: 86px;
+}
+
+.big-join.detailed-join span {
+    font-size: 19px;
+}
+
+.big-join.detailed-join small {
+    font-size: 9px;
+}
+
+/* 오른쪽 GraphDB 경로 전체 확대 */
+.graph-visual {
+    min-height: 305px;
+    padding: 24px 0 12px;
+}
+
+.graph-person {
+    width: 100px;
+    flex-basis: 100px;
+}
+
+.graph-avatar {
+    width: 76px;
+    height: 76px;
+    font-size: 49px;
+}
+
+.graph-person strong {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.graph-edge {
+    width: clamp(44px, 3.8vw, 66px);
+    height: 72px;
+    flex-basis: clamp(44px, 3.8vw, 66px);
+}
+
+.graph-edge::before {
+    top: 38px;
+    height: 2px;
+}
+
+.graph-edge i {
+    top: 33px;
+    width: 11px;
+    height: 11px;
+}
+
+.graph-edge > span {
+    top: 3px;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+/* Graph 설명도 크게 */
+.graph-message {
+    min-height: 68px;
+    font-size: 15px;
+}
+
+/* 하단 비교 바 */
+.compare-one-line > div {
+    min-height: 78px;
+}
+
+.compare-one-line strong {
+    font-size: 19px;
+}
+
+/* 최종 결론을 이 페이지의 마지막 핵심으로 강조 */
+.compare-key-message {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(113, 72, 205, 0.045),
+                    transparent 70%
+            );
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.compare-key-message b {
+    color: #c79dff;
+    font-size: 17px;
+}
+
+/* 너무 좁은 화면에서는 적당히 줄임 */
+@media (max-width: 1600px) {
+    .rdb-table-title strong {
+        font-size: 16px;
+    }
+
+    .mini-head span {
+        font-size: 10px;
+    }
+
+    .mini-row span,
+    .mini-row b {
+        font-size: 11px;
+    }
+
+    .spread-grid span,
+    .spread-grid b {
+        font-size: 9px;
+    }
+
+    .graph-person {
+        width: 90px;
+        flex-basis: 90px;
+    }
+
+    .graph-avatar {
+        width: 68px;
+        height: 68px;
+        font-size: 44px;
+    }
+
+    .graph-person strong {
+        font-size: 12px;
+    }
+
+    .graph-edge > span {
+        font-size: 10px;
+    }
+
+    .compare-key-message {
+        font-size: 15px;
+    }
+
+    .compare-key-message b {
+        font-size: 16px;
+    }
+}
+.compare-title {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+
+    margin: 0;
+    white-space: nowrap;
+
+    font-size: clamp(42px, 3.4vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.compare-title-white {
+    display: inline;
+    color: #f5f3ff;
+}
+
+.compare-title-purple {
+    display: inline;
+    color: #a970ff;
+}
+
+/* =========================================================
+   RDB VS GRAPH — SCENE SWITCH
+   기존 비교장면 1 스타일은 건드리지 않고,
+   비교장면 2와 이동 버튼만 추가
+========================================================= */
+
+.hero-title {
+    white-space: nowrap;
+}
+
+.hero-title > span {
+    display: inline !important;
+    color: #a970ff !important;
+}
+
+.compare-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.compare-scene-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 132px;
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(99, 171, 255, 0.26);
+    border-radius: 999px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(58, 135, 226, 0.08),
+                    rgba(128, 79, 223, 0.08)
+            );
+
+    color: #dfe9ff;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.compare-scene-button:hover {
+    border-color: rgba(174, 117, 255, 0.45);
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(58, 135, 226, 0.13),
+                    rgba(128, 79, 223, 0.13)
+            );
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SCENE 2 — 데이터 조회 vs 관계 탐색
+========================================================= */
+
+.scene-two-guide {
+    font-size: 13px;
+}
+
+.question-compare-board {
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.question-card {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    background:
+            radial-gradient(
+                    circle at 5% 0%,
+                    rgba(106, 69, 204, 0.055),
+                    transparent 38%
+            ),
+            rgba(255, 255, 255, 0.012);
+}
+
+.question-a {
+    box-shadow:
+            inset 3px 0 0 rgba(77, 160, 255, 0.42);
+}
+
+.question-b {
+    box-shadow:
+            inset 3px 0 0 rgba(177, 112, 255, 0.46);
+}
+
+
+/* 질문 크게 */
+.question-title-row {
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 13px;
+    align-items: start;
+}
+
+.question-badge {
+    display: grid;
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid rgba(78, 162, 255, 0.30);
+    border-radius: 12px;
+
+    background: rgba(47, 113, 196, 0.07);
+
+    color: #73baff;
+
+    font-size: 21px;
+    font-weight: 950;
+}
+
+.graph-badge {
+    border-color: rgba(177, 111, 255, 0.31);
+    background: rgba(112, 67, 197, 0.07);
+    color: #be91ff;
+}
+
+.question-kicker {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: rgba(187, 161, 255, 0.62);
+
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: 0.14em;
+}
+
+.question-title-row h2 {
+    margin: 0;
+
+    color: #faf9fd;
+
+    font-size: clamp(20px, 1.55vw, 27px);
+    line-height: 1.22;
+    letter-spacing: -0.04em;
+}
+
+.question-title-row p {
+    margin: 7px 0 0;
+
+    color: rgba(236, 234, 243, 0.54);
+
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.question-title-row p b {
+    color: rgba(248, 247, 252, 0.84);
+}
+
+
+/* 각 질문 안 RDB vs GraphDB */
+.question-compare-grid {
+    min-height: 242px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        40px
+        minmax(0, 1fr);
+
+    gap: 9px;
+    align-items: stretch;
+}
+
+.qa-vs {
+    display: grid;
+    place-items: center;
+
+    color: rgba(193, 160, 255, 0.60);
+
+    font-size: 15px;
+    font-weight: 950;
+}
+
+.qa-db-panel {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 14px;
+
+    border-radius: 13px;
+}
+
+.qa-rdb {
+    border: 1px solid rgba(78, 161, 255, 0.16);
+    background: rgba(45, 108, 184, 0.026);
+}
+
+.qa-graph {
+    border: 1px solid rgba(174, 111, 255, 0.16);
+    background: rgba(107, 66, 188, 0.026);
+}
+
+
+/* RDB / GRAPH DB 를 크게 */
+.qa-db-title {
+    min-height: 46px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+
+    padding-bottom: 9px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qa-db-title strong {
+    color: #70b8ff;
+
+    font-size: 20px;
+    font-weight: 950;
+    letter-spacing: 0.03em;
+}
+
+.qa-graph .qa-db-title strong {
+    color: #bd90ff;
+}
+
+.qa-db-title span {
+    color: rgba(247, 246, 251, 0.82);
+
+    font-size: 13px;
+    font-weight: 850;
+}
+
+
+/* Question A */
+.qa-condition-line,
+.qa-property-line {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    margin-top: 8px;
+}
+
+.qa-condition-line > span {
+    padding: 8px 9px;
+
+    border: 1px solid rgba(80, 163, 255, 0.18);
+    border-radius: 8px;
+
+    background: rgba(48, 112, 192, 0.05);
+
+    color: #88c6ff;
+
+    font-size: 10px;
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+.qa-condition-line > b {
+    color: rgba(240, 240, 246, 0.48);
+}
+
+.qa-condition-line > i,
+.qa-property-line > i {
+    color: rgba(190, 155, 255, 0.68);
+
+    font-size: 13px;
+    font-style: normal;
+}
+
+.qa-condition-line > strong {
+    color: rgba(248, 248, 252, 0.85);
+
+    font-size: 10px;
+}
+
+.qa-property-line > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 9px 11px;
+
+    border: 1px solid rgba(175, 111, 255, 0.19);
+    border-radius: 8px;
+
+    background: rgba(111, 68, 194, 0.05);
+}
+
+.qa-property-line > div span {
+    color: #c098ff;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.qa-property-line > div strong {
+    color: rgba(248, 246, 251, 0.80);
+
+    font-size: 10px;
+}
+
+.qa-property-line > b {
+    color: rgba(248, 247, 251, 0.78);
+
+    font-size: 10px;
+}
+
+.qa-result-list {
+    min-height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.qa-result-chip {
+    min-width: 78px;
+
+    padding: 8px 9px;
+
+    border: 1px solid rgba(80, 163, 255, 0.13);
+    border-radius: 8px;
+
+    background: rgba(46, 108, 184, 0.028);
+
+    text-align: center;
+}
+
+.qa-result-chip strong {
+    display: block;
+
+    color: rgba(249, 249, 252, 0.92);
+
+    font-size: 10px;
+}
+
+.qa-result-chip span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: rgba(204, 221, 242, 0.50);
+
+    font-size: 8px;
+}
+
+.graph-results {
+    gap: 9px;
+}
+
+.qa-graph-person {
+    min-width: 68px;
+
+    text-align: center;
+}
+
+.qa-graph-person > div {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.qa-graph-person strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: rgba(248, 247, 252, 0.90);
+
+    font-size: 9px;
+}
+
+
+/* Panel message */
+.qa-panel-message {
+    min-height: 52px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    margin-top: auto;
+
+    border-radius: 9px;
+
+    text-align: center;
+}
+
+.qa-panel-message strong {
+    font-size: 11px;
+}
+
+.qa-panel-message span {
+    font-size: 9px;
+}
+
+.rdb-message-box {
+    background: rgba(47, 111, 190, 0.04);
+}
+
+.rdb-message-box strong {
+    color: #75bbff;
+}
+
+.rdb-message-box span {
+    color: rgba(205, 222, 244, 0.48);
+}
+
+.graph-message-box {
+    background: rgba(111, 68, 193, 0.04);
+}
+
+.graph-message-box strong {
+    color: #c199ff;
+}
+
+.graph-message-box span {
+    color: rgba(226, 215, 243, 0.48);
+}
+
+
+/* Question B — RDB JOIN */
+.qa-join-chain {
+    min-height: 126px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.qa-join-chain > div {
+    display: grid;
+    place-items: center;
+
+    min-width: 54px;
+    min-height: 54px;
+
+    padding: 6px;
+
+    border: 1px solid rgba(79, 162, 255, 0.17);
+    border-radius: 8px;
+
+    background: rgba(46, 108, 184, 0.034);
+
+    color: rgba(240, 245, 250, 0.77);
+
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.qa-join-chain > i {
+    color: #71b8ff;
+
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 950;
+}
+
+.qa-join-chain > b {
+    color: rgba(229, 224, 238, 0.48);
+
+    font-size: 18px;
+}
+
+
+/* Question B — Graph chain */
+.qa-graph-chain {
+    min-height: 126px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qa-chain-segment {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.qa-chain-person {
+    width: 58px;
+    flex: 0 0 58px;
+
+    text-align: center;
+}
+
+.qa-chain-person > div {
+    display: grid;
+    place-items: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto;
+
+    border: 1px solid rgba(175, 112, 255, 0.22);
+    border-radius: 50%;
+
+    background: rgba(107, 66, 188, 0.05);
+
+    font-size: 29px;
+}
+
+.qa-chain-person strong {
+    display: block;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    color: rgba(248, 247, 252, 0.86);
+
+    font-size: 8px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.qa-chain-edge {
+    position: relative;
+
+    width: clamp(30px, 2.4vw, 43px);
+    height: 48px;
+    flex: 0 0 clamp(30px, 2.4vw, 43px);
+}
+
+.qa-chain-edge::before {
+    content: "";
+
+    position: absolute;
+
+    left: 1px;
+    right: 4px;
+    top: 26px;
+
+    height: 2px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(143, 104, 230, 0.30),
+                    #a77cf7
+            );
+}
+
+.qa-chain-edge i {
+    position: absolute;
+
+    right: 1px;
+    top: 22px;
+
+    width: 8px;
+    height: 8px;
+
+    border-top: 2px solid #a77cf7;
+    border-right: 2px solid #a77cf7;
+
+    transform: rotate(45deg);
+}
+
+.qa-chain-edge span {
+    position: absolute;
+
+    left: 50%;
+    top: 4px;
+
+    transform: translateX(-50%);
+
+    color: rgba(220, 205, 255, 0.68);
+
+    font-size: 7px;
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+
+/* 질문별 결론 */
+.question-bottom-answer {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+}
+
+.question-bottom-answer span {
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.question-bottom-answer strong {
+    color: #faf9fd;
+
+    font-size: 13px;
+}
+
+.rdb-answer {
+    border: 1px solid rgba(79, 161, 255, 0.13);
+    background: rgba(47, 111, 190, 0.03);
+}
+
+.rdb-answer span {
+    color: #72b9ff;
+}
+
+.graph-answer {
+    border: 1px solid rgba(174, 111, 255, 0.14);
+    background: rgba(111, 68, 192, 0.03);
+}
+
+.graph-answer span {
+    color: #bd91ff;
+}
+
+
+/* 최종 한 줄 */
+.scene-two-summary {
+    min-height: 70px;
+
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.scene-two-summary > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.scene-two-summary span {
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: 0.10em;
+}
+
+.scene-two-summary > div:first-child span,
+.scene-two-summary > div:first-child b {
+    color: #74baff;
+}
+
+.scene-two-summary > div:last-child span,
+.scene-two-summary > div:last-child b {
+    color: #c097ff;
+}
+
+.scene-two-summary strong {
+    color: rgba(247, 246, 251, 0.80);
+
+    font-size: 13px;
+}
+
+.scene-two-summary b {
+    font-size: 13px;
+}
+
+.scene-two-summary > i {
+    height: 1px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(96, 171, 255, 0.16),
+                    rgba(175, 111, 255, 0.22)
+            );
+}
+
+
+@media (max-width: 1600px) {
+    .question-card {
+        padding: 16px;
+    }
+
+    .question-title-row h2 {
+        font-size: 20px;
+    }
+
+    .qa-db-title strong {
+        font-size: 18px;
+    }
+
+    .qa-db-title span {
+        font-size: 12px;
+    }
+
+    .question-compare-grid {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .hero-title {
+        white-space: normal;
+    }
+
+    .question-compare-board {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-stage {
+        height: auto;
+    }
+
+    .compare-footer {
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================================
+   비교장면 2 - 작은 설명 글씨만 확대
+   ========================================================= */
+
+/* 질문 A 아래 설명
+   "사람의 나이·조건을 보고 찾는 질문" */
+.compare-question-subtitle {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* A - RDB 하단 설명
+   "조건 조회에 자연스러움 / 값·범위 조건으로 바로 조회" */
+.compare-scene2 .result-box,
+.compare-scene2 .result-box strong,
+.compare-scene2 .result-box span {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* A - GRAPH DB 하단 설명
+   "가능하지만 Graph의 핵심 장점은 아님 / 아직 관계를 따라가는 질문이 아님" */
+.compare-scene2 .graph-result,
+.compare-scene2 .graph-result strong,
+.compare-scene2 .graph-result span {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* B - RDB / GRAPH DB 하단 설명
+   "단계가 늘어날수록 JOIN 반복"
+   "저장된 연결을 그대로 Traversal" */
+.compare-scene2 .method-note,
+.compare-scene2 .method-note strong,
+.compare-scene2 .method-note span {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+}
+
+/* =========================================================
+   SCENE 1 FINAL LAYOUT FIX
+   RDB vs GRAPH 페이지 최종 위치/크기 보정
+   ★ 반드시 rdbVsGraphPage.css 맨 마지막에 추가
+========================================================= */
+
+
+/* =========================================================
+   1. 전체 페이지
+========================================================= */
+
+.compare-page {
+    height: 100vh;
+    min-height: 100vh;
+
+    padding: 14px 20px 18px;
+
+    overflow: hidden;
+}
+
+
+/* 상단 TREND CITY 영역 */
+.compare-header {
+    height: 48px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   2. 메인 큰 외곽 박스
+
+   기존보다 내부 세로 공간을 정확히 나눔
+========================================================= */
+
+.compare-stage {
+    height: calc(100vh - 80px);
+    min-height: 0;
+
+    padding: 20px 28px 14px;
+
+    display: grid;
+
+    /*
+       제목
+       메인 RDB / GRAPH
+       한 줄 비교
+       결론 footer
+    */
+    grid-template-rows:
+        auto
+        minmax(0, 1fr)
+        58px
+        48px;
+
+    gap: 10px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   3. 제목 영역을 약간 압축
+========================================================= */
+
+.compare-heading > p {
+    margin-bottom: 4px;
+}
+
+
+.compare-heading h1 {
+    font-size: clamp(36px, 2.8vw, 48px);
+
+    line-height: 1;
+
+    margin: 0;
+}
+
+
+.compare-question {
+    margin-top: 9px;
+
+    padding: 7px 12px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   4. RDB / GRAPH 메인 영역
+========================================================= */
+
+.compare-content {
+    min-height: 0;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        72px
+        minmax(0, 1fr);
+
+    align-items: stretch;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   5. 두 메인 카드
+
+   ★ 카드 내부 내용이 밖으로 튀어나오지 않도록
+========================================================= */
+
+.compare-card {
+    min-height: 0;
+    height: 100%;
+
+    padding: 16px 24px 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* 제목 */
+.compare-card h2 {
+    margin: 3px 0 0;
+
+    font-size: clamp(28px, 2.1vw, 37px);
+
+    line-height: 1.05;
+}
+
+
+/* RDB / GRAPH DB 작은 라벨 */
+.card-kicker {
+    font-size: 11px;
+}
+
+
+/* 제목 아래 설명 */
+.card-summary {
+    margin: 8px 0 0;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   6. RDB 내부 테이블 영역
+
+   기존보다 약간만 줄여서
+   아래 설명 박스가 카드 안에 들어오도록
+========================================================= */
+
+.rdb-visual.detailed-rdb {
+    flex: 1;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.04fr)
+        72px
+        minmax(0, 1.23fr)
+        72px
+        minmax(0, 0.95fr);
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 0 6px;
+}
+
+
+/* 테이블 카드 */
+.rdb-table-card {
+    min-height: 0;
+
+    max-height: 260px;
+}
+
+
+/* 테이블 제목 */
+.rdb-table-title {
+    padding: 11px 12px;
+
+    gap: 9px;
+}
+
+
+.rdb-table-title strong {
+    font-size: 14px;
+}
+
+
+.rdb-table-title span {
+    font-size: 8px;
+}
+
+
+/* 표 */
+.mini-table {
+    padding: 6px 8px 8px;
+}
+
+
+.mini-row {
+    min-height: 31px;
+
+    padding: 6px 7px;
+
+    gap: 5px;
+}
+
+
+.mini-head {
+    min-height: 28px;
+}
+
+
+.mini-head span {
+    font-size: 8px;
+}
+
+
+.mini-row span,
+.mini-row b {
+    font-size: 9px;
+}
+
+
+.spread-grid span,
+.spread-grid b {
+    font-size: 8px;
+}
+
+
+/* JOIN 박스 */
+.big-join.detailed-join {
+    min-height: 64px;
+
+    height: 64px;
+
+    gap: 3px;
+}
+
+
+.big-join.detailed-join span {
+    font-size: 15px;
+}
+
+
+.big-join.detailed-join small {
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   7. RDB 카드 하단 메시지
+
+   "여러 테이블의 ID를 JOIN..."
+========================================================= */
+
+.rdb-message {
+    flex: 0 0 46px;
+
+    width: 100%;
+    min-height: 46px !important;
+    height: 46px;
+
+    margin-top: 4px;
+
+    padding: 0 12px;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    position: relative;
+
+    inset: auto;
+
+    transform: none;
+}
+
+
+.rdb-message svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+}
+
+
+.rdb-message span {
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   8. GRAPH 경로 영역
+
+   사람/관계선이 메인 박스 중앙에 안정적으로 위치
+========================================================= */
+
+.graph-visual {
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 8px 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 아바타를 억지로 위로 밀지 않음 */
+.graph-person {
+    width: 88px;
+    flex: 0 0 88px;
+
+    transform: none;
+}
+
+
+.graph-avatar {
+    width: 64px;
+    height: 64px;
+
+    font-size: 41px;
+}
+
+
+.graph-person strong {
+    margin-top: 7px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   9. GRAPH 연결선 + 화살촉
+
+   얼굴 중앙 정도에 연결
+========================================================= */
+
+.graph-edge {
+    width: clamp(36px, 3vw, 54px);
+
+    height: 64px;
+
+    flex: 0 0 clamp(36px, 3vw, 54px);
+}
+
+
+/* 선 */
+.graph-edge::before {
+    top: 33px !important;
+
+    left: 1px;
+    right: 4px;
+
+    height: 1px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(144, 104, 238, 0.40),
+                    #a77cf7
+            );
+}
+
+
+/* 화살촉 */
+.graph-edge i {
+    top: 28px !important;
+
+    /*
+       ★ 화살촉을 조금 왼쪽으로 이동
+       기존 right:1px → right:5px
+    */
+    right: 5px !important;
+
+    width: 10px;
+    height: 10px;
+
+    border-top: 2px solid #a77cf7;
+    border-right: 2px solid #a77cf7;
+
+    transform: rotate(45deg);
+}
+
+
+/* 관계명 */
+.graph-edge > span {
+    top: 4px !important;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   10. GRAPH 카드 하단 메시지
+
+   "저장된 관계를 그대로 Traversal"
+   ★ 이제 카드 안쪽에 완전히 포함
+========================================================= */
+
+.graph-message {
+    flex: 0 0 46px;
+
+    width: 100%;
+
+    min-height: 46px !important;
+    height: 46px !important;
+
+    margin: 4px 0 0 !important;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    font-size: 11px !important;
+
+    position: relative;
+
+    inset: auto;
+
+    transform: none;
+}
+
+
+.graph-message svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+}
+
+
+.graph-message span {
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   11. 가운데 VS
+========================================================= */
+
+.center-vs {
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   12. 아래쪽
+
+   "관계를 조합해서 찾는다"
+   "관계를 따라가며 찾는다"
+
+   ★ 훨씬 납작하게
+========================================================= */
+
+.compare-one-line {
+    height: 58px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        52px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.compare-one-line > div {
+    min-height: 0 !important;
+    height: 48px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 11px;
+}
+
+
+.compare-one-line span {
+    font-size: 9px;
+}
+
+
+.compare-one-line strong {
+    font-size: 14px !important;
+}
+
+
+/* =========================================================
+   13. 가운데 보라색 → 화살표
+
+   ★ 네가 말한 화살표를 조금 왼쪽으로
+========================================================= */
+
+.compare-one-line > i {
+    width: 52px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(
+            187,
+            154,
+            255,
+            0.72
+    );
+
+    font-size: 20px;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 1;
+
+    /*
+       오른쪽으로 치우쳐 보이는 것을
+       실제로 왼쪽으로 이동
+    */
+    transform: translateX(-8px);
+}
+
+
+/* =========================================================
+   14. 최하단 결론
+
+   RDB도 관계를 조회할 수 있지만...
+========================================================= */
+
+.compare-footer {
+    min-height: 0;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+}
+
+
+.compare-key-message {
+    flex: 1;
+
+    min-height: 36px;
+
+    padding: 7px 12px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    line-height: 1.35;
+}
+
+
+/* 하단 버튼 */
+.compare-next {
+    height: 34px;
+
+    padding: 0 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+/* CENTRALITY 아이콘은 중앙 */
+.compare-next svg {
+    position: static;
+
+    transform: translateX(-1px);
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   15. 작은 화면 보정
+========================================================= */
+
+@media (max-width: 1600px) {
+
+    .compare-stage {
+        padding:
+                16px
+                22px
+                12px;
+
+        grid-template-rows:
+            auto
+            minmax(0, 1fr)
+            54px
+            44px;
+    }
+
+
+    .compare-heading h1 {
+        font-size: 38px;
+    }
+
+
+    .compare-card {
+        padding:
+                14px
+                18px
+                12px;
+    }
+
+
+    .compare-card h2 {
+        font-size: 29px;
+    }
+
+
+    .rdb-visual.detailed-rdb {
+        grid-template-columns:
+            minmax(0, 1fr)
+            60px
+            minmax(0, 1.18fr)
+            60px
+            minmax(0, 0.93fr);
+
+        gap: 7px;
+    }
+
+
+    .rdb-table-title strong {
+        font-size: 12px;
+    }
+
+
+    .mini-row span,
+    .mini-row b {
+        font-size: 8px;
+    }
+
+
+    .graph-avatar {
+        width: 58px;
+        height: 58px;
+
+        font-size: 37px;
+    }
+
+
+    .graph-person {
+        width: 80px;
+        flex-basis: 80px;
+    }
+
+
+    .compare-one-line {
+        height: 54px;
+    }
+
+
+    .compare-one-line > div {
+        height: 44px !important;
+    }
+
+
+    .compare-one-line > i {
+        height: 44px;
+    }
+}

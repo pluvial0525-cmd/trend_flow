@@ -1,0 +1,793 @@
+/* =========================================================
+   FINAL PAGE
+========================================================= */
+
+.final-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+            radial-gradient(
+                    circle at 50% 48%,
+                    rgba(255, 64, 145, 0.045),
+                    transparent 38%
+            ),
+            #080e16;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.final-glow {
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: 0.07;
+
+    pointer-events: none;
+}
+
+.final-glow-left {
+    left: -220px;
+    bottom: -180px;
+
+    background: #5a74ff;
+}
+
+.final-glow-right {
+    right: -220px;
+    top: -180px;
+
+    background: #ff3f91;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.final-back {
+    position: absolute;
+
+    top: 24px;
+    right: 28px;
+
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 9px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 8px;
+
+    background: rgba(13, 20, 30, 0.70);
+
+    color: #94a4b6;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.2s ease;
+}
+
+.final-back:hover {
+    color: #ffffff;
+
+    border-color: rgba(255, 77, 155, 0.45);
+
+    background: rgba(255, 77, 155, 0.08);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.final-content {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1000px, calc(100vw - 100px));
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    transform: translateY(-1%);
+}
+
+
+/* =========================================================
+   PROJECT REVIEW
+========================================================= */
+
+.final-review-title {
+    margin: 0;
+
+    color: #ff4d9b;
+
+    font-size: 28px;
+    font-weight: 850;
+
+    letter-spacing: 0.5px;
+    line-height: 1.25;
+
+    opacity: 0;
+
+    animation:
+            finalFadeUp
+            0.7s
+            ease forwards;
+}
+
+.final-review-subtitle {
+    margin: 14px 0 0;
+
+    color: #ff5ba5;
+
+    font-size: 24px;
+    font-weight: 850;
+
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+
+    opacity: 0;
+
+    animation:
+            finalFadeUp
+            0.7s
+            0.15s
+            ease forwards;
+}
+
+
+/* =========================================================
+   GRAPH FLOW
+========================================================= */
+
+.final-graph {
+    position: relative;
+
+    width: 760px;
+    max-width: 90vw;
+
+    height: 180px;
+
+    margin-top: 48px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   STAGES
+========================================================= */
+
+.graph-stage {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+}
+
+.stage-data {
+    animation:
+            nodeAppear
+            0.7s
+            0.5s
+            ease forwards;
+}
+
+.stage-relation {
+    animation:
+            nodeAppear
+            0.7s
+            1.15s
+            ease forwards;
+}
+
+.stage-insight {
+    animation:
+            nodeAppear
+            0.7s
+            1.85s
+            ease forwards;
+}
+
+.graph-stage > strong {
+    margin-top: 12px;
+
+    color: #dfe7f1;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 900;
+}
+
+.graph-stage > p {
+    margin: 7px 0 0;
+
+    color: #65768a;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DATA NODES
+========================================================= */
+
+.node-cluster {
+    position: relative;
+
+    width: 92px;
+    height: 78px;
+}
+
+.mini-node {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #6f8298;
+
+    border: 2px solid #a9b6c5;
+
+    box-shadow:
+            0 0 12px
+            rgba(160, 180, 200, 0.15);
+}
+
+.node-1 {
+    left: 8px;
+    top: 34px;
+}
+
+.node-2 {
+    left: 32px;
+    top: 7px;
+}
+
+.node-3 {
+    right: 9px;
+    top: 21px;
+}
+
+.node-4 {
+    left: 38px;
+    bottom: 5px;
+}
+
+.node-5 {
+    right: 2px;
+    bottom: 7px;
+}
+
+
+/* =========================================================
+   RELATIONSHIP SYMBOL
+========================================================= */
+
+.relationship-symbol {
+    position: relative;
+
+    width: 96px;
+    height: 78px;
+}
+
+.relation-center,
+.relation-node {
+    position: absolute;
+
+    z-index: 3;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #ff4d9b;
+
+    border: 2px solid #ff91c0;
+
+    box-shadow:
+            0 0 15px
+            rgba(255, 77, 155, 0.32);
+}
+
+.relation-center {
+    left: 41px;
+    top: 31px;
+
+    width: 16px;
+    height: 16px;
+}
+
+.r1 {
+    left: 4px;
+    top: 7px;
+}
+
+.r2 {
+    right: 4px;
+    top: 7px;
+}
+
+.r3 {
+    left: 5px;
+    bottom: 3px;
+}
+
+.r4 {
+    right: 5px;
+    bottom: 3px;
+}
+
+.relation-edge {
+    position: absolute;
+
+    z-index: 1;
+
+    left: 48px;
+    top: 39px;
+
+    width: 48px;
+    height: 1px;
+
+    background: rgba(255, 77, 155, 0.55);
+
+    transform-origin: left center;
+}
+
+.re1 {
+    transform: rotate(214deg);
+}
+
+.re2 {
+    transform: rotate(326deg);
+}
+
+.re3 {
+    transform: rotate(145deg);
+}
+
+.re4 {
+    transform: rotate(34deg);
+}
+
+
+/* =========================================================
+   INSIGHT
+========================================================= */
+
+.insight-symbol {
+    position: relative;
+
+    width: 80px;
+    height: 78px;
+}
+
+.insight-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 18px;
+    height: 18px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #ff4d9b;
+
+    box-shadow:
+            0 0 24px
+            rgba(255, 77, 155, 0.75);
+
+    animation:
+            corePulse
+            2.2s
+            ease-in-out
+            infinite;
+}
+
+.insight-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(255, 77, 155, 0.32);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.ring-one {
+    width: 45px;
+    height: 45px;
+}
+
+.ring-two {
+    width: 70px;
+    height: 70px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   CONNECTION LINES
+========================================================= */
+
+.final-line {
+    position: absolute;
+
+    z-index: 1;
+
+    top: 59px;
+
+    width: 170px;
+    height: 1px;
+
+    overflow: hidden;
+
+    background: rgba(89, 108, 129, 0.18);
+}
+
+.line-one {
+    left: 170px;
+}
+
+.line-two {
+    right: 170px;
+}
+
+.final-line span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translateX(-100%);
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    #ff4d9b,
+                    transparent
+            );
+}
+
+.line-one span {
+    animation:
+            drawRelation
+            0.8s
+            0.85s
+            ease forwards;
+}
+
+.line-two span {
+    animation:
+            drawRelation
+            0.8s
+            1.5s
+            ease forwards;
+}
+
+
+/* =========================================================
+   PROJECT REVIEW MESSAGE
+========================================================= */
+
+.final-review-message {
+    margin-top: 30px;
+
+    max-width: 760px;
+
+    opacity: 0;
+
+    animation:
+            finalFadeUp
+            0.8s
+            2.35s
+            ease forwards;
+}
+
+.final-review-message p {
+    margin: 4px 0;
+
+    color: #9baabc;
+
+    font-size:
+            clamp(
+                    14px,
+                    1vw,
+                    17px
+            );
+
+    line-height: 1.75;
+
+    font-weight: 550;
+}
+
+.final-review-message strong {
+    color: #e8edf4;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   THANK YOU
+========================================================= */
+
+.final-thanks {
+    margin-top: 37px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    opacity: 0;
+
+    animation:
+            finalFadeUp
+            0.8s
+            2.9s
+            ease forwards;
+}
+
+.thanks-line {
+    display: block;
+
+    width: 32px;
+    height: 2px;
+
+    margin-bottom: 17px;
+
+    background: #ff4d9b;
+
+    border-radius: 999px;
+
+    opacity: 0.8;
+}
+
+.final-thanks strong {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 850;
+
+    letter-spacing: 3px;
+}
+
+.final-thanks p {
+    margin: 8px 0 0;
+
+    color: #56677b;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.3px;
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+.final-restart {
+    position: absolute;
+
+    right: 28px;
+    bottom: 24px;
+
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background: rgba(13, 20, 30, 0.68);
+
+    color: #77889b;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.final-restart:hover {
+    color: #ffffff;
+
+    border-color: rgba(255, 77, 155, 0.4);
+
+    background: rgba(255, 77, 155, 0.07);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes finalFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes nodeAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes drawRelation {
+
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+
+}
+
+
+@keyframes corePulse {
+
+    0%,
+    100% {
+        transform:
+                translate(-50%, -50%)
+                scale(1);
+
+        box-shadow:
+                0 0 20px
+                rgba(255, 77, 155, 0.55);
+    }
+
+    50% {
+        transform:
+                translate(-50%, -50%)
+                scale(1.18);
+
+        box-shadow:
+                0 0 35px
+                rgba(255, 77, 155, 0.85);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL HEIGHT
+========================================================= */
+
+@media (max-height: 800px) {
+
+    .final-content {
+        transform:
+                translateY(-1%)
+                scale(0.9);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL WIDTH
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .final-content {
+        width: calc(100vw - 40px);
+    }
+
+    .final-graph {
+        width: 650px;
+
+        transform: scale(0.9);
+    }
+
+    .line-one {
+        left: 145px;
+    }
+
+    .line-two {
+        right: 145px;
+    }
+
+}
+

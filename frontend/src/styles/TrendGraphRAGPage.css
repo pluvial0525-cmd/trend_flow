@@ -1,0 +1,1615 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.graphrag-page {
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    padding: 8px 18px 10px;
+
+    background:
+            radial-gradient(
+                    circle at 84% 0%,
+                    rgba(255, 77, 155, 0.07),
+                    transparent 30%
+            ),
+            #080e16;
+
+    color: #f5f7fb;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.graphrag-header {
+    height: 56px;
+
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    align-items: center;
+
+    border-bottom: 1px solid #202936;
+}
+
+.graphrag-back {
+    border: 0;
+    background: transparent;
+
+    color: #8fa1b8;
+    font-size: 12px;
+
+    cursor: pointer;
+    justify-self: start;
+}
+
+.graphrag-back:hover {
+    color: #ffffff;
+}
+
+.graphrag-header-title > span {
+    color: #ff4d9b;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.graphrag-header-title h1 {
+    margin: 2px 0 0;
+
+    font-size: 24px;
+    line-height: 1;
+
+    letter-spacing: -1px;
+}
+
+.graphrag-header-title h1 strong {
+    color: #ff5ba5;
+}
+
+.graphrag-header-title p {
+    margin: 4px 0 0;
+
+    color: #788ba4;
+    font-size: 9px;
+}
+
+.graphrag-status {
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border: 1px solid #293442;
+    border-radius: 8px;
+
+    color: #9bacc0;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.graphrag-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55dc92;
+
+    box-shadow:
+            0 0 9px
+            rgba(85, 220, 146, 0.7);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.graphrag-main {
+    height: calc(100vh - 72px);
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+    padding-top: 7px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.question-section {
+    flex: 0 0 auto;
+
+    padding: 7px 9px;
+
+    border: 1px solid #26313e;
+    border-radius: 9px;
+
+    background: #101823;
+}
+
+.question-input-wrap {
+    display: grid;
+
+    grid-template-columns:
+        30px
+        minmax(0, 1fr)
+        130px;
+
+    gap: 7px;
+
+    align-items: center;
+}
+
+.question-icon {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: rgba(255, 77, 155, 0.12);
+
+    color: #ff5ba5;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.question-input-wrap input {
+    width: 100%;
+    height: 32px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #293645;
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #0b131d;
+
+    color: #f4f7fb;
+
+    padding: 0 11px;
+
+    font-size: 11px;
+}
+
+.question-input-wrap input:focus {
+    border-color: #ff4d9b;
+
+    box-shadow:
+            0 0 0 3px
+            rgba(255, 77, 155, 0.07);
+}
+
+.question-input-wrap button {
+    height: 32px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: #ff4d9b;
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.question-input-wrap button:hover {
+    background: #ff68ac;
+}
+
+.question-input-wrap button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+
+/* =========================================================
+   SAMPLE QUESTIONS
+========================================================= */
+
+.sample-questions {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: nowrap;
+
+    gap: 5px;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+}
+
+.sample-questions > span {
+    flex-shrink: 0;
+
+    color: #60738c;
+
+    font-size: 7px;
+    font-weight: 900;
+}
+
+.sample-questions button {
+    flex-shrink: 0;
+
+    padding: 3px 7px;
+
+    border: 1px solid #273441;
+    border-radius: 16px;
+
+    background: #0c141e;
+
+    color: #8295ad;
+
+    font-size: 8px;
+
+    cursor: pointer;
+}
+
+.sample-questions button:hover {
+    border-color: #ff4d9b;
+
+    color: #ffffff;
+
+    background: rgba(255, 77, 155, 0.08);
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.result-summary {
+    flex: 0 0 auto;
+
+    margin-top: 5px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 6px;
+}
+
+.result-summary > div {
+    height: 38px;
+
+    box-sizing: border-box;
+
+    padding: 5px 9px;
+
+    border: 1px solid #26313e;
+    border-radius: 7px;
+
+    background: #101823;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-summary span {
+    color: #64768e;
+
+    font-size: 6.5px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.result-summary strong {
+    margin-top: 1px;
+
+    color: #f5f7fb;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ANALYSIS LAYOUT
+========================================================= */
+
+.analysis-layout {
+    flex: 1;
+    min-height: 0;
+    margin-top: 5px;
+
+    display: grid;
+
+    /* 기존:
+       1.45fr / 0.72fr
+    */
+
+    grid-template-columns:
+        minmax(0, 0.88fr)
+        minmax(0, 1.12fr);
+
+    gap: 8px;
+
+    overflow: hidden;
+}
+
+.graph-panel,
+.answer-panel {
+    min-width: 0;
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    padding: 9px 11px;
+
+    border: 1px solid #26313e;
+    border-radius: 9px;
+
+    background: #101823;
+
+    overflow: hidden;
+}
+
+.graph-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   PANEL HEADING
+========================================================= */
+
+.panel-heading {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.panel-heading > div > span {
+    color: #ff4d9b;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1.3px;
+}
+
+.panel-heading h2 {
+    margin: 2px 0 0;
+
+    font-size: 15px;
+    line-height: 1.1;
+
+    letter-spacing: -0.4px;
+}
+
+
+/* =========================================================
+   GRAPH LEGEND
+========================================================= */
+
+.graph-legend {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #8294aa;
+
+    font-size: 7px;
+    font-weight: 800;
+}
+
+.graph-legend span {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.graph-legend i {
+    width: 6px;
+    height: 6px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+}
+
+.fact-dot {
+    background: #55dc92;
+}
+
+.association-dot {
+    background: #ffad5b;
+}
+
+.key-dot {
+    background: #ff4d9b;
+
+    box-shadow:
+            0 0 7px
+            rgba(255, 77, 155, 0.8);
+}
+
+
+/* =========================================================
+   GRAPH CANVAS
+========================================================= */
+
+.graph-canvas {
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 6px;
+
+    overflow: hidden;
+
+    border: 1px solid #202c39;
+    border-radius: 8px;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(255, 77, 155, 0.03),
+                    transparent 45%
+            ),
+            #0b131d;
+}
+
+.graph-canvas svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   GRAPH EDGES
+========================================================= */
+
+.edge-line {
+    cursor: pointer;
+
+    transition:
+            opacity 0.2s,
+            stroke-width 0.2s;
+}
+
+.edge-line.fact {
+    stroke: #55dc92;
+}
+
+.edge-line.association {
+    stroke: #ffad5b;
+
+    stroke-dasharray: 5 4;
+}
+
+
+/* 보조 관계 */
+
+.support-edge .edge-line {
+    stroke-width: 1.1;
+    opacity: 0.24;
+}
+
+
+/* 핵심 관계 */
+
+.key-edge .edge-line {
+    stroke-width: 2.2;
+    opacity: 0.95;
+
+    filter:
+            drop-shadow(
+                    0 0 3px
+                    rgba(255, 255, 255, 0.08)
+            );
+}
+
+.graph-edge:hover .edge-line {
+    stroke-width: 3.2;
+    opacity: 1;
+}
+
+.arrow-fact {
+    fill: #55dc92;
+}
+
+.arrow-association {
+    fill: #ffad5b;
+}
+
+
+/* =========================================================
+   EDGE LABEL
+========================================================= */
+
+.edge-label-bg {
+    fill: rgba(11, 19, 29, 0.94);
+
+    stroke: #344353;
+    stroke-width: 1;
+}
+
+.edge-label {
+    fill: #9eb0c5;
+
+    font-size: 7.5px;
+    font-weight: 700;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NODES
+========================================================= */
+
+.graph-node circle {
+    stroke-width: 1.4;
+
+    transition:
+            transform 0.2s,
+            filter 0.2s,
+            stroke-width 0.2s;
+}
+
+.graph-node:hover circle {
+    stroke-width: 3;
+
+    filter:
+            drop-shadow(
+                    0 0 8px
+                    rgba(255, 255, 255, 0.18)
+            );
+}
+
+.node-style circle {
+    fill: #ff4d9b;
+    stroke: #ff88bd;
+}
+
+.node-celebrity circle,
+.node-actor circle {
+    fill: #9b6dff;
+    stroke: #bea1ff;
+}
+
+.node-designer circle {
+    fill: #6c8dff;
+    stroke: #9bb1ff;
+}
+
+.node-brand circle {
+    fill: #42b7d6;
+    stroke: #7bd5ed;
+}
+
+.node-media circle {
+    fill: #ef9f4a;
+    stroke: #ffc27d;
+}
+
+.node-market circle {
+    fill: #56c988;
+    stroke: #8ce5ae;
+}
+
+.node-product circle {
+    fill: #4db9a5;
+    stroke: #82d8c8;
+}
+
+.node-content circle {
+    fill: #dd6ee5;
+    stroke: #efa2f4;
+}
+
+.node-collection circle {
+    fill: #6688d8;
+    stroke: #99b1ec;
+}
+
+.node-concept circle {
+    fill: #cf6f8e;
+    stroke: #ed9ab5;
+}
+
+.node-default circle {
+    fill: #667789;
+    stroke: #91a2b4;
+}
+
+.node-letter {
+    fill: #ffffff;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    pointer-events: none;
+}
+
+.node-name {
+    fill: #dbe4ef;
+
+    font-size: 8.5px;
+    font-weight: 750;
+
+    pointer-events: none;
+
+    paint-order: stroke;
+
+    stroke: #0b131d;
+    stroke-width: 3px;
+
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   GRAPH HELP
+========================================================= */
+
+.graph-help {
+    flex: 0 0 auto;
+
+    margin-top: 4px;
+
+    color: #61758d;
+
+    font-size: 8px;
+}
+
+.graph-help strong {
+    color: #dce6f2;
+}
+
+
+/* =========================================================
+   EDGE DETAIL
+========================================================= */
+
+.edge-detail {
+    flex: 0 0 auto;
+
+    max-height: 100px;
+
+    box-sizing: border-box;
+
+    margin-top: 5px;
+
+    overflow-y: auto;
+
+    padding: 7px 9px;
+
+    border: 1px solid #293645;
+    border-radius: 7px;
+
+    background: #0c151f;
+}
+
+.edge-detail-top {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #70849c;
+
+    font-size: 7px;
+}
+
+.evidence-badge {
+    padding: 3px 5px;
+
+    border-radius: 4px;
+
+    font-size: 6.5px;
+    font-weight: 900;
+}
+
+.evidence-badge.fact {
+    color: #55dc92;
+
+    background: rgba(85, 220, 146, 0.12);
+}
+
+.evidence-badge.association {
+    color: #ffad5b;
+
+    background: rgba(255, 173, 91, 0.12);
+}
+
+.edge-detail h3 {
+    margin: 5px 0 3px;
+
+    font-size: 10px;
+}
+
+.edge-detail h3 b {
+    color: #ff5ba5;
+}
+
+.edge-detail p {
+    margin: 0;
+
+    color: #9aacbf;
+
+    font-size: 8px;
+    line-height: 1.4;
+}
+
+.edge-caution {
+    margin-top: 4px !important;
+
+    color: #d0a46b !important;
+}
+
+.edge-detail a {
+    display: inline-block;
+
+    margin-top: 4px;
+
+    color: #ff5ba5;
+
+    text-decoration: none;
+
+    font-size: 8px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   ★ CURRENT JUDGEMENT
+   이 페이지에서 가장 중요한 결과 영역
+========================================================= */
+
+.judgement-card {
+    flex: 0 0 auto;
+
+    margin-top: 8px;
+
+    /*
+       이전 9px 10px → 크게 확대
+    */
+    padding: 16px 18px;
+
+    min-height: 128px;
+
+    box-sizing: border-box;
+
+    border:
+            1px solid
+            rgba(255, 77, 155, 0.42);
+
+    border-radius: 10px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(255, 77, 155, 0.13),
+                    rgba(255, 77, 155, 0.035)
+            );
+
+    box-shadow:
+            inset 0 0 20px
+            rgba(255, 77, 155, 0.025);
+}
+
+
+/* CURRENT JUDGEMENT + REVIVAL SIGNAL 줄 */
+
+.judgement-top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+
+/* CURRENT JUDGEMENT */
+
+.judgement-top span {
+    color: #ff5ba5;
+
+    /*
+       기존 6.5px → 10px
+    */
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.3px;
+}
+
+
+/* REVIVAL SIGNAL */
+
+.judgement-top strong {
+    padding: 5px 8px;
+
+    border-radius: 5px;
+
+    background:
+            rgba(255, 77, 155, 0.16);
+
+    color: #ff7db6;
+
+    /*
+       기존 6.5px → 9px
+    */
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   ★ 재등장 신호 관찰
+========================================================= */
+
+.judgement-card h3 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    /*
+       기존 14px → 23px
+    */
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* =========================================================
+   ★ 판단 설명
+========================================================= */
+
+.judgement-card p {
+    margin: 0;
+
+    color: #c5d0de;
+
+    /*
+       기존 8.5px → 12.5px
+    */
+    font-size: 12.5px;
+
+    line-height: 1.6;
+
+    font-weight: 550;
+
+    word-break: keep-all;
+
+    /*
+       기존 3줄 잘라내기 제거.
+       판단 내용 자체를 충분히 보여줌.
+    */
+    display: block;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   QUESTION IN ANSWER
+========================================================= */
+
+.answer-question {
+    flex: 0 0 auto;
+
+    margin-top: 6px;
+
+    padding: 6px 8px;
+
+    border-left: 3px solid #ff4d9b;
+
+    background:
+            rgba(255, 77, 155, 0.05);
+}
+
+.answer-question span {
+    color: #ff5ba5;
+
+    font-size: 6px;
+    font-weight: 900;
+}
+
+.answer-question p {
+    margin: 2px 0 0;
+
+    color: #e7edf5;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DETAIL ANSWER
+
+   여기는 판단 카드보다 중요도가 낮으므로
+   이전과 비슷한 크기를 유지
+========================================================= */
+
+.answer-content {
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 5px;
+
+    overflow-y: auto;
+
+    padding-right: 6px;
+}
+
+.answer-content h3 {
+    margin: 9px 0 4px;
+
+    color: #ff5ba5;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+.answer-content h3:first-child {
+    margin-top: 0;
+}
+
+.answer-content p {
+    margin: 2px 0;
+
+    color: #a8b6c8;
+
+    font-size: 8.6px;
+
+    line-height: 1.45;
+}
+
+.answer-space {
+    height: 2px;
+}
+
+
+/* =========================================================
+   SCROLL BAR
+========================================================= */
+
+.answer-content::-webkit-scrollbar,
+.edge-detail::-webkit-scrollbar {
+    width: 4px;
+}
+
+.answer-content::-webkit-scrollbar-thumb,
+.edge-detail::-webkit-scrollbar-thumb {
+    background: #344353;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.graphrag-empty,
+.graphrag-loading {
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 6px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #26313e;
+
+    border-radius: 9px;
+
+    background: #101823;
+}
+
+.empty-graph {
+    color: #ff4d9b;
+
+    font-size: 38px;
+
+    text-shadow:
+            0 0 25px
+            rgba(255, 77, 155, 0.45);
+}
+
+.graphrag-empty h2,
+.graphrag-loading h2 {
+    margin: 9px 0 3px;
+
+    font-size: 15px;
+}
+
+.graphrag-empty p,
+.graphrag-loading p {
+    margin: 0;
+
+    color: #75889f;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.graphrag-error {
+    flex: 0 0 auto;
+
+    margin-top: 5px;
+
+    padding: 7px 9px;
+
+    border:
+            1px solid
+            rgba(255, 92, 116, 0.35);
+
+    border-radius: 7px;
+
+    background:
+            rgba(255, 92, 116, 0.08);
+
+    color: #ff899b;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-orbit {
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+
+    animation:
+            graph-spin
+            2.2s linear infinite;
+}
+
+.loading-orbit span {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #ff4d9b;
+
+    box-shadow:
+            0 0 10px
+            rgba(255, 77, 155, 0.5);
+}
+
+.loading-orbit span:nth-child(1) {
+    top: 0;
+    left: 21px;
+}
+
+.loading-orbit span:nth-child(2) {
+    bottom: 4px;
+    left: 4px;
+}
+
+.loading-orbit span:nth-child(3) {
+    bottom: 4px;
+    right: 4px;
+}
+
+@keyframes graph-spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SHORT SCREEN
+========================================================= */
+
+@media (max-height: 820px) {
+
+    .graphrag-page {
+        padding:
+                6px 14px 7px;
+    }
+
+    .graphrag-header {
+        height: 50px;
+    }
+
+    .graphrag-header-title h1 {
+        font-size: 20px;
+    }
+
+    .graphrag-header-title p {
+        display: none;
+    }
+
+    .graphrag-main {
+        height:
+                calc(100vh - 62px);
+
+        padding-top: 5px;
+    }
+
+    .question-section {
+        padding: 5px 7px;
+    }
+
+    .question-input-wrap input,
+    .question-input-wrap button {
+        height: 28px;
+    }
+
+    .sample-questions button {
+        padding: 2px 6px;
+    }
+
+    .result-summary > div {
+        height: 34px;
+    }
+
+    .graph-panel,
+    .answer-panel {
+        padding: 7px 9px;
+    }
+
+
+    /* 작은 화면에서도 판단 카드는 작게 죽이지 않음 */
+
+    .judgement-card {
+        min-height: 112px;
+
+        padding: 12px 14px;
+    }
+
+    .judgement-top span {
+        font-size: 8.5px;
+    }
+
+    .judgement-top strong {
+        font-size: 8px;
+    }
+
+    .judgement-card h3 {
+        font-size: 20px;
+    }
+
+    .judgement-card p {
+        font-size: 10.5px;
+
+        line-height: 1.5;
+    }
+
+    .answer-content p {
+        font-size: 7.9px;
+    }
+}
+
+
+/* =========================================================
+   WIDE / PRESENTATION SCREEN
+========================================================= */
+
+@media (min-width: 1500px) and (min-height: 850px) {
+
+    /*
+       1920x1080 발표 화면에서
+       판단 결과를 더 강하게 보여줌
+    */
+
+    .judgement-card {
+        min-height: 142px;
+
+        padding: 18px 20px;
+    }
+
+    .judgement-top span {
+        font-size: 10px;
+    }
+
+    .judgement-top strong {
+        font-size: 9px;
+
+        padding: 5px 9px;
+    }
+
+    .judgement-card h3 {
+        font-size: 25px;
+    }
+
+    .judgement-card p {
+        font-size: 13px;
+
+        line-height: 1.65;
+    }
+}
+
+
+/* =========================================================
+   WIDTH
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .analysis-layout {
+        grid-template-columns:
+            minmax(0, 1.25fr)
+            minmax(320px, 0.75fr);
+    }
+}
+/* =========================================================
+   GraphRAG FINAL READABILITY TUNING
+========================================================= */
+
+
+/* =========================================================
+   오른쪽 상세 분석
+   판단 카드보다 한 단계 작은 크기로 유지하면서
+   발표 화면에서 읽을 수 있을 정도로 확대
+========================================================= */
+
+.answer-content {
+    padding-right: 8px;
+}
+
+
+/* [관련된 관계], [흐름 분석], [부족한 근거] */
+
+.answer-content h3 {
+    margin:
+            12px 0 6px !important;
+
+    color: #ff4d9b;
+
+    font-size: 12px !important;
+
+    line-height: 1.25;
+
+    font-weight: 900;
+
+    letter-spacing: -0.1px;
+}
+
+
+.answer-content h3:first-child {
+    margin-top: 2px !important;
+}
+
+
+/* 상세 분석 일반 본문 */
+
+.answer-content p {
+    margin:
+            3px 0 !important;
+
+    color: #b5c2d1;
+
+    font-size: 10px !important;
+
+    line-height: 1.55 !important;
+
+    font-weight: 500;
+
+    word-break: keep-all;
+}
+
+
+/* AI가 **텍스트** 형태로 돌려준 경우에도
+   읽기 쉽게 조금 더 밝게 */
+
+.answer-content p strong,
+.answer-content strong {
+    color: #eef4fb;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   QUESTION 영역도 약간만 키움
+========================================================= */
+
+.answer-question {
+    margin-top: 7px;
+
+    padding:
+            7px 9px;
+}
+
+
+.answer-question span {
+    font-size: 7px;
+
+    letter-spacing: 0.7px;
+}
+
+
+.answer-question p {
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   CURRENT JUDGEMENT
+
+   지금 화면에서 가장 중요한 곳.
+   현재 크기는 유지하되 문장 가독성만 조금 강화.
+========================================================= */
+
+.judgement-card p {
+    color: #d0dae6;
+
+    font-weight: 600;
+}
+
+
+/* 재등장 신호 관찰 */
+
+.judgement-card h3 {
+    text-shadow:
+            0 0 18px
+            rgba(255, 255, 255, 0.04);
+}
+
+
+/* =========================================================
+   GRAPH NODE TEXT
+
+   긴 이름을 2줄로 만들었으므로
+   줄 간격/외곽선 조정
+========================================================= */
+
+.node-name {
+    font-size: 8.3px;
+
+    font-weight: 750;
+
+    paint-order: stroke;
+
+    stroke: #0b131d;
+
+    stroke-width: 3.5px;
+
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   노드 이름 두 줄 사이 간격
+========================================================= */
+
+.graph-node .node-name tspan {
+    dominant-baseline: middle;
+}
+
+
+/* =========================================================
+   노드 자체도 살짝 줄여서 텍스트 공간 확보
+
+   27px 원은 그대로 두되 시각적 glow 과다 방지
+========================================================= */
+
+.graph-node circle {
+    filter:
+            drop-shadow(
+                    0 0 3px
+                    rgba(255, 255, 255, 0.05)
+            );
+}
+
+
+/* =========================================================
+   관계 라벨
+
+   겹치는 것을 조금 덜 눈에 띄게
+========================================================= */
+
+.edge-label-bg {
+    fill:
+            rgba(
+                    10,
+                    18,
+                    28,
+                    0.96
+            );
+
+    stroke:
+            rgba(
+                    74,
+                    95,
+                    118,
+                    0.7
+            );
+}
+
+
+.edge-label {
+    font-size: 7px;
+
+    fill: #9fb2c7;
+}
+
+
+/* =========================================================
+   핵심 관계는 조금 더 강조
+========================================================= */
+
+.key-edge .edge-line {
+    stroke-width: 2.3;
+
+    opacity: 0.96;
+}
+
+
+.support-edge .edge-line {
+    opacity: 0.18;
+}
+
+
+/* =========================================================
+   발표용 1920 × 1080
+========================================================= */
+
+@media (
+min-width: 1500px
+)
+and (
+min-height: 850px
+) {
+
+    /* 상세 분석 섹션 제목 */
+
+    .answer-content h3 {
+        font-size: 13px !important;
+        margin: 13px 0 6px !important;
+    }
+
+    .answer-content p {
+        font-size: 10.8px !important;
+        line-height: 1.58 !important;
+    }
+
+
+    /* 질문 */
+
+    .answer-question p {
+        font-size: 10.5px;
+    }
+
+
+    /* 그래프 노드 이름 */
+
+    .node-name {
+        font-size: 8.6px;
+    }
+}
+/* =========================
+   마지막 페이지 이동 버튼
+========================= */
+/* =========================
+   프로젝트 마무리 이동 버튼
+   - 기존 NEO4J + AI 위치
+========================= */
+
+.top-insight-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(255, 79, 152, 0.45);
+    border-radius: 10px;
+
+    background: rgba(255, 79, 152, 0.08);
+    color: #ff4f98;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+    transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+.top-insight-btn span {
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.top-insight-btn:hover {
+    background: rgba(255, 79, 152, 0.15);
+    border-color: #ff4f98;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+            0 0 18px rgba(255, 79, 152, 0.15);
+}
+
+.top-insight-btn:hover span {
+    transform: translateX(3px);
+}
