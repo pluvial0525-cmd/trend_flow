@@ -948,16 +948,74 @@ export default function TrendImageAnalysisPage() {
 
 
             if (
-                type === "SHOW_PAST"
+                type ===
+                "SHOW_PAST"
             ) {
 
+                const group =
+                    "past_skinny";
+
+
                 setSelectedGroup(
-                    "past_skinny"
+                    group
                 );
 
-                setSelectedPoint(null);
+
+                setSelectedPoint(
+                    getRandomPointByGroup(
+                        group
+                    )
+                );
+
 
                 return;
+            }
+
+
+            if (
+                type ===
+                "SHOW_WIDE"
+            ) {
+
+                const group =
+                    "wide_period";
+
+
+                setSelectedGroup(
+                    group
+                );
+
+
+                setSelectedPoint(
+                    getRandomPointByGroup(
+                        group
+                    )
+                );
+
+
+                return;
+            }
+
+
+            if (
+                type ===
+                "SHOW_MODERN"
+            ) {
+
+                const group =
+                    "modern_slim";
+
+
+                setSelectedGroup(
+                    group
+                );
+
+
+                setSelectedPoint(
+                    getRandomPointByGroup(
+                        group
+                    )
+                );
             }
 
 
@@ -1002,8 +1060,7 @@ export default function TrendImageAnalysisPage() {
             );
         };
 
-    }, []);
-
+    }, [data]);
 
     useEffect(() => {
 
@@ -1047,22 +1104,87 @@ export default function TrendImageAnalysisPage() {
     const groups =
         data?.groups ?? [];
 
+    // =========================================================
+// RANDOM POINT SELECT
+// =========================================================
+
+    function getRandomPointByGroup(
+        group
+    ) {
+
+        const points =
+            data?.pca?.points ?? [];
+
+
+        const groupPoints =
+            points.filter(
+                (point) =>
+                    point.group ===
+                    group
+            );
+
+
+        if (
+            groupPoints.length === 0
+        ) {
+
+            return null;
+        }
+
+
+        const randomIndex =
+            Math.floor(
+                Math.random()
+                *
+                groupPoints.length
+            );
+
+
+        return groupPoints[
+            randomIndex
+            ];
+    }
+
 
     function selectGroup(
-        group,
+        group
     ) {
+
+        // 이미 선택된 버튼을 다시 누른 경우
+        // 전체 비교로 돌아가기
+        if (
+            selectedGroup ===
+            group
+        ) {
+
+            setSelectedGroup(
+                null
+            );
+
+            setSelectedPoint(
+                null
+            );
+
+            return;
+        }
+
+
+        // 그룹 선택
         setSelectedGroup(
-            (
-                current
-            ) =>
-                current ===
-                group
-                    ? null
-                    : group
+            group
         );
 
+
+        // 선택한 그룹 안에서
+        // PCA 노드 하나 랜덤 선택
+        const randomPoint =
+            getRandomPointByGroup(
+                group
+            );
+
+
         setSelectedPoint(
-            null
+            randomPoint
         );
     }
 
