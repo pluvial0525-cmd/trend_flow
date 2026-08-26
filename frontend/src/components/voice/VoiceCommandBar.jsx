@@ -5208,6 +5208,56 @@ function VoiceCommandBar() {
         }
 
         // =====================================================
+        // 스키니진 상세 -> 다음 페이지(유행 유형)
+        // =====================================================
+
+        if (
+            trendKey === "SKINNY"
+        ) {
+
+            const nextPageWords = [
+                "다음페이지",
+                "다음페이지로이동",
+                "다음페이지로이동해줘",
+                "다음페이지로넘어가",
+                "다음페이지로넘어가줘",
+                "다음화면",
+                "다음화면보여줘",
+            ];
+
+
+            const isNextPage =
+                nextPageWords.some(
+                    (word) =>
+                        normalized.includes(
+                            word
+                        )
+                );
+
+
+            if (
+                isNextPage
+            ) {
+
+                console.log(
+                    "[VOICE PAGE COMMAND]",
+                    "TREND_DETAIL",
+                    "SKINNY",
+                    "NEXT_TO_TREND_PATTERN",
+                    command
+                );
+
+
+                navigate(
+                    "/trend-pattern"
+                );
+
+
+                return true;
+            }
+        }
+
+        // =====================================================
 // 상세 페이지 순차 탐색
 //
 // SKINNY / UGG만 사용
@@ -5792,6 +5842,8 @@ function VoiceCommandBar() {
 
         return true;
     }
+
+
 
     // =====================================================
     // MERGED COMMAND EXECUTION
