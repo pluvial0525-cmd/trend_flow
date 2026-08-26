@@ -474,8 +474,10 @@ body {
 .graph-stage {
     position: relative;
 
+    width: 100%;
+    height: 100%;
     min-width: 0;
-    min-height: 0;
+    min-height: 210px;
 
     overflow: hidden;
 }
@@ -484,20 +486,19 @@ body {
 .graph-stage svg {
     position: absolute;
 
-    inset:
-            4px
-            12px
-            20px
-            0;
+    top: 4px;
+    left: 0;
+    right: 12px;
+    bottom: 20px;
 
-    width:
-            calc(100% - 12px);
+    display: block;
 
-    height:
-            calc(100% - 24px);
+    width: calc(100% - 12px);
+    height: calc(100% - 24px);
 
     overflow: visible;
 }
+
 
 
 .graph-axis {
@@ -508,19 +509,16 @@ body {
 }
 
 
-.graph-line {
-    fill: none;
+.graph-line.steady {
+    stroke: #7bd39c;
+}
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.graph-line.spike {
+    stroke: #ff955a;
+}
 
-    vector-effect:
-            non-scaling-stroke;
-
-    transition:
-            opacity .22s ease,
-            stroke-width .22s ease,
-            filter .22s ease;
+.graph-line.revival {
+    stroke: #ff59a1;
 }
 
 
@@ -1401,3 +1399,4 @@ body {
     text-shadow:
             0 0 12px rgba(127, 200, 255, 0.18);
 }
+
