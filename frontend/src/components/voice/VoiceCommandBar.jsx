@@ -35,7 +35,7 @@ import "./VoiceCommandBar.css";
 // =========================================================
 
 // 평상시 녹음 길이
-const RECORDING_TIME = 3000;
+const RECORDING_TIME = 1100;
 
 // 콩 인식 후 명령을 기다리는 최대 시간
 const WAKE_WAIT_TIME = 12000;
@@ -44,7 +44,7 @@ const WAKE_WAIT_TIME = 12000;
 const COMMAND_MERGE_TIME = 1800;
 
 // 명령 실행 후 화면 표시 시간
-const COMMAND_DISPLAY_TIME = 1800;
+const COMMAND_DISPLAY_TIME = 1200;
 
 const WAKE_WORD_LABEL = "콩";
 
@@ -373,6 +373,8 @@ function VoiceCommandBar() {
             "시뮬에이션",
             "실물레이천",
             "시뮬레이천",
+            "시뮬",
+            "시물"
         ];
 
 
@@ -511,6 +513,7 @@ function VoiceCommandBar() {
         const analysisWords = [
             "결과분석",
             "결과분석해줘",
+            "결과",
 
             "분석해줘",
             "분석해",
@@ -1430,6 +1433,7 @@ function VoiceCommandBar() {
             "두번째코드보여줘",
             "두번째명령어",
             "두번째명령어보여줘",
+            "두번",
 
             "2번째",
             "2번째보여줘",
@@ -2319,6 +2323,7 @@ function VoiceCommandBar() {
 
             "비교2",
             "비교이",
+            "두번째"
         ];
 
 
@@ -3510,17 +3515,35 @@ function VoiceCommandBar() {
 
 
         // ==========================================
-        // 최근 실루엣
-        // ==========================================
+// 최근 실루엣
+// ==========================================
 
         if (
             normalized.includes("최근")
             ||
             normalized.includes("최근실루엣")
             ||
+            normalized.includes("최근실루")
+            ||
+            normalized.includes("최근실로엣")
+            ||
+            normalized.includes("최근실루에트")
+            ||
+            normalized.includes("최신")
+            ||
+            normalized.includes("최신실루엣")
+            ||
+            normalized.includes("요즘실루엣")
+            ||
             normalized.includes("모던")
             ||
+            normalized.includes("모던실루엣")
+            ||
             normalized.includes("현대")
+            ||
+            normalized.includes("현대실루엣")
+            ||
+            normalized.includes("실루엣")
         ) {
 
             return dispatchImageAnalysisCommand(
@@ -3719,9 +3742,12 @@ function VoiceCommandBar() {
             "벨루어",
             "벨로어",
             "벨루아",
+            "펠루어",
             "트랙수트",
             "급등소멸령",
             "소멸령",
+            "두번째",
+            "두번"
         ];
 
 
