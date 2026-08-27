@@ -2777,6 +2777,14 @@ function VoiceCommandBar() {
             "두번째보여",
             "2번째",
             "2번째보여줘",
+            "다른집단",
+            "다른집단보여줘",
+            "다른집단으로",
+            "집단사이",
+            "집단사이보여줘",
+            "두번째",
+            "두번째보여줘",
+            "두번째장면",
         ];
 
 
@@ -3026,69 +3034,8 @@ function VoiceCommandBar() {
             return true;
         }
 
-        // =========================================================
-// TREND IMAGE ANALYSIS 현재 페이지 명령
-// =========================================================
-
-        if (
-            currentPath ===
-            "/trend-image-analysis"
-        ) {
-
-            const pageExecuted =
-                executeTrendImageAnalysisCommand(
-                    command
-                );
 
 
-            if (
-                pageExecuted
-            ) {
-
-                return true;
-            }
-
-
-            console.log(
-                "[IMAGE ANALYSIS VOICE WAIT]",
-                command
-            );
-
-
-            return false;
-        }
-
-        // =========================================================
-        // GRAPH RAG 현재 페이지 명령
-        // =========================================================
-
-        if (
-            currentPath ===
-            "/trend-graphrag"
-        ) {
-
-            const pageExecuted =
-                executeTrendGraphRAGCommand(
-                    command
-                );
-
-
-            if (
-                pageExecuted
-            ) {
-
-                return true;
-            }
-
-
-            console.log(
-                "[GRAPHRAG VOICE BLOCKED]",
-                command
-            );
-
-
-            return false;
-        }
 
 
         // =====================================================
@@ -3602,11 +3549,25 @@ function VoiceCommandBar() {
 
 
         // ==========================================
-        // 다음 페이지 -> GraphRAG
-        // ==========================================
+// 다음 페이지 -> GraphRAG
+// ==========================================
 
         if (
+            normalized.includes("다음")
+            ||
             normalized.includes("다음페이지")
+            ||
+            normalized.includes("다음페이지로")
+            ||
+            normalized.includes("다음페이지로넘어가")
+            ||
+            normalized.includes("다음페이지로넘어가자")
+            ||
+            normalized.includes("다음으로")
+            ||
+            normalized.includes("다음으로넘어가")
+            ||
+            normalized.includes("다음으로넘어가자")
             ||
             normalized.includes("다음화면")
             ||
@@ -3624,11 +3585,9 @@ function VoiceCommandBar() {
                 command
             );
 
-
             navigate(
                 "/trend-graphrag"
             );
-
 
             return true;
         }
@@ -3799,6 +3758,10 @@ function VoiceCommandBar() {
             "재유행",
             "로우라이즈",
             "로라이즈",
+            "세번째",
+            "세 번째",
+            "새번째",
+            "세번"
         ];
 
 
@@ -4106,22 +4069,33 @@ function VoiceCommandBar() {
         }
 
 
-        // =====================================================
-        // 7. 다음 페이지 -> 프로젝트 마무리
-        // =====================================================
+        // ==========================================
+// 다음 페이지
+// ==========================================
 
         if (
+            normalized.includes("다음")
+            ||
             normalized.includes("다음페이지")
+            ||
+            normalized.includes("다음페이지로")
+            ||
+            normalized.includes("다음페이지로넘어가")
+            ||
+            normalized.includes("다음페이지로넘어가자")
+            ||
+            normalized.includes("다음으로")
+            ||
+            normalized.includes("다음으로넘어가")
+            ||
+            normalized.includes("다음으로넘어가자")
             ||
             normalized.includes("다음화면")
             ||
             normalized.includes("다음단계")
-            ||
-            normalized.includes("마무리")
-            ||
-            normalized.includes("프로젝트마무리")
         ) {
 
+            // ↓ 이 아래의 기존 navigate 코드는 그대로 유지
             console.log(
                 "[VOICE PAGE COMMAND]",
                 "GRAPHRAG",

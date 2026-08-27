@@ -137,17 +137,6 @@ const PATTERN_DATA = {
 
             {
                 period:
-                    "유행 확산",
-
-                title:
-                    "화려한 셀럽 패션으로 확산",
-
-                image:
-                    "/images/trend/pattern/velour-peak.png",
-            },
-
-            {
-                period:
                     "이후",
 
                 title:
@@ -156,10 +145,21 @@ const PATTERN_DATA = {
                 image:
                     "/images/trend/pattern/velour-after.png",
             },
+
+            {
+                period:
+                    "현재",
+
+                title:
+                    "화려한 셀럽 패션으로 잔존",
+
+                image:
+                    "/images/trend/pattern/velour-peak.png",
+            },
         ],
 
         finalText:
-            "셀럽과 연예인들의 착용으로 큰 관심을 얻었지만 화려한 스타일이 대중적인 유행으로 오래 이어지지는 않았습니다. 다만 시상식·무대 의상·특정 스타일링처럼 화려한 연출이 필요한 패션 영역에서는 지금도 하나의 스타일로 남아 있습니다.",
+            "2000년대 셀럽과 연예인들의 착용으로 대중적인 관심을 얻었지만, 이후 편안하고 실용적인 스포츠웨어에 대한 선호가 확대되면서 대중적인 유행은 점차 약해졌습니다. 다만 현재는 시상식·무대 의상·특정 스타일링처럼 화려한 연출이 필요한 영역에서 하나의 패션 스타일로 남아 있습니다.",
     },
 
 
